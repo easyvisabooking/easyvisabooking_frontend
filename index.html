@@ -27,44 +27,91 @@
         <link rel="canonical" href="https://www.easyvisabooking.com/">
 
         <!-- Structured Data (Schema Markup) -->
+        <!-- Organization -->
         <script type="application/ld+json">
         {
-             "@context": "https://schema.org",
-             "@type": "Organization",
-             "name": "Easy Visa Booking",
-             "url": "https://www.easyvisabooking.com",
-             "email": "contact@easyvisabooking.com"
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Easy Visa Booking",
+        "url": "https://www.easyvisabooking.com",
+        "description": "Automated US visa appointment slot booking service for visa agents and individuals in Canada, UAE, India and Australia.",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "contact@easyvisabooking.com",
+            "contactType": "Customer Support",
+            "availableLanguage": ["English", "Hindi"]
+        },
+        "sameAs": [
+            "https://www.linkedin.com/company/easyvisabooking",
+            "https://t.me/YourTelegramChannel"
+        ],
+        "areaServed": ["Canada", "UAE", "Turkey", "Australia", "United Kingdom"]
         }
         </script>
 
-        <!-- Favicon -->
-        <link rel="icon" type="image/png" href="img/brand-logo-real.png">
-        <link rel="apple-touch-icon" href="img/brand-logo-real.png">
-        <link rel="shortcut icon" type="image/png" href="img/brand-logo-real.png">
+        <!-- Service -->
+        <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "US Visa Appointment Slot Booking",
+            "provider": {
+                "@type": "Organization",
+                "name": "Easy Visa Booking",
+                "url": "https://www.easyvisabooking.com"
+            },
+            "description": "24/7 automated US visa cancellation slot monitoring and booking service for visa agents and individuals in Canada, UAE, India and Australia. Pay per slot only when we deliver.",
+            "offers": {
+                "@type": "Offer",
+                "price": "100",
+                "priceCurrency": "USD",
+                "description": "Per slot booking fee. No charge if slot is not secured."
+            },
+            "areaServed": [
+                {
+                "@type": "Country",
+                "name": "Canada"
+                },
+                {
+                "@type": "Country",
+                "name": "United Arab Emirates"
+                },
+                {
+                "@type": "Country",
+                "name": "Turkey"
+                },
+                {
+                "@type": "Country",
+                "name": "Australia"
+                }
+            ],
+            "availableChannel": {
+                "@type": "ServiceChannel",
+                "serviceUrl": "https://www.easyvisabooking.com",
+                "serviceEmail": "contact@easyvisabooking.com",
+            }
+            }
+        </script>
 
-        <!-- Performance Optimization: Preload Critical CSS -->
-        <link rel="preload" href="css/style.css" as="style">
+        <!-- Website -->
+        <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Easy Visa Booking",
+        "url": "https://www.easyvisabooking.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.easyvisabooking.com/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+        }
+        </script>
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet"> 
-
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-        <!-- Libraries Stylesheet -->
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-
+        <!-- FAQPage -->
         <script type="application/ld+json">
         {
         "@context": "https://schema.org",
@@ -128,6 +175,35 @@
         }]
         }
         </script>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/PNG" href="img/brand-logo-real.PNG">
+        <link rel="apple-touch-icon" href="img/brand-logo-real.PNG">
+        <link rel="shortcut icon" type="image/PNG" href="img/brand-logo-real.PNG">
+
+        <!-- Performance Optimization: Preload Critical CSS -->
+        <link rel="preload" href="css/style.css" as="style">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+
     </head>
 
     <body>
