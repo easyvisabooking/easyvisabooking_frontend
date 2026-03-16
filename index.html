@@ -51,49 +51,58 @@
 
         <!-- Service -->
         <script type="application/ld+json">
-            {
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "serviceType": "US Visa Appointment Slot Booking",
-            "provider": {
-                "@type": "Organization",
-                "name": "Easy Visa Booking",
-                "url": "https://www.easyvisabooking.com"
-            },
-            "description": "24/7 automated US visa cancellation slot monitoring and booking service for visa agents and individuals in Canada, UAE, India and Australia. Pay per slot only when we deliver.",
-            "offers": {
-                "@type": "Offer",
-                "price": "100",
-                "priceCurrency": "USD",
-                "description": "Per slot booking fee. No charge if slot is not secured."
-            },
-            "areaServed": [
-                {
-                "@type": "Country",
-                "name": "Canada"
-                },
-                {
-                "@type": "Country",
-                "name": "United Arab Emirates"
-                },
-                {
-                "@type": "Country",
-                "name": "Turkey"
-                },
-                {
-                "@type": "Country",
-                "name": "Australia"
-                }
-            ],
-            "availableChannel": {
-                "@type": "ServiceChannel",
-                "serviceUrl": "https://www.easyvisabooking.com"
-            },
+        {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "US Visa Appointment Slot Booking",
+        "provider": {
+            "@type": "Organization",
+            "name": "Easy Visa Booking",
+            "url": "https://www.easyvisabooking.com",
             "contactPoint": {
-                "@type": "ContactPoint",
-                "email": "contact@easyvisabooking.com",
-                "contactType": "Customer Support"
+            "@type": "ContactPoint",
+            "email": "contact@easyvisabooking.com",
+            "contactType": "Customer Support",
+            "availableLanguage": ["English", "Hindi"]
             }
+        },
+        "description": "24/7 automated US visa cancellation slot monitoring and booking service for visa agents and individuals in Canada, UAE, India and Australia. Pay per slot only when we deliver.",
+        "offers": {
+            "@type": "Offer",
+            "price": "100",
+            "priceCurrency": "USD",
+            "description": "Per slot booking fee. No charge if slot is not secured."
+        },
+        "areaServed": [
+            {
+            "@type": "Country",
+            "name": "Canada"
+            },
+            {
+            "@type": "Country",
+            "name": "United Arab Emirates"
+            },
+            {
+            "@type": "Country",
+            "name": "Turkey"
+            },
+            {
+            "@type": "Country",
+            "name": "Australia"
+            }
+        ],
+        "availableChannel": [
+            {
+            "@type": "ServiceChannel",
+            "serviceUrl": "https://www.easyvisabooking.com",
+            "servicePhone": "+91-8849146234"
+            },
+            {
+            "@type": "ServiceChannel",
+            "name": "Email Support",
+            "serviceUrl": "mailto:contact@easyvisabooking.com"
+            }
+        ]
         }
         </script>
 
