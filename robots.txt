@@ -1,7 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /office/
-Disallow: /service/
 Disallow: /testimonial/
 
 Sitemap: https://www.easyvisabooking.com/sitemap.xml
