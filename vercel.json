@@ -1,24 +1,90 @@
 {
   "trailingSlash": true,
   "redirects": [
-    { "source": "/index.html",       "destination": "/",              "permanent": true },
-    { "source": "/about.html",        "destination": "/about/",        "permanent": true },
-    { "source": "/contact.html",      "destination": "/contact/",      "permanent": true },
-    { "source": "/for-agents.html",   "destination": "/for-agents/",   "permanent": true },
-    { "source": "/how-it-works.html", "destination": "/how-it-works/", "permanent": true },
-    { "source": "/office.html",       "destination": "/office/",       "permanent": true },
-    { "source": "/service.html",      "destination": "/services/",     "permanent": true },
-    { "source": "/testimonial.html",  "destination": "/testimonial/",  "permanent": true },
-    { "source": "/about",             "destination": "/about/",        "permanent": true },
-    { "source": "/contact",           "destination": "/contact/",      "permanent": true },
-    { "source": "/for-agents",        "destination": "/for-agents/",   "permanent": true },
-    { "source": "/how-it-works",      "destination": "/how-it-works/", "permanent": true },
-    { "source": "/office",            "destination": "/office/",       "permanent": true },
-    { "source": "/service",           "destination": "/services/",     "permanent": true },
-    { "source": "/testimonial",       "destination": "/testimonial/",  "permanent": true },
-    { "source": "/blog",              "destination": "/blog/",         "permanent": true },
-    { "source": "/blog/us-visa-appointment-dubai-fast-2026", "destination": "/blog/us-visa-appointment-dubai-fast-2026/", "permanent": true },
-    { "source": "/services",          "destination": "/services/",     "permanent": true },
-    { "source": "/services/us-visa-appointment-canada", "destination": "/services/us-visa-appointment-canada/", "permanent": true }
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/for-agents.html",
+      "destination": "/for-agents/",
+      "permanent": true
+    },
+    {
+      "source": "/how-it-works.html",
+      "destination": "/how-it-works/",
+      "permanent": true
+    },
+    {
+      "source": "/office.html",
+      "destination": "/office/",
+      "permanent": true
+    },
+    {
+      "source": "/service.html",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/testimonial.html",
+      "destination": "/testimonial/",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/for-agents",
+      "destination": "/for-agents/",
+      "permanent": true
+    },
+    {
+      "source": "/how-it-works",
+      "destination": "/how-it-works/",
+      "permanent": true
+    },
+    {
+      "source": "/office",
+      "destination": "/office/",
+      "permanent": true
+    },
+    {
+      "source": "/service",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/testimonial",
+      "destination": "/testimonial/",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/us-visa-appointment-dubai-fast-2026",
+      "destination": "/blog/us-visa-appointment-dubai-fast-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/services/us-visa-appointment-canada",
+      "destination": "/services/us-visa-appointment-canada/",
+      "permanent": true
+    }
   ]
 }
