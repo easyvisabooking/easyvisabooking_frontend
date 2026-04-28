@@ -2,5 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /office/
 Disallow: /testimonial/
+Disallow: /services/us-visa-appointment-dubai/
+Disallow: /services/us-visa-appointment-uae/
+Disallow: /services/us-visa-appointment-australia/
 
 Sitemap: https://www.easyvisabooking.com/sitemap.xml
