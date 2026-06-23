@@ -85,6 +85,11 @@
       "source": "/services/us-visa-appointment-canada",
       "destination": "/services/us-visa-appointment-canada/",
       "permanent": true
+    },
+    {
+      "source": "/blog/us-visa-appointment-canada-guide-2026",
+      "destination": "/blog/us-visa-appointment-canada-guide-2026/",
+      "permanent": true
     }
   ]
 }
