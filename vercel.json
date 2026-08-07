@@ -12,18 +12,8 @@
       "permanent": true
     },
     {
-      "source": "/for-agents.html",
-      "destination": "/for-agents/",
-      "permanent": true
-    },
-    {
       "source": "/how-it-works.html",
       "destination": "/how-it-works/",
-      "permanent": true
-    },
-    {
-      "source": "/office.html",
-      "destination": "/office/",
       "permanent": true
     },
     {
@@ -32,18 +22,8 @@
       "permanent": true
     },
     {
-      "source": "/testimonial.html",
-      "destination": "/testimonial/",
-      "permanent": true
-    },
-    {
       "source": "/contact",
       "destination": "/contact/",
-      "permanent": true
-    },
-    {
-      "source": "/for-agents",
-      "destination": "/for-agents/",
       "permanent": true
     },
     {
@@ -52,28 +32,13 @@
       "permanent": true
     },
     {
-      "source": "/office",
-      "destination": "/office/",
+      "source": "/about",
+      "destination": "/about/",
       "permanent": true
     },
     {
       "source": "/service",
       "destination": "/services/",
-      "permanent": true
-    },
-    {
-      "source": "/testimonial",
-      "destination": "/testimonial/",
-      "permanent": true
-    },
-    {
-      "source": "/blog",
-      "destination": "/blog/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/us-visa-appointment-dubai-fast-2026",
-      "destination": "/blog/us-visa-appointment-dubai-fast-2026/",
       "permanent": true
     },
     {
@@ -87,8 +52,88 @@
       "permanent": true
     },
     {
+      "source": "/services/us-visa-appointment-toronto",
+      "destination": "/services/us-visa-appointment-toronto/",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/us-visa-appointment-dubai-fast-2026",
+      "destination": "/blog/us-visa-appointment-dubai-fast-2026/",
+      "permanent": true
+    },
+    {
       "source": "/blog/us-visa-appointment-canada-guide-2026",
       "destination": "/blog/us-visa-appointment-canada-guide-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/us-visa-appointment-world-cup-2026-guide",
+      "destination": "/blog/us-visa-appointment-world-cup-2026-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/refund-policy",
+      "destination": "/refund-policy/",
+      "permanent": true
+    },
+    {
+      "source": "/for-agents.html",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/for-agents",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/for-agents/",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/office.html",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/office",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/office/",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/testimonial.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/testimonial",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/testimonial/",
+      "destination": "/",
       "permanent": true
     }
   ]
