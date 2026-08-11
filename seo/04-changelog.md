@@ -5,6 +5,79 @@ Superseded reasoning is struck through, never deleted — the reasoning is worth
 
 ---
 
+## 2026-08-12 — Stage 3 (on-page) + Stage 1 leftover
+
+### Shipped — awaiting deploy verification
+
+All 15 HTML pages touched. Nothing here is verified live yet; see the verification block below.
+
+**§3.2 — social cards sitewide.** `og:image`, `og:image:width/height`, `og:type`, `og:site_name`
+and the full `twitter:*` set are now on all 14 indexable pages (404 deliberately excluded — it is
+`noindex` and there is nothing to share). Before this, only `/` and `/services/` had any OG image at
+all and only those two had a Twitter Card. Every link pasted into WhatsApp or Telegram from the
+other 12 pages rendered as a bare grey box, which matters because those are the actual acquisition
+channels.
+
+**§3.3 — meta descriptions.** 11 pages were over the ~155-char render limit (worst: Toronto 212,
+Dubai blog 231). All 14 now sit between 121 and 143. "Pay only on success" — the differentiating
+clause that was being truncated away — is preserved in every commercial description.
+
+**§3.4 — titles.** 7 pages were over 60 chars (worst: World Cup blog 88). All now ≤ 59.
+
+**§3.5 — `/blog/` in nav and footer.** Added to the header nav (between Services and About) and to
+the footer's first column on all 15 pages, with `active` state on the four blog pages. `/blog/`
+previously had **zero** internal links sitewide despite being indexed, and is about to become the
+primary growth engine at 8–10 posts/month.
+
+**§1.5 — 410 Gone on the three dead location URLs.** New `api/gone.js` + three `rewrites` in
+`vercel.json`. Needed a serverless function: `vercel.json` can express 3xx and rewrites but not a
+410 status, and this is otherwise a fully static deploy. Reverting is deleting one file and three
+rewrite entries; the URLs fall back to plain 404s.
+
+### Closes
+- `01-fix-plan.md` §1.5, §3.2, §3.3, §3.4, §3.5 ✅
+- `01-fix-plan.md` §2.2 — closed as **not fixable**, see below
+
+### ❌ §2.2 closed as not-fixable
+`vercel.json` already redirects `/for-agents` → `/services/` directly, and the 2-hop chain persists
+anyway. Verified live: Vercel applies `trailingSlash: true` normalization *before* config
+`redirects`, so the platform emits the first 308 and our rule never sees the un-slashed path.
+Collapsing it means dropping `trailingSlash`, which would restructure every canonical URL on the
+site. Disproportionate. Google follows chains to 5 hops and the destination is a page whose
+impressions we want to decay regardless.
+
+Corollary worth knowing: every un-slashed `source` in `vercel.json` (`/office`, `/testimonial`,
+`/contact`, …) is dead code for the same reason. Harmless, and live again if `trailingSlash` changes.
+
+### ⏰ Verify after deploy
+```
+curl -sI https://www.easyvisabooking.com/services/us-visa-appointment-dubai/   -> expect 410
+curl -sI https://www.easyvisabooking.com/services/us-visa-appointment-uae/     -> expect 410
+curl -sI https://www.easyvisabooking.com/api/gone                              -> expect 410
+```
+The 410 is the only item here that can fail at deploy rather than at edit time — it introduces the
+first serverless function on a project with no `package.json`. If the Vercel build errors or the
+URLs still return 404, delete `api/gone.js` and its three rewrite entries and the previous 404
+behaviour returns unchanged.
+
+Then re-share one page per template in WhatsApp to confirm the card renders, and re-run the
+title/description length check.
+
+### Still open in Stage 3
+- **§3.1 — a real OG image.** Every page now points at `img/carousel-1.jpg`: 1920×1080 (16:9, not
+  the 1.91:1 OG ratio), generic stock, no logo, no proposition, identical across all 14 pages. The
+  404 is fixed and previews render, but this is a placeholder standing in for a designed card.
+- **§3.6 — deepen `/services/`** (460 words). Content work, merges into Stage 6.
+
+### Judgment call worth flagging
+The Canada blog guide and `/services/us-visa-appointment-canada/` had near-identical titles. Since
+both had to be trimmed under §3.4 anyway, the rewrites were pointed at different intents — blog to
+informational ("Wait Times & AIS Guide"), service page to commercial ("Get an Earlier Date") — which
+is the first move of §6.3. **§6.3 is not closed**: the body copy still overlaps 65–75% and Stage 1
+will unmask the cannibalization once the service pages get indexed.
+
+---
+
 ## 2026-08-12
 
 ### Shipped and verified live

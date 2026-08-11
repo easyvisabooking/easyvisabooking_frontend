@@ -27,6 +27,18 @@
     {
       "source": "/favicon.ico",
       "destination": "/img/brand-logo-real.PNG"
+    },
+    {
+      "source": "/services/us-visa-appointment-dubai/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/services/us-visa-appointment-uae/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/services/us-visa-appointment-australia/",
+      "destination": "/api/gone"
     }
   ],
   "redirects": [

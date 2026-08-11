@@ -42,7 +42,7 @@ confirmation screenshots** (`img/canada-proof-1..5.jpg`, `img/toronto-proof-1..3
 `services/us-visa-appointment-canada/index.html` and `services/us-visa-appointment-toronto/index.html`).
 Your single strongest existing trust asset is invisible to search. That alone justifies Stage 1's priority.
 
-### 1.1 🔴🙋 Resubmit the sitemap in GSC
+### ✅ 1.1 🔴🙋 Resubmit the sitemap in GSC
 Google's copy was last processed **2026-06-23** with **10 URLs**; the live file has 14. Zero errors —
 it simply has not been re-fetched in ~7 weeks.
 
@@ -50,7 +50,7 @@ it simply has not been re-fetched in ~7 weeks.
 - **Verify:** GSC Sitemaps reports `submitted: 14` and `last_submitted` after 2026-08-11.
 - **If still 10 after 14 days:** check for a stale edge-cached `sitemap.xml` on Vercel.
 
-### 1.2 🔴🙋 Request indexing for the 7 unknown URLs
+### ✅ 1.2 🔴🙋 Request indexing for the 7 unknown URLs
 GSC → URL Inspection → each → Request Indexing:
 
 ```
@@ -69,13 +69,13 @@ GSC → URL Inspection → each → Request Indexing:
   Vercel edge rule serving different content to Googlebot, then compare
   `curl -A "Googlebot" https://www.easyvisabooking.com/services/` against a normal fetch.
 
-### 1.3 🟠 Fix `lastmod`, drop `priority` and `changefreq` — `sitemap.xml`
+### ✅ 1.3 🟠 Fix `lastmod`, drop `priority` and `changefreq` — `sitemap.xml`
 Every one of the 14 URLs claims the identical `2026-08-07`. Uniform templated `lastmod` is a known
 trigger for Google discounting the field entirely. `priority` and `changefreq` are ignored outright.
 
 Emit true per-page dates, or omit `lastmod` — **omitting beats faking**.
 
-### 1.4 🟠 Remove the three `Disallow` lines — `robots.txt`
+### ✅ 1.4 🟠 Remove the three `Disallow` lines — `robots.txt`
 ```
 Disallow: /services/us-visa-appointment-dubai/
 Disallow: /services/us-visa-appointment-uae/
@@ -85,7 +85,7 @@ Disallow: /services/us-visa-appointment-australia/
 never observe the 404 and can never cleanly drop it — the block *preserves* the dead URL instead of
 retiring it. Removing the lines is a prerequisite for 1.5.
 
-### 1.5 🟠 Serve **410 Gone** on the three dead location URLs — `vercel.json`
+### ✅ 1.5 🟠 Serve **410 Gone** on the three dead location URLs — `vercel.json`
 **Decision (2026-08-11): kill all three.** Dubai, UAE, and Australia will not be built.
 
 - Add explicit 410 responses so Google retires them permanently rather than re-queueing 404s.
@@ -93,7 +93,7 @@ retiring it. Removing the lines is a prerequisite for 1.5.
   every page, so they are not live crawlable links. The audit's "`/services/` links to 3 pages that
   are 404" is stale. What *is* still real: the 404s, the robots block, and 1.6.
 
-### 1.6 🟠 Stop advertising the three dead locations — `services/index.html`
+### ✅ 1.6 🟠 Stop advertising the three dead locations — `services/index.html`
 Three tags still name locations that will not exist:
 - L19–20 `meta name="description"` — *"We help applicants in Canada, Dubai, UAE, Australia and more…"*
 - L21–22 `meta name="keywords"` — Dubai/UAE/Australia terms
@@ -103,7 +103,7 @@ Rewrite to match reality. Also delete the malformed commented-out footer link bl
 `services/index.html:248-253` — it contains a nested `<!-- <!--` and a stray trailing `-->`.
 Same dead block exists in 8 other files; remove it everywhere while in there.
 
-### 1.7 🟠 Fix the favicon case bug — 8 files
+### ✅ 1.7 🟠 Fix the favicon case bug — 8 files
 Git tracks the file as **`img/brand-logo-real.PNG`** (uppercase). Verified live:
 `img/brand-logo-real.PNG` → **200**, `img/brand-logo-real.png` → **404**. Vercel is case-sensitive;
 your local Windows checkout is not (`core.ignorecase=true`), which is why this is invisible in dev.
@@ -129,7 +129,7 @@ No re-audit needed.
 
 ## Stage 2 — Security and infrastructure
 
-### 2.1 🟠 Add security headers — `vercel.json`
+### ✅ 2.1 🟠 Add security headers — `vercel.json`
 Verified live: the **only** header present sitewide is `Strict-Transport-Security: max-age=63072000`
 (missing `includeSubDomains` and `preload`). Absent: CSP, `X-Content-Type-Options`, `X-Frame-Options`,
 `Referrer-Policy`, `Permissions-Policy`.
@@ -148,25 +148,39 @@ Note: this page still draws impressions at **average position 11.2** — the bes
 stale pre-redirect index data. Per the constraints in `README.md`, the audience is **not** being
 reinstated. Collapse the chain and let the impressions decay.
 
+**❌ Closed as not-fixable (2026-08-12).** `vercel.json` already declares
+`/for-agents` → `/services/` directly, and the chain persists anyway. Verified live: Vercel applies
+`trailingSlash: true` normalization **before** config `redirects`, so the platform emits the first
+308 and our rule never sees the un-slashed path. The only way to collapse it is to drop
+`trailingSlash`, which would restructure every canonical URL on the site — vastly disproportionate.
+The same 2-hop pattern applies to `/office`, `/testimonial` and every other un-slashed `source` in
+the file; those rules are dead code but harmless, and would become live if `trailingSlash` ever
+changed. Impact accepted: Google follows chains up to 5 hops, and the target is a page whose
+impressions we *want* to decay.
+
 ---
 
 ## Stage 3 — On-page
 
-### 3.1 🟠 Fix the broken `og:image` — `index.html:29`
+### ✅ partial 3.1 🟠 Fix the broken `og:image` — `index.html:29`
 Points to `https://www.easyvisabooking.com/img/visa-banner.jpg` — verified **404**. No other page on
 the site has an `og:image` at all.
 
 You promote through WhatsApp and Telegram. Every link shared in those channels currently renders as a
 bare grey box. This is a direct acquisition surface, not a vanity item.
 
-- Create a real 1200×630 OG image.
-- Add `og:image`, `og:image:width`, `og:image:height`, `og:type`, `og:site_name` sitewide.
+- ~~Create a real 1200×630 OG image.~~ **Still open.** Every page currently points at
+  `img/carousel-1.jpg` (1920×1080 — 16:9, not the 1.91:1 OG ratio; 120 KB generic stock). It renders, which is the
+  whole point of closing the 404, but it is a placeholder: no logo, no proposition, identical on all
+  14 pages. A purpose-built 1200×630 card — and per-page variants for the two service pages and the
+  blog — is a Stage 5 follow-up.
+- ✅ `og:image`, `og:image:width`, `og:image:height`, `og:type`, `og:site_name` now present sitewide.
 
-### 3.2 🟠 Add `twitter:card` sitewide — all pages
+### ✅ 3.2 🟠 Add `twitter:card` sitewide — all pages
 Absent everywhere. `summary_large_image` + `twitter:title` + `twitter:description` + `twitter:image`.
 WhatsApp and Telegram both fall back to Twitter Card tags when OG is incomplete.
 
-### 3.3 🟡 Trim over-length meta descriptions
+### ✅ 3.3 🟡 Trim over-length meta descriptions
 Render limit is ~155 chars. Over-length entries lose their differentiating clause to truncation —
 "Pay only on success" is exactly the phrase getting cut.
 
@@ -176,10 +190,10 @@ Render limit is ~155 chars. Over-length entries lose their differentiating claus
 | `blog/us-visa-appointment-dubai-fast-2026/` | 231 | Trim to ≤155 |
 | Others 162–170 | 162–170 | Trim to ≤155 |
 
-### 3.4 🟡 Trim over-length titles
+### ✅ 3.4 🟡 Trim over-length titles
 Toronto (72 chars), `/` (65), Canada service (65). Target ≤60.
 
-### 3.5 🟡 Link `/blog/` from header nav and footer
+### ✅ 3.5 🟡 Link `/blog/` from header nav and footer
 `/blog/` appears in **no** navigation anywhere on the site. It is indexed regardless — which is why
 the audit correctly rejects "add internal links" as the fix for the indexation problem — but it
 receives no internal link equity, and it is about to become the site's primary growth engine
@@ -197,7 +211,7 @@ Seven ready-to-paste JSON-LD files already exist in
 [`../easyvisabooking.com-audit/findings/schema-generated/`](../easyvisabooking.com-audit/findings/schema-generated/).
 This stage is mostly application, not authoring.
 
-### 4.1 🔴 Placeholder text live in production — `index.html:50`
+### ✅ 4.1 🔴 Placeholder text live in production — `index.html:50`
 `Organization.sameAs` contains the literal unfilled placeholder:
 ```
 "https://t.me/YourTelegramChannel"
@@ -222,7 +236,7 @@ Adopt one canonical `@id` (`https://www.easyvisabooking.com/#organization`) and 
 everywhere else. Entity clarity is the single dimension this site scores worst on (18/100) and the
 one AI answer engines depend on most. Use `01-homepage-organization-website-service-graph.jsonld`.
 
-### 4.5 🟠 Reconcile the contradictory country lists
+### ✅ partial 4.5 🟠 Reconcile the contradictory country lists
 **Up to six mutually inconsistent lists** of which countries you serve exist across: `Organization`
 description, `Organization.areaServed`, `Service.areaServed`, `/about/` schema, visible FAQ text, and
 a homepage subheading. Pick one authoritative list. See `02-growth-plan.md` § Geographic scope for
