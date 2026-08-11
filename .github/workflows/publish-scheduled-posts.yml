@@ -1,0 +1,141 @@
+## Publishes queued blog posts on their scheduled date.
+##
+## Posts are written and merged up front but held back: noindex on the page,
+## hub card inside an inert <template>, sitemap entry commented out. This job
+## runs daily, and when a post's date arrives it stamps the real publish date,
+## releases the noindex, reveals the card and sitemap entry, and pushes. The
+## push triggers the normal Vercel deploy — there is no Vercel token here and
+## nothing to configure on that side.
+##
+## The queue lives in blog/publish-queue.json. Adding a scheduled post is one
+## entry there plus the three hold markers; see blog/README.md.
+##
+## Manual control:
+##   Actions -> Publish scheduled blog posts -> Run workflow
+##     dry_run: true   report what would happen, change nothing
+##     slug: <slug>    publish that post immediately, dated today
+##
+## First run after merging this file: use dry_run to confirm the checkout and
+## permissions work before it fires unattended.
+
+name: Publish scheduled blog posts
+
+on:
+  schedule:
+    # 04:10 UTC daily = 09:40 IST. Deliberately not on the hour: GitHub's
+    # scheduler queues heavily at :00 and can delay a run by 30+ minutes.
+    # A post going live an hour late is harmless; the date stamped is the
+    # post's own publishOn date, not the moment this job happened to run.
+    - cron: "10 4 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Report only, write nothing"
+        type: boolean
+        default: false
+      slug:
+        description: "Publish this slug now, dated today (leave blank for normal schedule)"
+        type: string
+        required: false
+
+# Needed so the job can push the publish commit back to main.
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-scheduled-posts
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          # Default GITHUB_TOKEN. Pushes made with it do not re-trigger
+          # workflows, so this cannot loop.
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Publish anything due
+        id: publish
+        # Inputs go through env, never interpolated into the shell directly —
+        # `${{ }}` inside run: is a script-injection footgun.
+        env:
+          DRY_RUN: ${{ inputs.dry_run }}
+          SLUG: ${{ inputs.slug }}
+        run: |
+          set -euo pipefail
+          ARGS=""
+          if [ "${DRY_RUN:-}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          if [ -n "${SLUG:-}" ]; then ARGS="$ARGS --slug $SLUG"; fi
+
+          echo "running: python scripts/publish_scheduled.py $ARGS"
+          python scripts/publish_scheduled.py $ARGS | tee publish.log
+
+          # The script prints PUBLISHED_SLUGS=... only when it actually wrote
+          # files. POSIX sed, not `grep -oP` — PCRE grep is locale-dependent.
+          SLUGS="$(sed -n 's/^PUBLISHED_SLUGS=//p' publish.log)"
+          echo "slugs=$SLUGS" >> "$GITHUB_OUTPUT"
+          rm -f publish.log
+
+      - name: Commit and push
+        if: steps.publish.outputs.slugs != ''
+        env:
+          SLUGS: ${{ steps.publish.outputs.slugs }}
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add blog sitemap.xml
+          if git diff --cached --quiet; then
+            echo "script reported a publish but produced no diff — not committing"
+            exit 1
+          fi
+
+          COUNT=$(echo "$SLUGS" | tr ',' '\n' | wc -l)
+          LIST=$(echo "$SLUGS" | tr ',' '\n' | sed 's|^|  - /blog/|;s|$|/|')
+
+          # Separate -m flags rather than one multi-line string: an unindented
+          # heredoc or embedded newline would terminate this YAML block scalar.
+          git commit \
+            -m "content: publish ${COUNT} scheduled blog post(s)" \
+            -m "Auto-published by .github/workflows/publish-scheduled-posts.yml" \
+            -m "${LIST}" \
+            -m "Released from noindex, publish dates stamped, hub card and sitemap entry revealed. Vercel will deploy this push."
+
+          git push origin main
+
+      - name: Summary
+        if: always()
+        env:
+          SLUGS: ${{ steps.publish.outputs.slugs }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          {
+            echo "### Scheduled blog publishing"
+            echo
+            if [ "${DRY_RUN:-}" = "true" ]; then
+              echo "Dry run — nothing was written."
+            elif [ -n "$SLUGS" ]; then
+              echo "Published and pushed:"
+              echo "$SLUGS" | tr ',' '\n' | sed 's|^|- `/blog/|;s|$|/`|'
+              echo
+              echo "Submit these in Google Search Console once Vercel finishes deploying."
+            else
+              echo "Nothing due today."
+            fi
+            echo
+            echo "Remaining queue:"
+            echo '```json'
+            cat blog/publish-queue.json
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

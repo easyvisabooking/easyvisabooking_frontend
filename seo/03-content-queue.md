@@ -18,10 +18,10 @@ describing *how we do it* is not.
 
 | # | Page | Type | Cluster | Target query | Words | Status |
 |---|---|---|---|---|---|---|
-| F1 | `/blog/us-visa-expedited-appointment-750/` | Explainer | C3 | us visa expedited appointment $750 | 2,000 | ⬜ |
+| F1 | `/blog/us-visa-expedited-appointment-750/` | Explainer | C3 | us visa expedited appointment $750 | 2,000 | ✅ |
 | F2 | `/us-visa-wait-times/` | Data page | C2 | us visa appointment wait times by country | 2,500 | ⬜ |
 | F3 | `/blog/us-visa-appointment-guide/` | Pillar | C1 | us visa appointment guide | 3,000+ | ⬜ |
-| F4 | `/blog/is-us-visa-slot-booking-legit/` | Trust hub | C4 | are us visa slot booking services legit | 2,000 | ⬜ |
+| F4 | `/blog/is-us-visa-slot-booking-legit/` | Trust hub | C4 | are us visa slot booking services legit | 2,000 | ✅ |
 
 **F1 goes first.** The $750 pilot is six weeks old and expires 2026-12-31 — it is the only item in
 this queue with a deadline attached, and the only one where the SERP is not yet settled.
@@ -37,13 +37,13 @@ Refresh monthly; carry a visible "last updated" date.
 
 | # | Title | Cluster | Primary query | Notes | Status |
 |---|---|---|---|---|---|
-| 1 | *(F1)* The New $750 US Visa Expedited Appointment: Who Qualifies and Is It Worth It? | C3 | us visa expedited appointment 750 | Pilot runs to 2026-12-31. Compare honestly against our $100 fee | ⬜ |
+| 1 | *(F1)* The $750 US Visa Expedited Appointment: Who Qualifies, and Who Cannot Use It Yet | C3 | us visa expedited appointment 750 | ✅ 2026-08-12. **Info-gain that shipped:** the pilot is Mission Mexico only as of 2026-08-12 — almost no competing page says this | ✅ |
 | 2 | *(F2)* US Visa Appointment Wait Times by Country (Updated Monthly) | C2 | us visa wait times by country 2026 | Link asset. Table-first | ⬜ |
-| 3 | Can You Reschedule a US Visa Appointment to an Earlier Date? | C1 | reschedule us visa appointment earlier | PDF #7. Highest-intent question in the whole list | ⬜ |
+| 3 | Can You Reschedule a US Visa Appointment to an Earlier Date? | C1 | reschedule us visa appointment earlier | ✅ 2026-08-12. **Info-gain that shipped:** per-country reschedule allowances (India 1 since 2025-01-01, PH/TH 3, JP 6) + the ~48h lock | ✅ |
 | 4 | Why Your US Visa Appointment Won't Move to an Earlier Date | C1 | cant reschedule us visa appointment earlier | PDF #13. Troubleshooting intent = low competition | ⬜ |
 | 5 | US Visa Appointment Slots: When Do They Actually Open? | C1 | when do us visa slots open | PDF #16. **Info-gain:** slot-release timing, CST/local-time behaviour, midnight rollover | ⬜ |
 | 6 | How Many Times Can You Reschedule a US Visa Appointment? | C1 | how many times reschedule us visa appointment | PDF #36. **Info-gain:** 24–72h temporary bans from excessive refreshing — almost nobody states this plainly | ⬜ |
-| 7 | *(F4)* Are US Visa Slot Booking Services Legit? An Honest Answer | C4 | us visa slot booking service legit | Lead with what nobody can guarantee. Our best differentiator | ⬜ |
+| 7 | *(F4)* Are US Visa Slot Booking Services Legit? An Honest Answer | C4 | us visa slot booking service legit | ✅ 2026-08-11. **Info-gain that shipped:** the seven checks, run publicly against our own service — including what we deliberately do not publish | ✅ |
 | 8 | Why Canada Has the World's Longest US Visa Waits Right Now | C2 | us visa wait time canada toronto | Toronto 14.5mo / Vancouver 12.5mo. Feeds the Canada + Toronto service pages | ⬜ |
 | 9 | US Visa Appointment Wait Times in India: What to Expect in 2026 | C2 | us visa appointment wait time india | India 2–10mo. Largest single-country search market | ⬜ |
 | 10 | How to Avoid US Visa Appointment Scams | C4 | us visa appointment scam | PDF #30. Cite the real patterns: advance-fee theft, Telegram operators, blackmail using applicant data | ⬜ |
@@ -117,12 +117,14 @@ manufacture more of it.
 
 ---
 
-## Existing posts — do not touch yet
+## Existing posts — prose untouched, shell upgraded 2026-08-12
 
-| Post | Status | Action |
+| Post | Status | Remaining action |
 |---|---|---|
-| `/blog/us-visa-appointment-canada-guide-2026/` | 300 impressions, 0 clicks, pos 50.3 | **Do not rewrite.** 0 clicks at position 50 is statistically expected (<1 expected click). It is 2,745 words, scored 84/100. Add a byline and internal links only |
-| `/blog/us-visa-appointment-dubai-fast-2026/` | Indexed | Add byline, `BlogPosting.image`, link to #16 when published |
-| `/blog/us-visa-appointment-world-cup-2026-guide/` | Indexed | Expand into a cluster — the FIFA visa priority system is a second time-boxed opening |
+| `/blog/us-visa-appointment-canada-guide-2026/` | 300 impressions, 0 clicks, pos 50.3 | **Prose still not rewritten** — 0 clicks at position 50 is statistically expected (<1 expected click). 2,745 words, scored 84/100. Shell retrofitted: byline, `BlogPosting.image`, `Person` author, comparison block, related posts |
+| `/blog/us-visa-appointment-dubai-fast-2026/` | Indexed | Shell retrofitted. Still to do: link to #16 when published |
+| `/blog/us-visa-appointment-world-cup-2026-guide/` | Indexed | Shell retrofitted. Still to do: expand into a cluster — the FIFA visa priority system is a second time-boxed opening |
 
-All three need author bylines (fix plan §6.2) and `BlogPosting.image` (fix plan §4.3).
+✅ **Done 2026-08-12** for all three: author byline + `Person` schema (fix plan §6.2) and
+`BlogPosting.image` (fix plan §4.3). Also moved onto the shared blog system — see
+[`blog/README.md`](../blog/README.md) for how posts are authored and managed now.

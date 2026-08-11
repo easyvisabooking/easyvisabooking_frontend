@@ -5,6 +5,149 @@ Superseded reasoning is struck through, never deleted — the reasoning is worth
 
 ---
 
+## 2026-08-12 — Blog system rebuilt + first three queue posts
+
+### Shipped — awaiting deploy verification
+
+**A real blog system, not three orphan pages.** The blog was three hand-styled HTML files, each
+carrying its own ~230-line `<style>` block, with no author, no dates, no categories, no related
+posts and no way to add a fourth without copying 900 lines by hand.
+
+- **`css/blog.css`** — every blog style in one place: hub grid, post typography, and 8 named
+  reusable blocks (`.answer-box`, `.key-facts`, `.toc`, `.honesty`, `.compare`, `.cta-inline`,
+  `.cta-end`, `.sources`, `.author-card`, `.related`). A §16 legacy shim maps the three old posts'
+  class names onto the new design, scoped under `.blog-article` so it cannot leak into new posts.
+- **`js/blog.js`** — reading progress, TOC scrollspy, hub category filter. Progressive enhancement
+  only; every page is fully readable and fully crawlable with JS off.
+- **`blog/_template/`** + **`blog/README.md`** — copy-a-folder authoring flow, 7-step publish
+  checklist, the constraint-sweep grep, and the rule that the comparison block must never let us
+  win every row. Both excluded in `.vercelignore` so the template cannot be indexed.
+- **`/blog/` rebuilt** — featured post, card grid with covers/dates/read-time, five category filter
+  chips, `Blog` + `blogPost[]` + `BreadcrumbList` schema.
+
+**Categories are filter-only.** Five chips matching the `02-growth-plan.md` §3 clusters, filtering
+static cards client-side. Deliberately **no** `/blog/category/*` URLs: thin category pages on a
+domain with zero referring domains are a doorway-classification risk for no gain.
+
+**H1 fixed on `/blog/`.** It read *"Visa Guides and Tips for **Agents**"* — a surviving agent-facing
+framing that the v3.0.0 compliance pass missed because it was a heading, not a link or an offer. Now
+"US Visa Appointment Guides". Flagged rather than fixed silently: this one was a live Stripe
+exposure on an indexed page.
+
+### Three posts published — F1, F4 and queue #3
+
+| Post | Cluster | Information gain that no competing page states plainly |
+|---|---|---|
+| `/blog/us-visa-expedited-appointment-750/` | C3 | **The pilot is Mission Mexico only.** Every law-firm briefing describes the $750 mechanism accurately and then omits the fact that decides relevance: as of 2026-08-12 exactly one mission is designated (announced 2026-07-22). Also: 25,000-request cap, B-1/B-2 only, $935 all-in with the MRV fee |
+| `/blog/is-us-visa-slot-booking-legit/` | C4 | **Seven checks, run publicly against ourselves** — including stating that we publish no testimonials and claim no success rate, and why |
+| `/blog/reschedule-us-visa-appointment-earlier/` | C1 | **Per-country reschedule allowances**: India 1 since 2026-01-01 *(cut from 3)*, Philippines 3, Thailand 3, Japan 6, plus the ~48h lock and the 3-business-day margin |
+
+Every post carries the comparison block naming **CheckVisaSlots**, **Atlys**, the **$750 government
+expedite** and plain **DIY** alongside us, with the free options first and an explicit "if this is
+you, do it yourself and keep your money" paragraph. Competitor pricing is **not** quoted — neither
+publishes a stable public figure, so the table compares *models* and links out. Comparing models
+rather than prices also means the tables do not go stale.
+
+### Legacy posts retrofitted — prose untouched
+
+Canada, Dubai and World Cup keep their body copy verbatim per the `03-content-queue.md` hold and the
+standing instruction not to convert their voice. What changed is the shell: byline + `Person`
+author schema, `BlogPosting.image`, category chip, shared stylesheet, `table-scroll` wrappers,
+comparison block, honesty callout, author card, related posts, `dateModified` 2026-08-12.
+
+### Closes
+- `01-fix-plan.md` §6.2 — author bylines. Zero existed sitewide; all 6 posts now carry a named
+  `Person` author ✅
+- `01-fix-plan.md` §4.3 — `BlogPosting.image` on all 6 posts ✅
+- `03-content-queue.md` F1, F4 and #3 ✅ (3 of the 4 foundation pages; F2 wait-times and F3 pillar
+  remain)
+
+### Judgment calls worth flagging
+
+- **Post covers are SVG, social images are raster.** The three new posts use hand-built SVG covers
+  carrying the headline fact (~2KB each, sharp at any size, and unique — six posts sharing two stock
+  photos was the alternative). `og:image` and `BlogPosting.image` stay on JPGs because no major
+  social platform renders SVG previews. Documented in the `blog/README.md` checklist.
+- **The reschedule allowances are sourced to RedBus2US, not a primary source.** No consulate
+  publishes these numbers centrally. The post attributes them explicitly and tells the reader to
+  trust the warning text in their own portal over the table. Left in because the information gain is
+  the single strongest differentiator in Cluster 1 — but it is the most likely thing on the site to
+  go stale without notice.
+- **`/blog/` H1 no longer contains a keyword-stuffed phrase.** "US Visa Appointment Guides" targets
+  the hub intent; the individual queries are owned by the posts. A hub competing with its own
+  children was the existing Canada problem.
+
+### Scheduled publishing — automated
+
+The stagger is no longer a discipline anyone has to remember. All three posts merge together and
+each is released on its own date by `.github/workflows/publish-scheduled-posts.yml`
+(daily, 04:10 UTC / 09:40 IST):
+
+| Post | Live | Note |
+|---|---|---|
+| `/blog/us-visa-expedited-appointment-750/` | 2026-08-12, on push | Has a deadline; every day of delay costs |
+| `/blog/is-us-visa-slot-booking-legit/` | 2026-08-11, on push | **Was scheduled for the 15th.** Released early via `--slug`, which publishes immediately and dates the post *today* — hence 08-11 against F1's 08-12. Kept deliberately after review rather than reverted |
+| `/blog/reschedule-us-visa-appointment-earlier/` | 2026-08-19 | Held; auto-releases |
+
+So the first launch is two posts rather than one. Not harmful on a six-post blog, but it does spend
+most of the stagger's value — attribution in GSC between F1 and F4 will be muddier, and a structural
+mistake would already be in two posts rather than one. The remaining post keeps the full benefit.
+
+**Note for next time:** `--slug` means *publish now, dated today*. To bring a scheduled post forward
+to a specific date instead, edit `publishOn` in `blog/publish-queue.json` and let the daily job take
+it.
+
+**How a post is held.** Three markers: `noindex, follow` on the page, the hub card inside an inert
+`<template data-scheduled>`, and the sitemap `<url>` inside an XML comment. On the due date
+`scripts/publish_scheduled.py` stamps six date fields, releases the `noindex`, unwraps the template,
+uncomments the sitemap entry, updates the hub schema's `datePublished`, moves the queue entry to
+`published`, and pushes. Vercel deploys the push — no Vercel token in CI, nothing to configure there.
+
+**Why `noindex` rather than excluding the files from the deploy.** The footer "Popular Guides"
+column and the related-posts blocks link to all three posts from every blog page. Gating with
+`.vercelignore` would have made two of those 404 sitewide for a week. `noindex, follow` keeps every
+page returning 200 while keeping it out of the index — the correct mechanism for "written but not
+published".
+
+**Design choices worth knowing**
+- The script builds every edit in memory and writes nothing unless all of them succeed, so a partial
+  failure leaves the repo untouched rather than half-published.
+- Every replacement is anchored and asserts exactly one match. Markup drift fails loudly and names
+  the anchor, instead of silently publishing something half-wired.
+- It stamps the post's **scheduled** date, not the date the job happened to run. A job delayed by
+  GitHub's scheduler still produces the intended date.
+- **"Retrieved &lt;date&gt;" lines in the sources blocks are deliberately excluded** from the date
+  stamping — they record when a source was actually checked and must not drift.
+- Manual overrides exist: `--dry-run`, `--today YYYY-MM-DD`, `--slug <slug>`, plus a
+  `workflow_dispatch` with the same two controls from the Actions tab.
+
+Tested end-to-end locally against a real copy of the repo: dry runs at three dates, a live run
+publishing both posts, verification of the resulting markup and schema, then restore. Verified that
+the second post stays held while the first publishes — the `</template>` matching is scoped per
+block, which was the first bug found and fixed.
+
+`.github/` and `scripts/` are added to `.vercelignore`; they run against the repo, never in a browser.
+
+### Still open
+- **§3.1 real OG image** — the three new posts inherit the same generic `carousel-*.jpg` placeholder
+  as everything else. The SVG covers now exist and are on-brand; a 1200×630 raster export of the
+  same design would close §3.1 for the blog in one pass.
+- **First scheduled run is unproven in CI.** The script is tested; the workflow is not, because it
+  cannot run until it is on `main`. Run it once with `dry_run: true` from the Actions tab after
+  merging, before 2026-08-15. If the repo has branch protection on `main`, the bot push will be
+  rejected and the two posts will simply stay held — visible immediately in the Actions log.
+- GSC submission after an automated publish is still manual; the workflow summary lists the URLs.
+
+### ⏰ Verify after deploy
+```
+curl -sI https://www.easyvisabooking.com/blog/_template/            -> expect 404 (must not be live)
+curl -s  https://www.easyvisabooking.com/blog/README.md             -> expect 404
+Rich Results Test on all 3 new posts                                -> BlogPosting + FAQPage valid
+```
+Then submit the three new URLs in GSC and confirm the sitemap reports 17 rather than 14.
+
+---
+
 ## 2026-08-12 — Stage 3 (on-page) + Stage 1 leftover
 
 ### Shipped — awaiting deploy verification

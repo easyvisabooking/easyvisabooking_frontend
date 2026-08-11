@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img"
+     aria-labelledby="c750-title c750-desc" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="c750-title">The $750 expedited US visa interview pilot at a glance</title>
+  <desc id="c750-desc">A $750 optional fee buys a B1/B2 interview within ten business days. The pilot runs 1 July to 31 December 2026 and, as of 12 August 2026, operates only at US posts in Mexico, capped at about 25,000 requests.</desc>
+
+  <defs>
+    <linearGradient id="c750-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00294A"/>
+      <stop offset="55%" stop-color="#003A66"/>
+      <stop offset="100%" stop-color="#005A93"/>
+    </linearGradient>
+    <linearGradient id="c750-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#c750-bg)"/>
+  <rect width="1200" height="630" fill="url(#c750-fade)"/>
+
+  <!-- decorative calendar grid, right -->
+  <g opacity=".14" fill="none" stroke="#ffffff" stroke-width="2">
+    <rect x="812" y="128" width="300" height="300" rx="16"/>
+    <path d="M812 196h300"/>
+    <path d="M887 196v232M962 196v232M1037 196v232"/>
+    <path d="M812 254h300M812 312h300M812 370h300"/>
+  </g>
+  <g opacity=".9">
+    <rect x="815" y="257" width="70" height="53" fill="#E02454" opacity=".85"/>
+    <text x="850" y="292" fill="#ffffff" font-size="26" font-weight="600" text-anchor="middle">10</text>
+  </g>
+
+  <!-- eyebrow -->
+  <text x="96" y="150" fill="#8FC4E8" font-size="22" font-weight="600" letter-spacing="3.4">STATE DEPARTMENT PILOT</text>
+
+  <!-- headline number -->
+  <text x="92" y="308" fill="#ffffff" font-size="150" font-weight="600" letter-spacing="-4">$750</text>
+  <rect x="96" y="336" width="86" height="5" rx="2.5" fill="#E02454"/>
+
+  <!-- supporting line -->
+  <text x="96" y="404" fill="#ffffff" font-size="36" font-weight="500">Interview within 10 business days</text>
+
+  <!-- fact strip -->
+  <g font-size="21" font-weight="500">
+    <text x="96" y="470" fill="#9FCDEC">Runs</text>
+    <text x="96" y="502" fill="#ffffff">1 Jul – 31 Dec 2026</text>
+
+    <text x="376" y="470" fill="#9FCDEC">Available at</text>
+    <text x="376" y="502" fill="#ffffff">US posts in Mexico only</text>
+
+    <text x="96" y="556" fill="#9FCDEC">Capacity</text>
+    <text x="96" y="588" fill="#ffffff">~25,000 requests</text>
+
+    <text x="376" y="556" fill="#9FCDEC">Visa categories</text>
+    <text x="376" y="588" fill="#ffffff">B-1 / B-2 only</text>
+  </g>
+
+  <line x1="96" y1="430" x2="770" y2="430" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+  <line x1="96" y1="518" x2="770" y2="518" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+
+  <text x="1104" y="592" fill="#ffffff" fill-opacity=".45" font-size="17" text-anchor="end">easyvisabooking.com</text>
+</svg>

@@ -1,0 +1,18 @@
+{
+  "_comment": "Scheduled blog posts. The post files are committed and deployed, but held at noindex with their hub card and sitemap entry hidden until publishOn. .github/workflows/publish-scheduled-posts.yml runs scripts/publish_scheduled.py daily and publishes anything due. Dates are UTC, YYYY-MM-DD. See blog/README.md.",
+  "scheduled": [
+    {
+      "slug": "reschedule-us-visa-appointment-earlier",
+      "title": "Can You Reschedule a US Visa Appointment to an Earlier Date?",
+      "publishOn": "2026-08-19"
+    }
+  ],
+  "published": [
+    {
+      "slug": "is-us-visa-slot-booking-legit",
+      "title": "Are US Visa Slot Booking Services Legit? An Honest Answer",
+      "publishOn": "2026-08-15",
+      "publishedOn": "2026-08-11"
+    }
+  ]
+}

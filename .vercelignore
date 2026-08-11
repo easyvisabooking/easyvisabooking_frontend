@@ -4,3 +4,14 @@ seo/
 easyvisabooking.com-audit/
 README.md
 LICENSE.txt
+
+# Blog authoring internals — the template must never be publicly fetchable,
+# or Google can index a page full of {{PLACEHOLDER}} text.
+blog/_template/
+blog/README.md
+blog/publish-queue.json
+
+# Scheduled-publishing automation. Runs in GitHub Actions against the repo,
+# never in the browser, so none of it belongs in the deployment.
+.github/
+scripts/

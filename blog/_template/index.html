@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+BLOG POST TEMPLATE — copy this folder to blog/<url-slug>/ and fill it in.
+Read blog/README.md first. Search for "{{" — none may remain when you publish.
+
+PLACEHOLDERS
+  {{SLUG}}              url-slug-with-hyphens (folder name; primary keyword)
+  {{TITLE_TAG}}         <=60 chars, keyword first. Shown in the SERP
+  {{H1}}                The on-page headline. May differ from TITLE_TAG
+  {{DECK}}              One sentence under the H1. The promise of the article
+  {{META_DESC}}         150-160 chars, answers the query, includes the keyword
+  {{KEYWORDS}}          comma-separated, primary keyword first
+  {{CATEGORY_LABEL}}    e.g. Rescheduling & Slots
+  {{CATEGORY_CLASS}}    cat-rescheduling | cat-wait-times | cat-expedite | cat-trust | cat-basics
+  {{CATEGORY_SLUG}}     rescheduling | wait-times | expedite | trust | basics
+  {{DATE_ISO}}          2026-08-12
+  {{DATE_HUMAN}}        12 August 2026
+  {{READ_TIME}}         e.g. 11
+  {{COVER_SVG}}         ../../img/blog/cover-{{SLUG}}.svg  (on-page hero)
+  {{COVER_ALT}}         describes the cover's CONTENT, not "cover image"
+  {{OG_IMAGE_ABS}}      https://www.easyvisabooking.com/img/<raster>.jpg  — MUST be JPG/PNG >=1200px
+  {{OG_IMAGE_W}} {{OG_IMAGE_H}}
+  {{BREADCRUMB_SHORT}}  short label for the breadcrumb trail
+
+REQUIRED BLOCKS (do not delete): .answer-box, .toc, .honesty (x2, one at the end),
+.compare, .cta-end, .faq + matching FAQPage schema, .sources, .author-card, .related
+================================================================================
+-->
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3MTBDM446M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-3MTBDM446M');
+    </script>
+    <!-- Google tag ends -->
+
+    <meta charset="utf-8">
+    <title>{{TITLE_TAG}}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="{{META_DESC}}">
+    <meta name="keywords" content="{{KEYWORDS}}">
+    <link rel="canonical" href="https://www.easyvisabooking.com/blog/{{SLUG}}/">
+    <meta property="og:title" content="{{H1}}">
+    <meta property="og:description" content="{{META_DESC}}">
+    <meta property="og:url" content="https://www.easyvisabooking.com/blog/{{SLUG}}/">
+    <meta property="og:image" content="{{OG_IMAGE_ABS}}">
+    <meta property="og:image:width" content="{{OG_IMAGE_W}}">
+    <meta property="og:image:height" content="{{OG_IMAGE_H}}">
+    <meta property="og:site_name" content="Easy Visa Booking">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="{{DATE_ISO}}">
+    <meta property="article:modified_time" content="{{DATE_ISO}}">
+    <meta property="article:author" content="Meghkumar Girishbhai Sheth">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{TITLE_TAG}}">
+    <meta name="twitter:description" content="{{META_DESC}}">
+    <meta name="twitter:image" content="{{OG_IMAGE_ABS}}">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Meghkumar Girishbhai Sheth">
+
+    <!-- BlogPosting -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": "{{H1}}",
+          "description": "{{META_DESC}}",
+          "image": {
+            "@type": "ImageObject",
+            "url": "{{OG_IMAGE_ABS}}",
+            "width": {{OG_IMAGE_W}},
+            "height": {{OG_IMAGE_H}}
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Meghkumar Girishbhai Sheth",
+            "jobTitle": "Founder, Easy Visa Booking",
+            "url": "https://www.easyvisabooking.com/about/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Easy Visa Booking",
+            "url": "https://www.easyvisabooking.com",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.easyvisabooking.com/img/brand-logo-real.PNG"
+            }
+          },
+          "datePublished": "{{DATE_ISO}}",
+          "dateModified": "{{DATE_ISO}}",
+          "url": "https://www.easyvisabooking.com/blog/{{SLUG}}/",
+          "mainEntityOfPage": "https://www.easyvisabooking.com/blog/{{SLUG}}/",
+          "articleSection": "{{CATEGORY_LABEL}}",
+          "keywords": "{{KEYWORDS}}"
+        }
+    </script>
+
+    <!-- BreadcrumbList -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.easyvisabooking.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.easyvisabooking.com/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "{{BREADCRUMB_SHORT}}", "item": "https://www.easyvisabooking.com/blog/{{SLUG}}/" }
+          ]
+        }
+    </script>
+
+    <!-- FAQPage — text MUST match the visible <details> answers word for word -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "{{FAQ_1_Q}}",
+              "acceptedAnswer": { "@type": "Answer", "text": "{{FAQ_1_A}}" }
+            }
+          ]
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/PNG" href="../../img/brand-logo-real.PNG">
+    <link rel="apple-touch-icon" href="../../img/brand-logo-real.PNG">
+    <link rel="shortcut icon" type="image/PNG" href="../../img/brand-logo-real.PNG">
+
+    <!-- Performance Optimization: Preload Critical CSS -->
+    <link rel="preload" href="../../css/style.css" as="style">
+
+    <!-- Google Web Fonts -->
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@200;300;400;500;600&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@200;300;400;500;600&display=swap"
+            rel="stylesheet">
+    </noscript>
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="preload" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    </noscript>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    </noscript>
+
+    <!-- Libraries Stylesheet -->
+    <link rel="preload" href="../../lib/animate/animate.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="../../lib/animate/animate.min.css" rel="stylesheet">
+    </noscript>
+    <link rel="preload" href="../../lib/owlcarousel/assets/owl.carousel.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="../../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    </noscript>
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link rel="preload" href="../../css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    </noscript>
+
+    <!-- Template Stylesheet -->
+    <link href="../../css/style.css" rel="stylesheet">
+
+    <!-- Blog System Stylesheet — never add a page-level <style> block -->
+    <link href="../../css/blog.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="reading-progress" role="presentation"></div>
+
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-secondary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid nav-bar p-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
+            <a href="/" class="navbar-brand p-0">
+                <div class="display-5 text-secondary m-0"><img src="../../img/brand-logo-real.PNG" class="img-fluid"
+                        alt="Easy Visa Booking"></div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="/" class="nav-item nav-link">Home</a>
+                    <a href="/how-it-works/" class="nav-item nav-link">How It Works</a>
+                    <a href="/services/" class="nav-item nav-link">Services</a>
+                    <a href="/blog/" class="nav-item nav-link active">Blog</a>
+                    <a href="/about/" class="nav-item nav-link">About</a>
+                    <a href="/contact/" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="/contact/" class="btn btn-primary border-secondary btn-sm py-2 px-4">Get Started Today</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Article Start -->
+    <div class="container-fluid py-5">
+        <div class="post-shell pt-4">
+
+            <nav aria-label="Breadcrumb">
+                <ol class="post-crumbs">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li aria-current="page">{{BREADCRUMB_SHORT}}</li>
+                </ol>
+            </nav>
+
+            <article>
+                <header class="post-masthead">
+                    <span class="cat {{CATEGORY_CLASS}}">{{CATEGORY_LABEL}}</span>
+                    <h1>{{H1}}</h1>
+                    <p class="post-deck">{{DECK}}</p>
+
+                    <div class="byline">
+                        <div class="byline-avatar" aria-hidden="true">MS</div>
+                        <div class="byline-text">
+                            <p class="byline-name"><a href="/about/">Meghkumar Girishbhai Sheth</a></p>
+                            <p class="post-meta">
+                                Founder, Easy Visa Booking
+                                <span class="dot">·</span>
+                                <time datetime="{{DATE_ISO}}">{{DATE_HUMAN}}</time>
+                                <span class="dot">·</span><span>{{READ_TIME}} min read</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <figure class="post-cover">
+                        <img src="{{COVER_SVG}}" alt="{{COVER_ALT}}" width="1200" height="630">
+                    </figure>
+                </header>
+
+                <div class="post-body">
+
+                    <!-- REQUIRED: answers the title question in ~60 words, before any preamble -->
+                    <div class="answer-box">
+                        <p class="answer-title">Short answer</p>
+                        <p><strong>{{ONE_SENTENCE_ANSWER}}</strong> {{SUPPORTING_SENTENCE}}</p>
+                    </div>
+
+                    <!-- OPTIONAL: quotable figures. Delete if the post carries no hard numbers -->
+                    <div class="key-facts">
+                        <p class="key-facts-title">At a glance</p>
+                        <dl>
+                            <dt>{{TERM}}</dt>
+                            <dd>{{VALUE}}</dd>
+                        </dl>
+                    </div>
+
+                    <!-- REQUIRED on posts over ~1,500 words. Anchors must match the h2 ids below -->
+                    <nav class="toc" aria-label="On this page">
+                        <p class="toc-title">On this page</p>
+                        <ol>
+                            <li><a href="#section-one">{{SECTION_ONE}}</a></li>
+                            <li><a href="#compare">{{COMPARE_HEADING}}</a></li>
+                            <li><a href="#faq">Frequently asked questions</a></li>
+                        </ol>
+                    </nav>
+
+                    <h2 id="section-one">{{SECTION_ONE}}</h2>
+                    <p>{{BODY}}</p>
+
+                    <!-- Data table pattern — always wrap in .table-scroll for mobile -->
+                    <div class="table-scroll">
+                        <table>
+                            <thead>
+                                <tr><th scope="col">{{COL_1}}</th><th scope="col">{{COL_2}}</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><th scope="row">{{ROW_LABEL}}</th><td>{{CELL}}</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="table-note">{{SOURCE_AND_CAVEAT_FOR_THE_TABLE}}</p>
+
+                    <!-- REQUIRED: at least one honesty callout in the body -->
+                    <div class="honesty">
+                        <p class="honesty-title">{{HONESTY_HEADING}}</p>
+                        <p>{{THE_UNCOMFORTABLE_TRUTH_A_COMPETITOR_WOULD_LEAVE_OUT}}</p>
+                    </div>
+
+                    <!-- REQUIRED: the comparison block. See blog/README.md for the rules.
+                         Always include the free options. Never let us win every row. -->
+                    <div class="compare">
+                        <p class="compare-title">{{COMPARE_HEADING}}</p>
+                        <p class="compare-sub">Costs exclude the US$185 MRV application fee, which everybody pays to
+                            the US government regardless. Third-party pricing changes — verify with each provider
+                            directly.</p>
+
+                        <div class="table-scroll">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Option</th>
+                                        <th scope="col">Cost</th>
+                                        <th scope="col">What it actually does</th>
+                                        <th scope="col">Best suited to</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Do it yourself</th>
+                                        <td>Free</td>
+                                        <td>You check the portal and reschedule when something opens.</td>
+                                        <td>Flexible dates, a soft deadline</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Slot trackers and extensions<br><span style="font-weight:400;color:#5B6B7A;font-size:.9em;">e.g. CheckVisaSlots</span></th>
+                                        <td>Free tier; paid alert tiers</td>
+                                        <td>Surfaces availability and alerts you. You still book it yourself.</td>
+                                        <td>Applicants who can act within seconds</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">All-in-one visa apps<br><span style="font-weight:400;color:#5B6B7A;font-size:.9em;">e.g. Atlys</span></th>
+                                        <td>Service fee at checkout</td>
+                                        <td>Guided DS-160, document checks and appointment support in one app.</td>
+                                        <td>First-time applicants wanting everything handled</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">$750 government expedite</th>
+                                        <td>$750 per applicant</td>
+                                        <td>Official interview within 10 business days at participating posts —
+                                            currently US posts in Mexico only.</td>
+                                        <td>B-1/B-2 applicants in Mexico with a hard deadline</td>
+                                    </tr>
+                                    <tr class="is-us">
+                                        <th scope="row">Easy Visa Booking <span class="compare-us-tag">us</span></th>
+                                        <td>From $100 — paid only on success</td>
+                                        <td>Our team takes on the rescheduling work for your consulate and helps you
+                                            move to an earlier interview date. We never ask for or store your portal
+                                            password.</td>
+                                        <td>Long waits, a fixed deadline, and no time to watch a portal</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="compare-foot">Third-party services are named because they are the alternatives you
+                            are already comparing, not as endorsements. We have no commercial relationship with any of
+                            them.</p>
+                    </div>
+
+                    <!-- Say plainly when the reader does not need us. This is what makes the rest credible. -->
+                    <p>{{WHO_SHOULD_NOT_PAY_ANYONE}}</p>
+
+                    <!-- One contextual mid-article CTA: a pointer, not a pitch -->
+                    <div class="cta-inline">
+                        <p><strong>{{HOOK}}</strong> {{POINTER}} <a href="/blog/{{SIBLING_SLUG}}/">{{SIBLING_TITLE}}</a>.</p>
+                    </div>
+
+                    <h2 id="faq">Frequently asked questions</h2>
+
+                    <div class="faq">
+                        <details class="faq-item">
+                            <summary class="faq-q">{{FAQ_1_Q}}<span class="faq-icon" aria-hidden="true"></span></summary>
+                            <div class="faq-a">
+                                <p>{{FAQ_1_A}}</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="bottom-line">The bottom line</h2>
+                    <p>{{CLOSING}}</p>
+
+                    <!-- REQUIRED: the closing honesty block. Keep this heading verbatim. -->
+                    <div class="honesty">
+                        <p class="honesty-title">What nobody can promise you</p>
+                        <p>Nobody outside the US government can guarantee an interview slot, a timeframe, or a visa
+                            decision. We cannot either, and we will not pretend otherwise to win your business. What we
+                            offer is that the work gets done properly, that you pay only if it produces a result, and
+                            that your portal login stays with you.</p>
+                    </div>
+
+                    <!-- REQUIRED: every statistic above must appear here with a retrieval date -->
+                    <div class="sources">
+                        <p class="sources-title">Sources</p>
+                        <ol>
+                            <li>{{PUBLISHER}}, <a href="{{URL}}" target="_blank" rel="noopener noreferrer">“{{TITLE}}”</a>.
+                                Retrieved {{DATE_HUMAN}}.</li>
+                        </ol>
+                        <p class="sources-updated">Published {{DATE_HUMAN}}. This article is general information and is
+                            not legal or immigration advice.</p>
+                    </div>
+
+                    <div class="author-card">
+                        <div class="byline-avatar" aria-hidden="true">MS</div>
+                        <div>
+                            <h2>Meghkumar Girishbhai Sheth</h2>
+                            <p class="author-role">Founder, Easy Visa Booking</p>
+                            <p>Megh founded Easy Visa Booking after watching applicants lose travel plans to a
+                                scheduling system nobody explains properly. He and the team work US visa appointment
+                                rescheduling cases daily across consulates worldwide, and write these guides from what
+                                the portals actually do rather than what the FAQs say.
+                                <a href="/about/">More about Easy Visa Booking</a>.</p>
+                        </div>
+                    </div>
+
+                    <section class="cta-end">
+                        <h2>{{CTA_HEADING}}</h2>
+                        <p>{{CTA_BODY}}</p>
+                        <ul class="cta-points">
+                            <li>From $100 — you pay only if we secure you an earlier date</li>
+                            <li>We never ask for, receive or store your scheduling portal password</li>
+                            <li>No guarantee of a date, stated plainly before you decide anything</li>
+                        </ul>
+                        <div class="cta-buttons">
+                            <a href="/services/" class="cta-btn cta-btn-primary">See how the service works</a>
+                            <a href="/contact/" class="cta-btn cta-btn-ghost">Ask us a question first</a>
+                        </div>
+                        <p class="cta-fine">Easy Visa Booking is an independent scheduling assistance service, not
+                            affiliated with the US Department of State, any US Embassy or Consulate, CGI Federal or the
+                            AIS portal. All appointments are made through the official portal.</p>
+                    </section>
+
+                </div>
+            </article>
+
+            <!-- REQUIRED: three sibling posts. Copy card markup from blog/index.html -->
+            <aside class="related">
+                <h2 class="related-title">Keep reading</h2>
+                <div class="card-grid">
+                    <article class="post-card">
+                        <div class="post-card-media">
+                            <img src="{{RELATED_1_IMG}}" alt="{{RELATED_1_ALT}}" width="1200" height="630" loading="lazy">
+                        </div>
+                        <div class="post-card-body">
+                            <span class="cat {{RELATED_1_CAT_CLASS}}">{{RELATED_1_CAT_LABEL}}</span>
+                            <h3><a href="/blog/{{RELATED_1_SLUG}}/">{{RELATED_1_TITLE}}</a></h3>
+                            <p>{{RELATED_1_BLURB}}</p>
+                        </div>
+                    </article>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+    <!-- Article End -->
+
+    <!-- Footer Start — keep identical to blog/index.html -->
+    <div class="container-fluid bg-dark footer mt-5 pt-5">
+        <div class="container pb-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-secondary mb-4">Easy Visa Booking</h4>
+                        <p class="text-white mb-3">US Visa Appointment Booking Fast, Reliable.</p>
+                        <a href="/about/" class="text-white mb-3"><i class="fas fa-angle-right me-2"></i>About Us</a>
+                        <a href="/blog/" class="text-white mb-3"><i class="fas fa-angle-right me-2"></i>Blog</a>
+                        <div class="d-flex gap-2 mb-3">
+                            <a href="https://t.me/earlyusvisabooking" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-sm btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 40px; height: 40px;">
+                                <i class="fab fa-telegram-plane text-white"></i>
+                            </a>
+                            <a href="https://wa.me/8849146234" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-sm btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 40px; height: 40px;">
+                                <i class="fab fa-whatsapp text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-secondary mb-4">Services</h4>
+                        <a href="/services/" class="mb-2"><i class="fas fa-angle-right me-2"></i>US Visa Appointment Booking</a>
+                        <a href="/services/us-visa-appointment-canada/" class="mb-2"><i class="fas fa-angle-right me-2"></i>US Visa Appointment Canada</a>
+                        <a href="/services/us-visa-appointment-toronto/" class="mb-2"><i class="fas fa-angle-right me-2"></i>US Visa Appointment Toronto</a>
+                        <a href="/how-it-works/" class="mb-2"><i class="fas fa-angle-right me-2"></i>How It Works</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-secondary mb-4">Popular Guides</h4>
+                        <a href="/blog/us-visa-expedited-appointment-750/" class="mb-2"><i class="fas fa-angle-right me-2"></i>The $750 Expedited Appointment</a>
+                        <a href="/blog/reschedule-us-visa-appointment-earlier/" class="mb-2"><i class="fas fa-angle-right me-2"></i>Rescheduling to an Earlier Date</a>
+                        <a href="/blog/is-us-visa-slot-booking-legit/" class="mb-2"><i class="fas fa-angle-right me-2"></i>Are Booking Services Legit?</a>
+                        <a href="/blog/us-visa-appointment-canada-guide-2026/" class="mb-2"><i class="fas fa-angle-right me-2"></i>US Visa Appointments in Canada</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="footer-item d-flex flex-column">
+                        <h4 class="text-secondary mb-4">Contact</h4>
+                        <a href="mailto:contact@easyvisabooking.com" class="mb-3"><i
+                                class="fas fa-envelope me-2"></i>contact@easyvisabooking.com</a>
+                        <a href="https://wa.me/8849146234" target="_blank" rel="noopener noreferrer" class="mb-3"><i
+                                class="fab fa-whatsapp me-2"></i>WhatsApp</a>
+                        <a href="https://t.me/earlyusvisabooking" target="_blank" rel="noopener noreferrer"
+                            class="mb-3"><i class="fab fa-telegram-plane me-2"></i>Telegram: @earlyusvisabooking</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-12 text-center">
+                    <p class="text-white-50 mb-2 small">Easy Visa Booking is an independent appointment scheduling
+                        assistance service. We are not affiliated with, endorsed by, or acting on behalf of the U.S.
+                        Government, the U.S. Department of State, any U.S. Embassy or Consulate, CGI Federal, or the
+                        AIS portal. We do not provide legal or immigration advice, and we do not influence visa
+                        decisions. All appointments are made through the official scheduling portal.</p>
+                </div>
+                <div class="col-md-12 text-center mb-2">
+                    <a href="/about/" class="text-white-50 small mx-2">About Us</a><span class="text-white-50 small">|</span>
+                    <a href="/contact/" class="text-white-50 small mx-2">Contact</a><span class="text-white-50 small">|</span>
+                    <a href="/terms/" class="text-white-50 small mx-2">Terms of Service</a><span class="text-white-50 small">|</span>
+                    <a href="/privacy/" class="text-white-50 small mx-2">Privacy Policy</a><span class="text-white-50 small">|</span>
+                    <a href="/refund-policy/" class="text-white-50 small mx-2">Refund &amp; Cancellation Policy</a>
+                </div>
+                <div class="col-md-12 text-center">
+                    <span class="text-white small"><i class="fas fa-copyright text-light me-2"></i>Easy Visa Booking.
+                        All rights reserved.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/8849146234" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with us</span>
+    </a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../lib/wow/wow.min.js"></script>
+    <script src="../../lib/easing/easing.min.js"></script>
+    <script src="../../lib/waypoints/waypoints.min.js"></script>
+    <script src="../../lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../../js/main.js"></script>
+
+    <!-- Blog System Javascript -->
+    <script src="../../js/blog.js"></script>
+</body>
+
+</html>
