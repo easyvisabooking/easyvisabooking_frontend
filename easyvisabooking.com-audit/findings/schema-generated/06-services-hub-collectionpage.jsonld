@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://www.easyvisabooking.com/services/#webpage",
+  "url": "https://www.easyvisabooking.com/services/",
+  "name": "US Visa Appointment Booking Services",
+  "isPartOf": { "@id": "https://www.easyvisabooking.com/#website" },
+  "about": { "@id": "https://www.easyvisabooking.com/#organization" },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "url": "https://www.easyvisabooking.com/services/us-visa-appointment-canada/",
+        "name": "US Visa Appointment Booking from Canada"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "url": "https://www.easyvisabooking.com/services/us-visa-appointment-toronto/",
+        "name": "US Visa Appointment Booking in Toronto, Canada"
+      }
+    ]
+  },
+  "_comment_SCOPE": "This ItemList intentionally lists only the 2 service pages that are in sitemap.xml (the audit's defined scope). The live /services/ hub page's HTML also links to 3 further location pages NOT in the sitemap: /services/us-visa-appointment-australia/, /services/us-visa-appointment-dubai/, /services/us-visa-appointment-uae/. This is an indexing/sitemap gap (same pattern as the already-known /for-agents/ gap), not strictly a schema defect -- flagged here for visibility. If those 3 pages are meant to be indexed, add them to sitemap.xml and give each the same Service+Offer+BreadcrumbList pattern as file 04.",
+  "_pair_with": "Add the 'services_hub' BreadcrumbList block from file 03 to this same page."
+}

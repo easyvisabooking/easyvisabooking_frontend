@@ -1,0 +1,8 @@
+# SEO audit artefacts — keep the reports, exclude the bulk and the private data.
+# screenshots/ is ~27MB of PNGs; raw/ contains GSC query, click and position exports.
+easyvisabooking.com-audit/screenshots/
+easyvisabooking.com-audit/raw/
+
+# OS / editor
+Thumbs.db
+.DS_Store

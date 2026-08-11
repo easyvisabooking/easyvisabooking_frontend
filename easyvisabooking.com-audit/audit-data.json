@@ -1,0 +1,511 @@
+{
+  "summary": {
+    "health_score": 55,
+    "business_type": "Service business — paid intermediary booking US visa (AIS/CGI) interview appointments",
+    "audit_date": "2026-08-11",
+    "domain": "easyvisabooking.com",
+    "property": "sc-domain:easyvisabooking.com",
+    "pages_analyzed": 18,
+    "top_findings": [
+      "7 of 14 sitemap URLs are 'URL is unknown to Google' — never crawled, never indexed. These include every commercial /services/ page, /about/, and all 3 policy pages. The site's entire conversion path is invisible to Google while only blog content ranks.",
+      "Cause is crawl demand plus a stale sitemap, NOT internal linking: /services/ has 8 homepage links yet zero referring URLs recorded, while /blog/ is indexed with no nav link at all. Google's sitemap copy was last processed 2026-06-23 with 10 URLs; the live file has 14.",
+      "/services/ and the homepage link to 3 location pages that return 404 AND are robots.txt-Disallow'd (dubai, uae, australia). The Disallow prevents Google from ever observing the 404, so the URLs cannot be cleanly dropped.",
+      "Zero social proof sitewide in a scam-heavy YMYL niche — homepage HTML literally contains '<!-- Testimonial section removed -->'. /terms/ promises registered company details it never provides.",
+      "Link acquisition is the binding constraint: bottom of Common Crawl authority distribution, no discoverable referring domains, and the targeted head terms are owned by the official government booking portal (ais.usvisa-info.com) and travel.state.gov."
+    ],
+    "quick_wins": [
+      "Resubmit sitemap.xml in GSC (Google's copy is 7 weeks stale, 10 URLs vs live 14)",
+      "Request Indexing for the 7 unknown URLs via GSC URL Inspection",
+      "Fix live production schema placeholder: Organization.sameAs contains literal 'https://t.me/YourTelegramChannel' (2 minutes)",
+      "Fix favicon case bug: brand-logo-real.PNG is 200, .png is 404 on case-sensitive Vercel — breaks 8 pages (5 minutes)",
+      "Move the existing 'not affiliated with the U.S. Government' disclaimer from the footer (~9000px down) into the hero",
+      "Convert canada-visa-hero-banner.png (869KB, 94% wasted) and breadcrumb.png (421KB) to WebP"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 50,
+      "what_works": [
+        "Apex 301-redirects to www; canonical host consistent",
+        "All pages carry correct self-referencing canonicals; 0 canonical mismatches across 15 inspected URLs",
+        "Correct 'index, follow' meta robots sitewide",
+        "Static HTML with full raw/rendered parity — no JS-rendering dependency",
+        "True 404 status codes; no mixed content; no duplicate titles or descriptions",
+        "Sitemap is valid XML, declared in robots.txt, returns 200",
+        "TTFB genuinely strong: 222ms with X-Vercel-Cache HIT"
+      ],
+      "findings": [
+        {
+          "title": "Seven URLs are completely unknown to Google, including every commercial service page",
+          "severity": "Critical",
+          "description": "GSC URL Inspection returns coverage_state 'URL is unknown to Google' for /services/, /services/us-visa-appointment-canada/, /services/us-visa-appointment-toronto/, /about/, /terms/, /privacy/, /refund-policy/ — with page_fetch_state PAGE_FETCH_STATE_UNSPECIFIED, referring_urls [], and no last_crawl_time. Not crawled and rejected; never discovered at all. The 7 indexed URLs are the homepage, /how-it-works/, /contact/, /blog/, and the 3 blog posts. Cross-validated by two independent inspection runs with identical results.",
+          "recommendation": "Resubmit sitemap.xml in GSC, then use URL Inspection > Request Indexing on each of the 7. Do NOT use the Indexing API — it officially supports only JobPosting and BroadcastEvent. Do NOT add internal links as a fix: /services/ already has 8 homepage links while /blog/ is indexed with none, so linking is demonstrably not the cause."
+        },
+        {
+          "title": "Service hub links to three pages that are simultaneously 404 and robots.txt-blocked",
+          "severity": "Critical",
+          "description": "/services/us-visa-appointment-{dubai,uae,australia}/ each return HTTP 404 and are each Disallow'd in robots.txt. All three are hard-linked from both /services/ and the homepage, and the /services/ meta description advertises them: 'We help applicants in Canada, Dubai, UAE, Australia and more.' Because robots.txt blocks crawling, Googlebot can never observe the 404, so the URLs cannot be cleanly dropped — Disallow is the wrong instrument for removing pages. Users clicking 'Dubai' from the service hub hit a dead end.",
+          "recommendation": "Choose one path per location. Building them: delete the three Disallow lines, ship at 200, add to sitemap (recommended for Dubai — a ranking Dubai blog post already exists to link into). Abandoning them: remove links from /services/ and homepage, delete the Disallow lines so Google can process removal, serve 410 Gone, and correct the /services/ meta description."
+        },
+        {
+          "title": "Google is working from a stale 10-URL sitemap last processed 2026-06-23",
+          "severity": "High",
+          "description": "GSC Sitemaps API reports last_submitted 2026-06-23T04:30:36Z with contents [{type: web, submitted: 10}], while the live sitemap contains 14 URLs. Zero errors, zero warnings — Google simply has not re-fetched in roughly 7 weeks. Every URL carries the identical lastmod value 2026-08-07; uniform templated lastmod values are a known trigger for Google discounting the field entirely.",
+          "recommendation": "Resubmit sitemap.xml in GSC. Emit truthful per-page lastmod values, or omit lastmod entirely — omitting beats faking. Drop priority and changefreq, which Google ignores. If GSC still reports 10 URLs after 14 days, check for a stale edge-cached sitemap.xml on Vercel."
+        },
+        {
+          "title": "Favicon 404s on 8 of 14 pages due to file-extension case mismatch",
+          "severity": "High",
+          "description": "brand-logo-real.PNG returns 200; brand-logo-real.png returns 404. Vercel static hosting is case-sensitive. Eight pages reference the lowercase path, and no /favicon.ico fallback exists.",
+          "recommendation": "Normalize the filename case across all references and add a /favicon.ico fallback."
+        },
+        {
+          "title": "Security headers effectively absent",
+          "severity": "High",
+          "description": "The only security header present sitewide is Strict-Transport-Security: max-age=63072000 (lacking includeSubDomains and preload). Missing: Content-Security-Policy, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy. These are not ranking factors, but this site handles passport details and payment intent in a scam-adjacent category.",
+          "recommendation": "Add via vercel.json: X-Content-Type-Options nosniff, Referrer-Policy strict-origin-when-cross-origin, X-Frame-Options SAMEORIGIN, Permissions-Policy. Add CSP only after auditing gtag.js and analytics.ahrefs.com, and verify analytics still fires after deployment."
+        },
+        {
+          "title": "/for-agents/ silently retired, losing the site's best-positioned page",
+          "severity": "High",
+          "description": "/for-agents -> 308 -> /for-agents/ -> 308 -> /services/ -> 200 (two hops). It still earns 6 impressions at average position 11.2, the best average position on the site, because GSC's last crawl (2026-06-24) predates the redirect. It was folded into /services/, a ~507-word consumer directory with zero B2B content — and /services/ is itself unindexed. Clicks from that stale result land on a broken destination.",
+          "recommendation": "Collapse the chain to a single hop. Separately, decide deliberately whether to reinstate a real B2B page — SERPs for agent/B2B queries show near-zero government competition and dedicated competitors already ranking."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 54,
+      "what_works": [
+        "Per-page content quality scored 84-96/100 with zero filler or AI-slop pattern matches",
+        "Pricing honesty: 'no upfront fee', 'pay only on success'",
+        "Explicit 'we cannot guarantee a date' language — responsible for this category",
+        "Well-structured, anchor-linked refund policy",
+        "Substantial page depth: Toronto 3573 words, homepage 2968, Canada service 2795"
+      ],
+      "findings": [
+        {
+          "title": "No verifiable legal entity, and /terms/ promises details it does not provide",
+          "severity": "High",
+          "description": "/terms/ states 'Our registered details are set out at the top of this page and on our About page,' but the content shows only 'Operated by: Easy Visa Booking' (a trading name) and a founder's personal name. No company number, registered address, or jurisdiction. A broken promise about registration details is worse than silence in a YMYL context.",
+          "recommendation": "Publish company registration number, registered address, and jurisdiction on both /terms/ and /about/."
+        },
+        {
+          "title": "Zero testimonials, reviews, or third-party validation anywhere on the site",
+          "severity": "High",
+          "description": "Homepage HTML contains the literal comment '<!-- Testimonial section removed -->'. Claimed confirmation screenshots are described as 'available on request' rather than shown. In a scam-heavy niche this is the single largest conversion and trust gap.",
+          "recommendation": "Collect and publish real attributed client outcomes (name or initials, city, date, result). Show the confirmation screenshots. Do NOT add Review/AggregateRating schema until genuine on-page reviews exist — self-serve review markup violates Google policy."
+        },
+        {
+          "title": "65-75% verbatim duplication between the two location pages",
+          "severity": "High",
+          "description": "75% of /services/us-visa-appointment-canada/ text appears verbatim in /services/us-visa-appointment-toronto/ (8-word shingle overlap coefficient 65.4%). Toronto is a city inside Canada, so the pages compete directly. This is the doorway-page pattern, and it is the template that would be replicated if location pages scale.",
+          "recommendation": "Either differentiate genuinely with consulate-specific wait times and local detail, or consolidate to one page. Quality gate before scaling: 60%+ unique content required at 30+ location pages; hard stop requiring justification at 50+."
+        },
+        {
+          "title": "No author bylines or stated credentials on any blog post",
+          "severity": "High",
+          "description": "Zero genuine bylines across all three posts. For YMYL content explaining consulate and AIS mechanics, named authors with relevant stated experience are a direct Expertise signal.",
+          "recommendation": "Add named author bylines with relevant credentials and an author bio, plus matching Person schema."
+        },
+        {
+          "title": "Three-way keyword cannibalization on the Canada appointment cluster",
+          "severity": "Medium",
+          "description": "The Canada blog guide and both service pages target the same term cluster. GSC shows the blog post absorbing all 300 impressions while the service pages get none — currently masked by the fact that the service pages are unindexed. Once indexation is fixed, the cannibalization becomes active.",
+          "recommendation": "Split intent explicitly before fixing indexation: informational content on the blog, transactional intent on the service page, with clear cross-links."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 62,
+      "what_works": [
+        "Every page has a hand-written, specific meta description — a genuine strength",
+        "Descriptive, keyword-aligned title tags on all pages",
+        "H1 present on all analyzed pages",
+        "No duplicate titles or descriptions sitewide"
+      ],
+      "findings": [
+        {
+          "title": "No og:description or twitter:card sitewide; homepage og:image returns 404",
+          "severity": "Medium",
+          "description": "Homepage has og:title, og:type, og:url, og:image — but og:image points to /img/visa-banner.jpg, which does not exist. No other page has og:image at all, and twitter:card is absent sitewide. The service is promoted via WhatsApp and Telegram, both advertised contact channels, where link previews are a direct acquisition surface.",
+          "recommendation": "Add og:description and twitter:card sitewide, fix the og:image path, and add per-page og:image."
+        },
+        {
+          "title": "/services/ is thinner than its own child pages and cannot carry hub duty",
+          "severity": "Medium",
+          "description": "/services/ is ~507 words while its children are 2795 (Canada) and 3573 (Toronto). It also contains roughly 1200-1500px of dead space and an empty styled box between the location cards and the footer.",
+          "recommendation": "Rebuild /services/ as a genuine hub, or build a separate informational pillar and demote /services/ to a directory."
+        },
+        {
+          "title": "/blog/ is unlinked from header nav and footer",
+          "severity": "Medium",
+          "description": "No navigational link to /blog/ exists anywhere on the site. It is indexed regardless, but receives no internal equity and users cannot discover it.",
+          "recommendation": "Add /blog/ to the primary navigation and footer."
+        },
+        {
+          "title": "Meta descriptions exceed SERP render limit",
+          "severity": "Low",
+          "description": "Lengths run 162-231 characters against a ~155-character safe limit. Toronto (216) and the Dubai blog post (231) lose their differentiating clauses ('Pay only on success') to truncation.",
+          "recommendation": "Front-load the differentiating value proposition within the first 155 characters."
+        },
+        {
+          "title": "Three titles exceed 60 characters",
+          "severity": "Low",
+          "description": "Toronto (72), homepage (65), Canada service (65).",
+          "recommendation": "Trim to under 60 characters, preserving the primary keyword and brand."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 58,
+      "what_works": [
+        "All existing JSON-LD parses valid",
+        "No deprecated schema types in use",
+        "Dates are accurate ISO 8601",
+        "No fabricated reviews or ratings"
+      ],
+      "findings": [
+        {
+          "title": "Unfilled placeholder text live in production schema",
+          "severity": "Critical",
+          "description": "Homepage Organization.sameAs contains the literal string 'https://t.me/YourTelegramChannel'. The real, live Telegram channel, confirmed in the footer HTML, is https://t.me/earlyusvisabooking.",
+          "recommendation": "Replace with the real URL. Ready-to-paste fix in findings/schema-generated/01-homepage-organization-website-service-graph.jsonld"
+        },
+        {
+          "title": "/contact/ ships zero JSON-LD",
+          "severity": "Critical",
+          "description": "The page most in need of machine-readable ContactPoint has no structured data at all, despite email, phone (+91-8849146234), and WhatsApp all being verified live on the page.",
+          "recommendation": "Add ContactPoint schema. Template in findings/schema-generated/05-contact-page.jsonld"
+        },
+        {
+          "title": "image property missing from all three BlogPosting blocks",
+          "severity": "Critical",
+          "description": "image is Google's most consistently required Article property for rich-result eligibility, and none of the three blog posts include it.",
+          "recommendation": "Add image to each BlogPosting. Template in findings/schema-generated/02-blogposting-template.jsonld"
+        },
+        {
+          "title": "No @id entity linking; Organization duplicated as 7+ anonymous islands",
+          "severity": "High",
+          "description": "The homepage declares Organization twice (top-level and nested inside Service.provider) with no @id. /about/, both service location pages, and all three blog posts (author and publisher each) add further disconnected stub copies. This fragments entity consolidation for Google and AI crawlers alike — and entity clarity is precisely what this site most needs.",
+          "recommendation": "Introduce a single @id-referenced Organization node and reference it everywhere. Pattern in findings/schema-generated/01, applied across files 04-07."
+        },
+        {
+          "title": "BreadcrumbList absent on 6 pages; offers missing from both Service blocks",
+          "severity": "High",
+          "description": "BreadcrumbList is missing from /, /services/, /how-it-works/, /contact/, /blog/, and /for-agents/. Both /services/ location pages omit offers from their Service schema.",
+          "recommendation": "Templates in findings/schema-generated/03-breadcrumblist-missing-pages.jsonld and 04-service-location-pages-offers.jsonld"
+        },
+        {
+          "title": "Existing FAQPage blocks no longer produce a SERP feature",
+          "severity": "Info",
+          "description": "Four FAQPage blocks exist (homepage, Toronto service page, 2 blog posts). Google retired FAQ rich results for ALL sites on 2026-05-07, so these no longer generate any SERP feature.",
+          "recommendation": "Leave them in place — they remain valid structured data and removal costs effort for no gain. Do not add new FAQPage markup expecting Google SERP benefit, and do not assume a confirmed AI-citation benefit. Use QAPage only for genuine user Q&A."
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 60,
+      "what_works": [
+        "TTFB genuinely strong at 222ms with X-Vercel-Cache HIT — server response is not a bottleneck",
+        "Mobile CLS is 0 on all 5 tested pages",
+        "Desktop LCP passes on every page (1.3-2.0s)",
+        "Ahrefs analytics cost is negligible (3.7KB, ~4ms)"
+      ],
+      "findings": [
+        {
+          "title": "CrUX field data unavailable — CWV is currently a weak ranking lever",
+          "severity": "Info",
+          "description": "crux_history.py returned 404 'Insufficient Chrome traffic volume for eligibility', and every PageSpeed Insights response returned empty field_metrics. Consistent with 382 impressions over 90 days. Google's actual CWV ranking assessment uses 75th-percentile field data, which cannot be computed for this site. All metrics below are Lighthouse lab data.",
+          "recommendation": "Fix the image weight issues because they are cheap and genuinely bad, but do not prioritize CWV above indexation, trust, and link acquisition — it is not currently a functioning ranking signal for this domain."
+        },
+        {
+          "title": "Unoptimized PNGs cause 7.2-11.7s mobile LCP",
+          "severity": "Critical",
+          "description": "canada-visa-hero-banner.png is 869KB (94% wasted bytes) and breadcrumb.png is 421KB (31% wasted). Zero WebP/AVIF adoption sitewide. Mobile LCP measures 7.2s-11.7s across the 5 tested pages (lab), against a 2.5s 'good' threshold.",
+          "recommendation": "Convert to WebP/AVIF and resize to displayed dimensions. This alone should move mobile LCP substantially."
+        },
+        {
+          "title": "LCP image not preloaded or prioritized on any page",
+          "severity": "High",
+          "description": "The lcp-discovery-insight audit fails on every page; preload score is 50/100 and no image carries fetchpriority='high'.",
+          "recommendation": "Add fetchpriority='high' to the LCP image and preload it; avoid lazy-loading above-the-fold images."
+        },
+        {
+          "title": "Desktop CLS 1.039 on homepage and 0.501 on blog",
+          "severity": "High",
+          "description": "Traced to a full-body-level shift, plausibly the full-viewport #spinner overlay. Against a 0.1 'good' threshold. Mobile CLS is 0, so this is desktop-specific.",
+          "recommendation": "Confirm in DevTools, then reserve space or remove the overlay. Add explicit width/height to all images — 100% currently lack them."
+        },
+        {
+          "title": "gtag.js dominates third-party main-thread cost",
+          "severity": "Medium",
+          "description": "Up to 656ms main-thread time, including two long tasks of 400ms and 224ms on /services/ desktop. Render-blocking style.css costs 219ms, and FontAwesome causes FOIT (380ms + 235ms wasted) for a 170KB kit serving a small icon set.",
+          "recommendation": "Defer gtag.js, subset or replace FontAwesome with inline SVG icons, and inline critical CSS. Leave Ahrefs analytics alone — it is negligible."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 48,
+      "what_works": [
+        "All major AI crawlers unblocked: GPTBot, OAI-SearchBot, ClaudeBot, Claude-User, Claude-SearchBot, PerplexityBot, Applebot-Extended, CCBot, meta-externalagent, Bingbot, Google-Extended",
+        "The /how-it-works/ 4-step process is genuinely well-formed, self-contained, citable content",
+        "The Canada guide's wait-time answer is source-attributed and extractable"
+      ],
+      "findings": [
+        {
+          "title": "Homepage FAQ schema and visible FAQ accordion contain entirely different content",
+          "severity": "High",
+          "description": "The FAQPage JSON-LD carries 7 Q&As and the visible on-page accordion carries 6 — different questions and different answers. Critically, the only stated price ($100 starting fee) exists solely in the schema and never appears in visible text. Structured data must describe what is on the page.",
+          "recommendation": "Rewrite the schema to mirror the visible FAQ exactly, and put the price in visible page copy."
+        },
+        {
+          "title": "Entity signals are the weakest dimension — contradictory service-area claims",
+          "severity": "High",
+          "description": "The site states up to six different, mutually contradictory lists of which countries it serves, across Organization description, Organization areaServed, Service areaServed, About page schema, visible FAQ text, and a homepage subheading. Only Canada has an actual indexable location page. Compounded by the sameAs placeholder bug and no discoverable Wikipedia, Reddit, or review-platform presence.",
+          "recommendation": "Pick one authoritative service-area list matching pages that actually exist, and apply it consistently across schema and visible copy."
+        },
+        {
+          "title": "Trust and authority, not formatting, are the binding constraint on AI citation",
+          "severity": "Info",
+          "description": "With 9 clicks and average position 45.2 over 90 days, the domain is not in the candidate pool most AI answer engines draw from. This is a YMYL commercial-intermediary category with heavy scam activity, where AI engines are conservative about citing paid intermediaries.",
+          "recommendation": "Treat AI visibility as downstream of trust and authority work, not as a markup exercise. Formatting improvements alone will not produce citations here."
+        },
+        {
+          "title": "llms.txt absent",
+          "severity": "Low",
+          "description": "https://www.easyvisabooking.com/llms.txt returns 404. Stated honestly: llms.txt is not used by Google and no major AI vendor has confirmed production use.",
+          "recommendation": "Optional and cheap, but do not let it displace trust and authority work. Low backlog priority."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 45,
+      "what_works": [
+        "100% alt-text coverage across all analyzed pages"
+      ],
+      "findings": [
+        {
+          "title": "Large unoptimized PNGs with zero modern format adoption",
+          "severity": "Critical",
+          "description": "canada-visa-hero-banner.png 869KB (94% wasted), breadcrumb.png 421KB (31% wasted). No WebP or AVIF anywhere on the site.",
+          "recommendation": "Convert to WebP/AVIF, resize to displayed dimensions, and serve responsive srcset."
+        },
+        {
+          "title": "100% of images lack explicit width and height attributes",
+          "severity": "High",
+          "description": "Includes the hero carousel image, which is likely the LCP element. This is a direct layout-shift risk and correlates with the 1.039 desktop CLS on the homepage.",
+          "recommendation": "Add explicit width and height to every img element."
+        },
+        {
+          "title": "Homepage og:image points to a 404",
+          "severity": "Medium",
+          "description": "/img/visa-banner.jpg does not exist under any tested name or case. No other page defines og:image at all.",
+          "recommendation": "Fix the path and add per-page social preview images."
+        }
+      ]
+    },
+    {
+      "name": "Visual / Mobile UX",
+      "score": 54,
+      "what_works": [
+        "Viewport meta correct; 16px base font",
+        "No intrusive interstitials — the full-viewport #spinner is visibility:hidden and opacity:0 post-load",
+        "Mobile hamburger menu functions correctly",
+        "100% alt-text coverage"
+      ],
+      "findings": [
+        {
+          "title": "Government-affiliation disclaimer is buried in the footer",
+          "severity": "High",
+          "description": "The site has well-worded copy — 'We are not affiliated with... the U.S. Government' — but it sits in the global footer roughly 9,000px down the homepage, invisible without deliberate scrolling. In this category, that sentence is the first question every visitor has.",
+          "recommendation": "Move it into the hero, above the fold, on every page. Stating it prominently increases rather than decreases conversion here."
+        },
+        {
+          "title": "No phone number anywhere despite schema and a trust badge promising phone support",
+          "severity": "High",
+          "description": "No tel: links exist site-wide; contact is email, WhatsApp, and Telegram only. Schema and a homepage trust badge both imply phone availability.",
+          "recommendation": "Either add a real phone number or remove the claim from schema and the trust badge."
+        },
+        {
+          "title": "Confirmed mobile horizontal overflow",
+          "severity": "Medium",
+          "description": "48px horizontal overflow on the homepage and 22px on /services/us-visa-appointment-canada/ at 390px width. Blog and contact pages are clean.",
+          "recommendation": "Identify the overflowing element and constrain with max-width: 100%."
+        },
+        {
+          "title": "Fixed WhatsApp button overlaps body copy on mobile contact page",
+          "severity": "Medium",
+          "description": "The fixed-position WhatsApp button covers content on /contact/ at 390px width.",
+          "recommendation": "Add bottom padding to the content container, or reposition the button."
+        },
+        {
+          "title": "Pricing never visible above the fold",
+          "severity": "Medium",
+          "description": "pricingMentioned is false on the homepage; the services page states only 'no upfront payment' with no figures anywhere.",
+          "recommendation": "Surface the pay-on-success model and the starting fee above the fold — it is a competitive advantage currently hidden."
+        }
+      ]
+    },
+    {
+      "name": "Backlinks / Authority",
+      "score": null,
+      "score_note": "No numeric score reported — insufficient data. Backlink Tier 0 (Common Crawl + verification crawler only); Moz and Bing Webmaster keys unconfigured. Only 1 of 7 scoring factors has any data source, so a score would be fabrication.",
+      "what_works": [
+        "Domain is present in Common Crawl's Jan-Mar 2026 web graph and clears its ranking threshold"
+      ],
+      "findings": [
+        {
+          "title": "Link acquisition is very likely the binding constraint on the entire site",
+          "severity": "Critical",
+          "description": "The domain sits at the bottom of the Common Crawl authority distribution (PageRank rank ~1.2M, harmonic centrality rank ~377K; confidence 0.50). No candidate backlink URLs surfaced anywhere in this audit. Cross-referenced against GSC positions of 45-80 on commercial head terms with real impression volume, this supports a blunt conclusion: without referring domains, the site will not rank for competitive commercial terms regardless of on-page quality.",
+          "recommendation": "Start a standing link-acquisition workstream. Highest leverage: digital PR around proprietary visa wait-time data that no government portal publishes. Then university international-student offices, immigration and expat community resources, HR/global-mobility publications. Explicitly avoid PBNs, paid link networks, mass guest posting, and comment/forum spam — elevated penalty risk in this niche."
+        },
+        {
+          "title": "Backlink measurement is currently blind",
+          "severity": "High",
+          "description": "Referring domain count, anchor text distribution, toxic ratio, link velocity, and follow/nofollow ratio are all unavailable at Tier 0.",
+          "recommendation": "Configure the free Moz API tier (2,500 rows/month, https://moz.com/products/api) — the only free source returning referring-domain count and spam score. Add moz_api_key to ~/.config/claude-seo/backlinks-api.json. Then Bing Webmaster Tools (free, https://www.bing.com/webmasters), which also feeds Microsoft Copilot citations."
+        }
+      ]
+    },
+    {
+      "name": "Search Experience (SXO)",
+      "score": 47,
+      "what_works": [
+        "Genuine trust strengths: explicit non-affiliation disclaimer, pay-on-success pricing, well-structured anchor-linked refund policy",
+        "Content matches query intent where it targets the right queries"
+      ],
+      "findings": [
+        {
+          "title": "Broad commercial queries are structurally unwinnable",
+          "severity": "Critical",
+          "description": "Live SERP checks confirm 'canada us visa appointment'-class queries are owned by ais.usvisa-info.com (the official booking portal itself), travel.state.gov, and ca.usembassy.gov. No commercial content page displaces a government portal on those terms. Head terms return SERPs 40-70% dominated by government domains plus funded incumbents (Atlys, VisaGrader, CheckVisaSlots).",
+          "recommendation": "Redirect strategy to the adjacent winnable cluster — rescheduling mechanics, slot-release timing, service legitimacy, and cost transparency — where SERPs are blog- and forum-dominated with near-zero government presence."
+        },
+        {
+          "title": "The flagship page's zero CTR is a position problem, not a snippet problem",
+          "severity": "High",
+          "description": "/blog/us-visa-appointment-canada-guide-2026/ has 300 impressions, 0 clicks, average position 50.3. Expected clicks at position 50 from 300 impressions is under 1, so zero is statistically unsurprising. The page is 2745 words, well-structured, scored 84/100 on content quality, and its queries map cleanly onto its content. Period-over-period, impressions nearly tripled (64 to 236) across long-tail Canada queries but all sit at position 41-97 — which is why sitewide CTR fell from 3.26% to 1.47% while impressions rose 196%.",
+          "recommendation": "Do NOT rewrite the title or meta description — that optimizes the wrong variable. The fix is authority-building plus retargeting to the winnable query cluster."
+        },
+        {
+          "title": "Apparent striking-distance positions are statistical noise",
+          "severity": "Info",
+          "description": "/services/ at position 1.0, /how-it-works/ at 4.0, /blog/ at 5.0, and /for-agents/ at 11.2 are each built from 1-4 total impressions, never appear in the query-by-page breakdown (queries fall below GSC's anonymization threshold), and are non-persistent — /services/'s position 1.0 appeared once in the prior 28-day window and vanished in the latest. /services/ is not even indexed.",
+          "recommendation": "Do not treat these as quick wins. Optimizing them would target noise."
+        },
+        {
+          "title": "B2B persona scores 15/100 with no page to land on",
+          "severity": "High",
+          "description": "/for-agents/ 308-redirects to /services/, a 507-word consumer location directory with zero mention of agents, B2B, or bulk booking — while GSC still shows 6 impressions at position 11.2 landing there. SERP data for agent/B2B queries shows near-zero government competition and dedicated competitors already ranking (usvisaagents.com, path2usa.com, giecglobal.com).",
+          "recommendation": "Reinstate a dedicated B2B page in the sitemap with a persistent nav link, or consciously drop the audience. Currently it is being lost by accident."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Get the money pages into Google",
+        "timeframe": "Week 1",
+        "items": [
+          "Resubmit sitemap.xml in GSC — Google's copy is 7 weeks stale with 10 URLs vs the live 14",
+          "Request Indexing via GSC URL Inspection for all 7 unknown URLs: /services/, both /services/ location pages, /about/, /terms/, /privacy/, /refund-policy/",
+          "Resolve the three 404 + robots-blocked service links — either build the Dubai/UAE/Australia pages at 200 and remove the Disallow lines, or remove the links, remove the Disallow lines, and serve 410 Gone",
+          "Fix lastmod: emit truthful per-page dates or omit entirely; drop priority and changefreq",
+          "Replace the live schema placeholder 'https://t.me/YourTelegramChannel' with the real channel (2 minutes)",
+          "Fix the favicon case-sensitivity bug breaking 8 pages, and add a /favicon.ico fallback (5 minutes)"
+        ]
+      },
+      {
+        "name": "Phase 2: Earn the click once visible",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Move the existing 'not affiliated with the U.S. Government' disclaimer from the footer into the hero on every page",
+          "Publish real legal identity — company number, registered address, jurisdiction — and honor the promise /terms/ already makes",
+          "Add genuine attributed social proof; show the confirmation screenshots currently 'available on request'",
+          "Put the $100 starting fee in visible page copy — it currently exists only inside JSON-LD",
+          "Reconcile the six contradictory service-area lists into one authoritative list matching pages that exist",
+          "Make the homepage FAQ schema mirror the visible FAQ accordion exactly",
+          "Add a real phone number or remove the claim from schema and the trust badge",
+          "Fix 48px/22px mobile horizontal overflow and the WhatsApp button overlap on /contact/"
+        ]
+      },
+      {
+        "name": "Phase 3: Authority and winnable SERPs",
+        "timeframe": "Month 2",
+        "items": [
+          "Stop targeting head terms owned by the government portal; retarget to rescheduling mechanics, slot-release timing, legitimacy, and cost transparency",
+          "Begin a standing link-acquisition workstream, led by digital PR on proprietary wait-time data",
+          "Configure the free Moz API tier to make link acquisition measurable (15 minutes); add Bing Webmaster Tools",
+          "Resolve the 65-75% Canada/Toronto duplication before it becomes the template for scaled location pages",
+          "Add author bylines with credentials to all blog posts, plus Person schema",
+          "Decide the B2B question — reinstate a real /for-agents/ page or consciously drop it; collapse the 2-hop redirect either way",
+          "Build the informational pillar /blog/us-visa-appointment-guide/ and rebuild /services/"
+        ]
+      },
+      {
+        "name": "Phase 4: Performance, schema, and monitoring",
+        "timeframe": "Ongoing",
+        "items": [
+          "Convert the 869KB and 421KB PNGs to WebP/AVIF; add width/height to all images; add fetchpriority=high to the LCP image",
+          "Investigate desktop CLS 1.039 on homepage and 0.501 on blog — likely the #spinner overlay",
+          "Add security headers via vercel.json; verify analytics still fires afterwards",
+          "Apply the 7 generated schema files: @id entity linking, BlogPosting.image, BreadcrumbList, Service.offers, ContactPoint",
+          "Add og:description and twitter:card sitewide; fix the 404ing og:image",
+          "Configure ga4_property_id to unlock organic traffic reporting",
+          "Capture a drift baseline so future regressions surface without a full re-audit"
+        ]
+      }
+    ]
+  },
+  "do_not_do": [
+    "Do not rewrite the Canada blog guide for CTR — 0 clicks at position 50 is expected; it is a position problem",
+    "Do not add internal links to fix indexation — /services/ already has 8 homepage links while /blog/ is indexed with none",
+    "Do not remove the existing FAQPage schema — valid and harmless; removal is pure cost",
+    "Do not add new FAQPage expecting SERP benefit — Google retired FAQ rich results for all sites on 2026-05-07",
+    "Do not add HowTo schema to /how-it-works/ — deprecated September 2023",
+    "Do not add Review or AggregateRating schema — no genuine on-page reviews exist; self-serve markup violates policy",
+    "Do not chase head terms like 'us visa appointment' — owned by the official government booking portal",
+    "Do not buy links or guest post at scale — elevated penalty risk in this niche",
+    "Do not prioritize Core Web Vitals — no CrUX field data exists, so it is not currently a functioning ranking signal",
+    "Do not optimize Ahrefs analytics — 3.7KB and ~4ms, irrelevant",
+    "Do not treat the position 1.0/4.0/5.0 pages as striking-distance wins — they are 1-4 impression noise",
+    "Do not read rising impressions as progress — impressions rose 196% while CTR fell from 3.26% to 1.47%"
+  ],
+  "data_sources": {
+    "gsc_property": "sc-domain:easyvisabooking.com (siteFullUser, verified)",
+    "gsc_service_account": "claude-skills@claude-skills-505118.iam.gserviceaccount.com",
+    "google_api_tier": "Tier 1 — PageSpeed Insights v5, CrUX, CrUX History, GSC API, Indexing API v3",
+    "ga4": "Not configured — no property ID set",
+    "backlink_tier": "Tier 0 — Common Crawl and verification crawler only",
+    "crux_field_data": "Unavailable — insufficient Chrome traffic volume for eligibility",
+    "gsc_90d_totals": {
+      "clicks": 9,
+      "impressions": 382,
+      "ctr": 2.36,
+      "avg_position": 45.2,
+      "date_range": "2026-05-13 to 2026-08-08"
+    },
+    "indexation": {
+      "indexed": 7,
+      "unknown_to_google": 7,
+      "canonical_mismatches": 0,
+      "robots_blocks_on_sitemap_urls": 0,
+      "fetch_failures": 0
+    }
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/",
+    "raw_dir": "raw/",
+    "generated_schema_dir": "findings/schema-generated/"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "_comment_NO_HOWTO": "IMPORTANT: Despite the page name '/how-it-works/', do NOT implement HowTo schema. Google removed HowTo rich results in September 2023 and it remains deprecated/unsupported. Use plain WebPage instead, as below.",
+
+  "how_it_works": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.easyvisabooking.com/how-it-works/#webpage",
+    "url": "https://www.easyvisabooking.com/how-it-works/",
+    "name": "How Our US Visa Appointment Booking Service Works",
+    "description": "Step-by-step explanation of how Easy Visa Booking helps applicants book or reschedule a US visa appointment through the official AIS and CGI scheduling portals.",
+    "isPartOf": { "@id": "https://www.easyvisabooking.com/#website" },
+    "about": { "@id": "https://www.easyvisabooking.com/#organization" }
+  },
+
+  "for_agents": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.easyvisabooking.com/for-agents/#webpage",
+    "url": "https://www.easyvisabooking.com/for-agents/",
+    "name": "US Visa Appointment Booking for Travel Agents",
+    "description": "REPLACE with an accurate, on-page description of the agent/partner offering -- page content was not deep-crawled in this audit, so this description is a placeholder only and must not be published as-is.",
+    "isPartOf": { "@id": "https://www.easyvisabooking.com/#website" },
+    "about": { "@id": "https://www.easyvisabooking.com/#organization" },
+    "_comment_UNCONFIRMED": "The full body content/purpose of /for-agents/ was not verified in this pass beyond confirming it returns 0 JSON-LD blocks and is not in sitemap.xml (already logged as a known gap in CONTEXT.md). Confirm actual page intent (B2B partner program? affiliate program? travel-agent referral form?) before finalizing this WebPage's name/description, and consider whether Service (with an audience of Type 'BusinessAudience') fits better than plain WebPage."
+  },
+
+  "_pair_with": "Add the matching 'how_it_works' and 'for_agents' BreadcrumbList blocks from file 03 to each respective page."
+}

@@ -1,0 +1,6 @@
+# This repo deploys as static files, so anything shipped is publicly fetchable at the domain.
+# Keep internal planning and audit material out of the deployment.
+seo/
+easyvisabooking.com-audit/
+README.md
+LICENSE.txt

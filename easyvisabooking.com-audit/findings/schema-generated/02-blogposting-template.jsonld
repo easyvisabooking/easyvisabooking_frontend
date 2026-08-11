@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://www.easyvisabooking.com/blog/us-visa-appointment-canada-guide-2026/#article",
+  "headline": "US Visa Appointment in Canada (2026 Guide): How People Are Actually Finding Earlier Interview Dates",
+  "description": "Struggling to book a US visa appointment in Canada? This 2026 guide covers wait times, the AIS portal, rescheduling tips, and how to find earlier interview dates.",
+  "image": [
+    "https://www.easyvisabooking.com/img/REPLACE-WITH-REAL-FEATURED-IMAGE-1200x630.jpg"
+  ],
+  "author": { "@id": "https://www.easyvisabooking.com/#organization" },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://www.easyvisabooking.com/#organization",
+    "name": "Easy Visa Booking",
+    "url": "https://www.easyvisabooking.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.easyvisabooking.com/img/brand-logo-real.png",
+      "width": 600,
+      "height": 60,
+      "_comment": "Verify actual pixel dimensions of the real logo asset -- width/height must match the file."
+    }
+  },
+  "datePublished": "2026-06-23",
+  "dateModified": "2026-06-23",
+  "url": "https://www.easyvisabooking.com/blog/us-visa-appointment-canada-guide-2026/",
+  "mainEntityOfPage": "https://www.easyvisabooking.com/blog/us-visa-appointment-canada-guide-2026/",
+  "keywords": "us visa appointment in canada, book us visa appointment canada, us visa wait time canada, ais portal canada, us visa interview canada",
+  "_comment_REUSE": "Apply this identical pattern to the other 2 BlogPosting pages -- only headline, description, image, dates, url, mainEntityOfPage and keywords change. The critical fix in all 3 cases is adding 'image' (currently absent from all 3 live blocks) and giving publisher a logo. Author/publisher should reference the canonical Organization @id from 01-homepage-organization-website-service-graph.jsonld rather than repeating a bare {name,url} object.",
+  "_falsifiability": "image[] is the one Google-documented Article property that is verifiably absent right now -- grep the live JSON-LD blocks for 'image' and it is not present on any of the 3 posts. This is checkable via Rich Results Test."
+}

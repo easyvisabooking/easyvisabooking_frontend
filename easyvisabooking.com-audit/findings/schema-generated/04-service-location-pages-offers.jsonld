@@ -1,0 +1,48 @@
+{
+  "_comment": "Corrected Service blocks for the 2 in-sitemap location pages. Adds the missing 'offers' property (Task requirement) and links provider back to the canonical Organization @id instead of repeating a bare stub.",
+
+  "canada_page": {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://www.easyvisabooking.com/services/us-visa-appointment-canada/#service",
+    "serviceType": "US Visa Appointment Booking from Canada",
+    "provider": { "@id": "https://www.easyvisabooking.com/#organization" },
+    "areaServed": { "@type": "Country", "name": "Canada" },
+    "description": "US visa appointment booking and rescheduling assistance for applicants at US consulates across Canada. We help applicants secure earlier interview dates through the official AIS portal and charge only on success.",
+    "url": "https://www.easyvisabooking.com/services/us-visa-appointment-canada/",
+    "offers": {
+      "@type": "Offer",
+      "price": "100",
+      "priceCurrency": "USD",
+      "description": "Service fee per appointment successfully secured for Canadian consulate locations. Exact fee confirmed in writing before any work begins.",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.easyvisabooking.com/services/us-visa-appointment-canada/",
+      "_comment_VERIFY_PRICE": "Price copied from the homepage Offer ($100 starting fee). Confirm this is still accurate for the Canada-specific page before publishing; do not let the location page and homepage prices drift out of sync."
+    }
+  },
+
+  "toronto_page": {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://www.easyvisabooking.com/services/us-visa-appointment-toronto/#service",
+    "serviceType": "US Visa Appointment Booking in Toronto, Canada",
+    "provider": { "@id": "https://www.easyvisabooking.com/#organization" },
+    "areaServed": [
+      { "@type": "Country", "name": "Canada" },
+      { "@type": "City", "name": "Toronto" }
+    ],
+    "description": "US visa appointment booking and rescheduling assistance for applicants at the US Consulate General in Toronto. We help applicants secure earlier interview dates through the official AIS portal and charge only on success.",
+    "url": "https://www.easyvisabooking.com/services/us-visa-appointment-toronto/",
+    "offers": {
+      "@type": "Offer",
+      "price": "100",
+      "priceCurrency": "USD",
+      "description": "Service fee per appointment successfully secured for the US Consulate General in Toronto. Exact fee confirmed in writing before any work begins.",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.easyvisabooking.com/services/us-visa-appointment-toronto/",
+      "_comment_VERIFY_PRICE": "Same $100 starting-fee assumption as the Canada page -- confirm with the business before publishing."
+    }
+  },
+
+  "_note_faqpage": "Both pages (Toronto especially) already carry a FAQPage block. Leave as-is -- Info severity only per the 2026-05-07 Google FAQ rich-result retirement; do not remove, do not duplicate this pattern onto new pages expecting a Google SERP benefit."
+}
