@@ -5,6 +5,55 @@ Superseded reasoning is struck through, never deleted — the reasoning is worth
 
 ---
 
+## 2026-08-12
+
+### Shipped and verified live
+Commits `6aab71e` + `6e925f9` deployed. Verified against production:
+
+```
+Permissions-Policy, Referrer-Policy, X-Content-Type-Options, X-Frame-Options   now present
+robots.txt                       no Disallow lines remain
+sitemap.xml                      14 <loc>, zero lastmod/priority/changefreq
+/favicon.ico                     404 -> 200 (rewrite to brand-logo-real.PNG)
+brand-logo-real.png (lowercase)  0 references remain on any live page
+og:image                         now /img/carousel-1.jpg (was a 404)
+twitter:card                     summary_large_image now live
+Organization.sameAs              placeholder gone, real Telegram channel live
+```
+
+**`.vercelignore` confirmed working** — `seo/`, the audit folder, and `README.md` all return 404
+on the live domain while remaining in git. This was the load-bearing assumption behind committing
+the audit at all, and it holds.
+
+### Closes
+- `01-fix-plan.md` §1.1 — sitemap resubmitted in GSC ✅
+- `01-fix-plan.md` §1.2 — indexing requested for all 7 unknown URLs ✅
+- `01-fix-plan.md` §1.3, §1.4, §1.6, §1.7, §2.1, §3.1, §3.2 (homepage + `/services/`), §4.1, §4.5 (partial)
+
+### ⏰ Verification due 2026-08-26 (14 days)
+Re-inspect the 7 URLs in GSC. Expected: coverage state moves off "URL is unknown to Google."
+**If any are still unknown, the cause is not crawl scheduling** — check for a Vercel edge rule
+serving different content to Googlebot:
+`curl -A "Googlebot" https://www.easyvisabooking.com/services/` vs a normal fetch.
+Also confirm GSC Sitemaps now reports `submitted: 14` rather than 10.
+
+### New finding — missed on the first pass
+`/services/` carried three visible **"Coming Soon" cards** for Dubai, UAE and Australia (body
+content, not links — which is why the link-level greps did not surface them). With those pages
+now permanently killed, "Coming Soon" was a false promise on a commercial page, in a category
+where visitors actively scan for reasons to distrust the operator. Removed.
+
+The "Don't See Your Location? We serve applicants worldwide" CTA directly beneath them already
+handles global coverage honestly, and matches the geographic-scope decision in
+`02-growth-plan.md` §4. Removing the cards also cuts into the ~1,200–1,500px of dead space the
+audit flagged on this page.
+
+Side effect: `/services/` is now **460 words**, down from 495. It was already thinner than both of
+its own children (Canada 2,795w, Toronto 3,573w). This makes the rebuild in `01-fix-plan.md` §3.6
+more urgent, not less — but publishing accurate thin content beats publishing inaccurate content.
+
+---
+
 ## 2026-08-11
 
 ### Plans created
