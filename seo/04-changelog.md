@@ -5,6 +5,46 @@ Superseded reasoning is struck through, never deleted — the reasoning is worth
 
 ---
 
+## 2026-08-13 — Competitor naming reworked + `.why-us` block added to every post
+
+Owner decision, applied across all six posts and the template.
+
+**Atlys removed entirely.** Every "All-in-one visa apps — e.g. Atlys" table row, the naming in
+`is-us-visa-slot-booking-legit` prose, and the Atlys citation in the
+`reschedule-us-visa-appointment-earlier` sources list. The category survives as **All-in-one visa
+platforms** with no brand attached. The reschedule post's per-country claim still stands on the
+RedBus2US source, which already covered it; no claim lost its evidence.
+
+**Third parties are websites, never extensions.** CheckVisaSlots and VisaGrader are described as
+slot-availability websites. Dropped with the extension framing: the Chrome Web Store citation, the
+~80,000 users / 4.6 rating figures, and the "check what permissions it requests" advice in the
+"Are free visa slot checking tools safe to use?" FAQ (rewritten in both the visible `<details>` and
+the `FAQPage` schema, verified word-for-word identical across all 7 Q&As).
+
+**Named competitors dropped from four posts to two.** They now appear only where the post is
+genuinely about choosing between providers: `is-us-visa-slot-booking-legit` and
+`reschedule-us-visa-appointment-earlier`. The Canada, Dubai, World Cup and $750 posts compare
+*categories* only. Naming a competitor in a location guide bought us nothing and handed them the
+brand impression on our page.
+
+**New required block: `.why-us`.** A neutral comparison table left readers with five options and no
+reason to pick ours. `.why-us` sits directly under every `.compare` and argues the case in 4-5
+bullets, leading with the one structural difference: **every other row charges before the outcome,
+ours charges $100 only after an earlier date is secured.** Then: we carry the work rather than
+sending an alert; no portal password ever; terms, refund policy and privacy published before you
+pay. Each block closes with `.why-us-foot` conceding the free row for readers who should not pay
+anyone, which is what keeps the table above it credible.
+
+Constraint-compliant by construction: arguments are about *our* model, never about how a named
+company behaves. No guarantee, no success rate, no automation language. Constraint sweep is clean,
+all hits are negative statements ("nobody can guarantee a date").
+
+**New enforcement.** `blog/README.md` gains a competitor-naming sweep grep
+(`atlys|chrome extension|browser extension|web store`) and a checklist line; `css/blog.css` gains
+the `.why-us` rules in §9; `blog/_template/` carries the block with authoring rules inline.
+
+---
+
 ## 2026-08-12 — Blog system rebuilt + first three queue posts
 
 ### Shipped — awaiting deploy verification
@@ -47,6 +87,10 @@ expedite** and plain **DIY** alongside us, with the free options first and an ex
 you, do it yourself and keep your money" paragraph. Competitor pricing is **not** quoted — neither
 publishes a stable public figure, so the table compares *models* and links out. Comparing models
 rather than prices also means the tables do not go stale.
+
+> **Superseded 2026-08-13.** Atlys is no longer named anywhere, third parties are described as
+> websites only, and named competitors now appear in two posts rather than all six. See the
+> 2026-08-13 entry.
 
 ### Legacy posts retrofitted — prose untouched
 

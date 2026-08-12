@@ -77,6 +77,7 @@ All defined in `css/blog.css`. Copy from the template or from any published post
 | Table of contents | `.toc` | **Required** on posts over ~1,500 words. Hand-authored `<ol>` of `#anchor` links |
 | Honesty callout | `.honesty` | **Required.** At least one per post, and one near the end titled "What nobody can promise you" |
 | Comparison table | `.compare` | **Required.** See below |
+| Why-us block | `.why-us` | **Required** directly under every `.compare`. See below |
 | Neutral note | `.note` | Freshness notes, caveats, "tell us if this is out of date" |
 | Inline CTA | `.cta-inline` | One mid-article, contextual. Not a sales pitch — a pointer to the next useful thing |
 | End CTA | `.cta-end` | **Required.** Last block before sources |
@@ -95,15 +96,40 @@ Rules that keep it credible:
 
 - **Always include the free options**, and say plainly when the reader does not need us. A table
   where we win every row is an advertisement and reads as one.
-- **Name real alternatives** — CheckVisaSlots, Atlys, the $750 government expedite, plain DIY. Use
-  the small-print pattern `e.g. CheckVisaSlots` under the category name.
-- **Describe competitors factually and neutrally.** Public, verifiable facts only. Never allege
-  wrongdoing by a named company. Never quote a competitor price we have not verified — compare
-  *models*, and link out for pricing.
+- **Categories by default, names by exception.** Every post gets the *categories*: DIY, slot
+  availability websites, all-in-one visa platforms, the $750 government expedite. A company is
+  named only in a post that is genuinely about choosing between providers, which today means
+  `is-us-visa-slot-booking-legit` and `reschedule-us-visa-appointment-earlier`. Naming competitors
+  in a location or event guide adds nothing and hands them the brand impression.
+- **Atlys is not named anywhere.** Not in a table, not in prose, not in a sources list.
+- **CheckVisaSlots and VisaGrader are referred to as websites only.** No Chrome extension, no
+  install step, no user counts or store ratings. Where a name is used, the small-print pattern is
+  `e.g. CheckVisaSlots, VisaGrader` under the category name.
+- **Describe competitors factually and neutrally.** Public, verifiable facts about their *model*
+  only: what the fee buys and when it is charged. Never allege wrongdoing by a named company. Never
+  quote a competitor price we have not verified — link out for pricing.
 - **Our row** uses `class="is-us"` and the `.compare-us-tag` badge, and always states: from $100,
   paid only on success, no portal password, no guarantee.
-- **Close with `.compare-foot`**: "named for comparison, not endorsement; no commercial
-  relationship; verify pricing directly."
+- **Close with `.compare-foot`**: comparison not endorsement; no commercial relationship; verify
+  pricing directly.
+
+### The why-us block — required under every comparison table
+
+A neutral table alone leaves the reader with five options and no reason to pick ours. `.why-us`
+sits directly beneath it and answers that, in four or five bullets. It is the only place in a post
+where we argue for ourselves, which is what keeps the table above it honest.
+
+- **Argue from our own model, never against a named company.** "An alert plan bills every month for
+  information" describes a pricing model and is fine. Anything about how a named company behaves is
+  not.
+- **Lead with pay-on-success.** It is the only genuinely structural difference: every other row
+  charges before the outcome. Say so explicitly, and say the fee is $100.
+- **Then: we carry the work, not the alert. No portal password, ever. Everything published before
+  you pay** — link `/privacy/`, `/terms/`, `/refund-policy/`.
+- **Close with `.why-us-foot` conceding the free row.** State the reader profile that should not pay
+  anyone. A why-us block with no concession in it reads as a sales page and undoes the table.
+- **The constraint sweep applies here hardest.** No guarantee, no success rate, no automation
+  language, no testimonial.
 
 ---
 
@@ -181,6 +207,17 @@ grep -rniE "meghkumar|girishbhai" blog/ --include=index.html
 Both must return nothing. (`blog/README.md` and `blog/_template/` docs are exempt — neither ships;
 see `.vercelignore`.)
 
+**3. Competitor-naming sweep.** Atlys must not appear at all, and no third-party tool may be
+described as an extension or by install count or store rating:
+
+```bash
+grep -rniE "atlys|chrome extension|browser extension|web store|extensions?</th>" blog/ \
+  --include=index.html --exclude-dir=_template
+```
+
+Must return nothing. Category labels are `Slot-availability websites` and `All-in-one visa
+platforms`.
+
 ---
 
 ## Pre-publish checklist
@@ -197,6 +234,7 @@ see `.vercelignore`.)
 - [ ] Every TOC anchor resolves to a real `id`
 - [ ] Every statistic has a source link and retrieval date
 - [ ] Constraint sweep grep is clean
+- [ ] Competitor-naming sweep clean; `.why-us` block present under the `.compare` table
 - [ ] Card added to `blog/index.html` grid **and** to the Blog schema `blogPost` array
 - [ ] URL added to `sitemap.xml`
 - [ ] `seo/03-content-queue.md` row marked ✅, `seo/04-changelog.md` line added
