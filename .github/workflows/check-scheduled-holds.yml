@@ -1,0 +1,44 @@
+## Fails the build if a scheduled (unpublished) blog post is reachable.
+##
+## A held post is deployed and returns 200 but carries noindex. That is fine
+## only while nothing points at it. The moment a live page links to it — a
+## related-post card, a footer "Popular Guides" entry, a URL left in the hub's
+## Blog JSON-LD — Googlebot follows the link, hits the noindex, and files the
+## URL under "Excluded by 'noindex' tag" in Search Console.
+##
+## So this runs on every push: it strips comments and <template data-scheduled>
+## blocks from every file Vercel actually serves, then fails if a scheduled slug
+## survives anywhere. Catching it here means it never reaches production.
+##
+## Fixing a failure: wrap the offending markup in a hold comment —
+##   <!-- SCHEDULED LINK 2026-08-19 the-slug
+##   <a href="/blog/the-slug/">Anchor text</a>
+##   -->
+## scripts/publish_scheduled.py uncomments it on the publish date.
+## See blog/README.md.
+
+name: Check scheduled post holds
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Every held post must be invisible to crawlers
+        run: python scripts/publish_scheduled.py --check

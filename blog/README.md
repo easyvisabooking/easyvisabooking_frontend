@@ -266,14 +266,28 @@ to configure on that side.
 | The queue | [`blog/publish-queue.json`](publish-queue.json) |
 | The script | [`scripts/publish_scheduled.py`](../scripts/publish_scheduled.py) |
 | The schedule | [`.github/workflows/publish-scheduled-posts.yml`](../.github/workflows/publish-scheduled-posts.yml) |
+| The guard | [`.github/workflows/check-scheduled-holds.yml`](../.github/workflows/check-scheduled-holds.yml) |
+
+### Nothing may point at a held post
+
+This is the rule the whole mechanism exists to enforce, and the one that is easy to get wrong.
+
+A held post is deployed and returns 200 with `noindex`. That is fine **only while nothing Google can
+crawl points at it**. The moment a live page links to it, Googlebot follows the link, hits the
+`noindex`, and files the URL in Search Console under *"Excluded by 'noindex' tag"* — the page shows
+as **"URL is not available to Google"** in URL Inspection. It resolves itself on the publish date,
+but it is noise, it burns a crawl, and it looks like a broken site.
+
+That happened once, in August 2026: `reschedule-us-visa-appointment-earlier` was held correctly but
+still linked from six live pages and listed in the hub's `Blog` JSON-LD. Hence marker 4, marker 5,
+and the CI guard below.
 
 ### How a post is held back
 
-Three markers. All three must be present, or the script fails loudly rather than half-publishing.
+Five markers. The script fails loudly rather than half-publishing if any is missing.
 
 1. **The page is `noindex`** — a `<!-- SCHEDULED POST: ... -->` comment directly above
-   `<meta name="robots" content="noindex, follow">`. The page is deployed and returns 200, so links
-   to it from the footer and from other posts never break; Google just will not index it.
+   `<meta name="robots" content="noindex, follow">`.
 2. **The hub card sits in an inert `<template>`** in [`blog/index.html`](index.html):
    ```html
    <!-- SCHEDULED 2026-08-15 — revealed automatically by scripts/publish_scheduled.py -->
@@ -285,27 +299,54 @@ Three markers. All three must be present, or the script fails loudly rather than
    and carries no link.
 3. **The sitemap `<url>` is inside an XML comment** in [`sitemap.xml`](../sitemap.xml), opened with
    `<!-- SCHEDULED YYYY-MM-DD - …`.
+4. **Every inbound link from a live page is held.** Two forms, both applied by `--hold`:
+   ```html
+   <!-- SCHEDULED LINK 2026-08-15 the-slug
+   <a href="/blog/the-slug/" class="mb-2">Anchor text</a>
+   -->
+   ```
+   for a related-post card or a footer link list, and — for a link mid-sentence, where commenting
+   out the markup would eat the prose — the anchor is demoted to a span that keeps its text and
+   drops the URL:
+   ```html
+   <span data-scheduled-link="the-slug" data-publish-on="2026-08-15">rescheduling to an earlier date</span>
+   ```
+   Both become live `<a>` tags again on publish.
+5. **No entry in the hub's `Blog` schema `blogPost[]` array.** A URL in live JSON-LD is a discovery
+   path exactly like an `<a href>`. The script *inserts* the entry on publish, reading the headline
+   and image from the post's own `BlogPosting` schema — so do not add it by hand when scheduling.
 
 Leave `datePublished` at the day you *wrote* it. The script overwrites it on publish.
 
 ### To schedule a new post
 
-1. Write it normally (steps 1–3 of the publish flow above).
-2. Apply the three hold markers.
+1. Write it normally (steps 1–3 of the publish flow above), including its inbound links from other
+   posts and the footer. Write them as ordinary links — do not hand-comment anything.
+2. Apply markers 1–3, and do **not** add the hub `blogPost[]` schema entry.
 3. Add an entry to `blog/publish-queue.json`:
    ```json
    { "slug": "the-slug", "title": "…", "publishOn": "2026-09-02" }
    ```
-4. Commit and push. That is all — the Action takes it from there.
+4. Run `python scripts/publish_scheduled.py --hold the-slug`. It finds every inbound link across the
+   site and holds it. Anything it will not rewrite blind it prints for you to handle.
+5. Run `python scripts/publish_scheduled.py --check`. It must pass.
+6. Commit and push. CI runs the same check; the Action takes it from there.
 
 ### Running it by hand
 
 ```bash
+python scripts/publish_scheduled.py --hold the-slug        # hold every inbound link to a queued post
+python scripts/publish_scheduled.py --check                # is every held post invisible to crawlers?
 python scripts/publish_scheduled.py --dry-run              # what would happen today
 python scripts/publish_scheduled.py --today 2026-08-15     # simulate a date
 python scripts/publish_scheduled.py --slug the-slug        # publish one now, dated today
 python scripts/publish_scheduled.py                        # publish anything due
 ```
+
+`--check` runs on every push via **Actions → Check scheduled post holds**. It strips comments and
+`<template data-scheduled>` blocks from every file `.vercelignore` does *not* exclude, then fails the
+build if a scheduled post's URL survives anywhere. A held post cannot reach production discoverable.
+A post's own canonical, `og:url` and self-link are exempt — they sit on the `noindex` page itself.
 
 Or from GitHub: **Actions → Publish scheduled blog posts → Run workflow**, with a `dry_run`
 checkbox and an optional `slug` to release one early.
@@ -314,7 +355,8 @@ checkbox and an optional `slug` to release one early.
 
 Six date fields (`article:published_time`, `article:modified_time`, schema `datePublished` and
 `dateModified`, the visible `<time>`, and `Published <date>` in the sources block), the `robots`
-meta, the hub `<template>` and its schema `datePublished`, and the sitemap comment.
+meta, the hub `<template>`, the sitemap comment, every held inbound link across the site, and a
+freshly inserted entry in the hub's `Blog` schema `blogPost[]` array.
 
 **"Retrieved &lt;date&gt;" lines in the sources block are deliberately left alone** — they record
 when a source was actually checked, and must not drift with the publish date.

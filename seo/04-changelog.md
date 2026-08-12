@@ -5,6 +5,55 @@ Superseded reasoning is struck through, never deleted — the reasoning is worth
 
 ---
 
+## 2026-08-13 — Held posts were reachable: scheduling hardened, guard added to CI
+
+**Symptom.** URL Inspection on `/blog/reschedule-us-visa-appointment-earlier/` returned *"URL is not
+available to Google — Excluded by 'noindex' tag."* Crawl allowed, fetch successful, canonical
+self-referencing, `Indexing allowed? No`.
+
+**Diagnosis: working as designed, designed wrong.** The post was a scheduled post held until
+2026-08-19, so the `noindex` was correct. Nothing else on the site was affected — one `noindex` page
+sitewide, sitemap clean at 14 self-canonical URLs, `robots.txt` blocking nothing, `blog/_template/`
+already out of the deploy via `.vercelignore`. The automation was sound: dry-run against the due date
+matched every anchor.
+
+The design flaw was that the hold covered the post but not the **paths to** it. It was linked from
+six live indexable pages — related-post cards and the footer "Popular Guides" column in the Canada,
+Dubai, World Cup, $750 and legit posts, plus the hub — and listed in the hub's `Blog` JSON-LD
+`blogPost[]`. So Googlebot followed a link, hit the `noindex`, and filed the URL as excluded. Benign
+in itself, self-resolving on the publish date, and guaranteed to recur for **every** future scheduled
+post.
+
+**Fixed.** Published the post immediately (`--slug`, dated 2026-08-12) and hardened the mechanism:
+
+- ~~Three markers~~ **five markers.** Added: every inbound link from a live page is held, and the
+  post has no hub `blogPost[]` schema entry while held (the script now *inserts* that entry on
+  publish, reading headline and image from the post's own `BlogPosting` schema).
+- **`--hold <slug>`** applies marker 4 automatically. A related-post `<article class="post-card">` or
+  a standalone footer anchor is wrapped in `<!-- SCHEDULED LINK date slug … -->`. A link *mid-sentence*
+  is instead demoted to `<span data-scheduled-link="slug">`, keeping the visible text and dropping
+  the URL — commenting that out would have eaten the prose. Both revert to live `<a>` on publish.
+- **`--check`** strips comments and `<template data-scheduled>` blocks from every file `.vercelignore`
+  does not exclude, then fails if a scheduled post's URL survives anywhere. Runs on every push via
+  `.github/workflows/check-scheduled-holds.yml`. A held post can no longer reach production
+  discoverable. The post's own canonical/`og:url`/self-link are exempt — they sit on the `noindex`
+  page itself and are not a discovery path.
+
+**Verified by round trip**, not by inspection: restored the pre-publish held state, ran
+`--hold` → `--check` → publish, and diffed against the live site. All five linking pages came back
+**byte-identical**, including the demoted inline link in the $750 post. Two bugs were caught this way
+and fixed — a first cut at `--hold` matched bare `<article>` and commented out a 530-line post body,
+and the publish path wrote the hub file twice, silently discarding its own link reveal.
+
+Also pinned all script writes to LF. A publish run now rewrites every page linking to the post, and
+Python's default would have flipped each to CRLF on a Windows run, turning a ten-line publish into a
+whole-file diff.
+
+**Standing rule:** a held post returns 200 with `noindex`, and that is safe *only* while nothing
+crawlable points at it.
+
+---
+
 ## 2026-08-13 — Competitor naming reworked + `.why-us` block added to every post
 
 Owner decision, applied across all six posts and the template.
@@ -141,8 +190,10 @@ mistake would already be in two posts rather than one. The remaining post keeps 
 to a specific date instead, edit `publishOn` in `blog/publish-queue.json` and let the daily job take
 it.
 
-**How a post is held.** Three markers: `noindex, follow` on the page, the hub card inside an inert
-`<template data-scheduled>`, and the sitemap `<url>` inside an XML comment. On the due date
+**How a post is held.** ~~Three markers: `noindex, follow` on the page, the hub card inside an inert
+`<template data-scheduled>`, and the sitemap `<url>` inside an XML comment.~~ Superseded 2026-08-13 —
+those three hold the *post* but not the paths to it, so Google still found it through inbound links.
+Five markers now; see the entry at the top of this log. On the due date
 `scripts/publish_scheduled.py` stamps six date fields, releases the `noindex`, unwraps the template,
 uncomments the sitemap entry, updates the hub schema's `datePublished`, moves the queue entry to
 `published`, and pushes. Vercel deploys the push — no Vercel token in CI, nothing to configure there.
@@ -151,7 +202,9 @@ uncomments the sitemap entry, updates the hub schema's `datePublished`, moves th
 column and the related-posts blocks link to all three posts from every blog page. Gating with
 `.vercelignore` would have made two of those 404 sitewide for a week. `noindex, follow` keeps every
 page returning 200 while keeping it out of the index — the correct mechanism for "written but not
-published".
+published". Still correct; the mistake was leaving those links live, which is what the 2026-08-13
+entry fixes. The links are now held too, so the page returns 200 for anyone with the URL while
+nothing crawlable points at it.
 
 **Design choices worth knowing**
 - The script builds every edit in memory and writes nothing unless all of them succeed, so a partial

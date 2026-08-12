@@ -3,6 +3,10 @@
 easyvisabooking.com-audit/screenshots/
 easyvisabooking.com-audit/raw/
 
+# Python bytecode from scripts/
+__pycache__/
+*.pyc
+
 # OS / editor
 Thumbs.db
 .DS_Store
