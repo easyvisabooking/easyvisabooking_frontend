@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Easy Visa Booking — Blog System JS
+   Easy Visa Booking: Blog System JS
    --------------------------------------------------------------------------
    Progressive enhancement only. Every page must remain fully readable and
    fully crawlable with JavaScript disabled:
@@ -7,7 +7,7 @@
      - The blog hub renders every card in static HTML; the filter below only
        hides cards that are already in the DOM.
 
-   Loaded on /blog/ and every /blog/<post>/ page. Safe to load on both —
+   Loaded on /blog/ and every /blog/<post>/ page. Safe to load on both;
    each block no-ops when its markup is absent.
    ========================================================================== */
 (function () {

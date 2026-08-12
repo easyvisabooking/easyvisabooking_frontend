@@ -144,6 +144,14 @@ money-back promises. Do not request portal credentials in marketing copy.
 promptly on your behalf", "booked through the official portal", "pay only on success". Always pair
 capability claims with the limitation: appointment availability is controlled by the consulate.
 
+**Punctuation** — no em dashes (`—`) or en dashes (`–`) in any published page. They read as AI-written
+copy. Use a comma, colon, semicolon, full stop or parentheses instead, and a plain hyphen for numeric
+ranges ("30-60 days", "June 11 to June 27"). Internal files that never ship (`README.md`, `seo/`,
+`easyvisabooking.com-audit/`, `blog/_template/` docs) are exempt.
+
+**Founder name** — the site shows **Megh** only. Never publish the full legal name in bylines, author
+schema, `<meta name="author">`, the About identity table or article body copy.
+
 Every page must carry the independence disclaimer in the copyright bar and link to the three legal pages.
 
 ---

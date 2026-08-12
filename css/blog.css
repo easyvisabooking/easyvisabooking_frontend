@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Easy Visa Booking — Blog System
+   Easy Visa Booking: Blog System
    --------------------------------------------------------------------------
    Shared stylesheet for /blog/ (hub) and every /blog/<post>/ page.
    Load AFTER css/style.css.
@@ -7,11 +7,11 @@
    Contents
      1.  Tokens
      2.  Category chips
-     3.  Blog hub — header, filters, featured card, card grid
-     4.  Post — shell, reading progress, breadcrumb
-     5.  Post — masthead (title, deck, byline, cover)
-     6.  Post — reading typography
-     7.  Post — table of contents
+     3.  Blog hub: header, filters, featured card, card grid
+     4.  Post: shell, reading progress, breadcrumb
+     5.  Post: masthead (title, deck, byline, cover)
+     6.  Post: reading typography
+     7.  Post: table of contents
      8.  Trust blocks (answer box, honesty callout, key facts, note)
      9.  Comparison table (competitive positioning)
      10. Calls to action (inline + end)
@@ -642,7 +642,7 @@
    8. Trust blocks
    -------------------------------------------------------------------------- */
 
-/* Answer-first box — the first thing after the cover. Feeds AI citation. */
+/* Answer-first box: the first thing after the cover. Feeds AI citation. */
 .answer-box {
     background: var(--blog-surface-alt);
     border: 1px solid var(--blog-rule);
@@ -678,7 +678,7 @@
 
 .answer-box li { margin-bottom: .5rem; }
 
-/* Honesty callout — "what nobody can promise you". Our differentiator. */
+/* Honesty callout: "what nobody can promise you". Our differentiator. */
 .honesty {
     background: #FFF8F0;
     border: 1px solid #F3DDC2;
@@ -702,7 +702,7 @@
 .honesty p:last-child,
 .honesty ul:last-child { margin-bottom: 0; }
 
-/* Key facts — quotable numbers, structured for citation. */
+/* Key facts: quotable numbers, structured for citation. */
 .key-facts {
     border: 1px solid var(--blog-rule);
     border-radius: var(--blog-radius);
@@ -1161,8 +1161,8 @@
    16. Legacy post shim
    --------------------------------------------------------------------------
    The three posts published before this system (Canada, Dubai, World Cup) use
-   an older class set and a JS-toggled FAQ. Rather than rewrite their prose —
-   which is deliberately left alone — this section maps the old markup onto the
+   an older class set and a JS-toggled FAQ. Rather than rewrite their prose,
+   which is deliberately left alone, this section maps the old markup onto the
    new design so every post reads identically.
 
    Everything here is scoped under .blog-article so it cannot leak into posts
@@ -1239,7 +1239,7 @@
     scroll-margin-top: 90px;
 }
 
-/* the old stylesheet justified body text — hurts readability, especially on mobile */
+/* the old stylesheet justified body text, which hurts readability, especially on mobile */
 .blog-article p {
     font-size: 1rem;
     text-align: left;
@@ -1425,7 +1425,7 @@
     text-decoration-color: currentColor;
 }
 
-/* timeline — used only by the World Cup guide */
+/* timeline: used only by the World Cup guide */
 .blog-article .timeline-container {
     border-left: 3px solid var(--blog-rule);
     margin: 30px 10px;

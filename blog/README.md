@@ -157,6 +157,32 @@ fine. Hits describing what we do are not.
 
 ---
 
+## House style sweep — also run before every publish
+
+Two rules that apply to every published page, not just blog posts.
+
+**1. No em dashes or en dashes.** `—` and `–` are the single strongest tell that copy was written by an
+AI, and this whole blog exists to read as first-hand human experience. Use a comma, colon, semicolon,
+full stop or parentheses instead. For numeric and date ranges use a plain hyphen or the word "to":
+"30-60 days", "June 11 to June 27, 2026". This applies to `<meta>` descriptions, JSON-LD `description`
+and `text` fields, and visible body copy alike.
+
+**2. The founder is "Megh" only.** Never publish the full legal name. It must be `Megh` in the byline,
+the author card `<h2>`, `Person.name` in the BlogPosting schema, `<meta name="author">` and
+`<meta property="article:author">`. The `.byline-avatar` initial is `M`.
+
+Grep before shipping:
+
+```bash
+grep -rnP "[\x{2013}\x{2014}]" blog/ --include=index.html
+grep -rniE "meghkumar|girishbhai" blog/ --include=index.html
+```
+
+Both must return nothing. (`blog/README.md` and `blog/_template/` docs are exempt — neither ships;
+see `.vercelignore`.)
+
+---
+
 ## Pre-publish checklist
 
 - [ ] No `{{` placeholders remain
