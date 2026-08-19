@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img"
+     aria-labelledby="cpec-title cpec-desc" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="cpec-title">The $750 paid expedite went live across Mission Canada on 18 August 2026</title>
+  <desc id="cpec-desc">A $750 optional fee buys a B1/B2 interview within ten business days. Mission Canada joined the State Department pilot on 18 August 2026, covering the Embassy in Ottawa and every US consulate in Canada. The pilot ends 31 December 2026 and covers B-1 and B-2 applicants only.</desc>
+
+  <defs>
+    <linearGradient id="cpec-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00294A"/>
+      <stop offset="55%" stop-color="#003A66"/>
+      <stop offset="100%" stop-color="#005A93"/>
+    </linearGradient>
+    <linearGradient id="cpec-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#cpec-bg)"/>
+  <rect width="1200" height="630" fill="url(#cpec-fade)"/>
+
+  <!-- Decorative maple leaf. Kept inside the safe area so a side crop cannot slice it. -->
+  <g opacity=".15" transform="translate(938 300) scale(2.55)" fill="none" stroke="#ffffff" stroke-width="2.4"
+     stroke-linejoin="round">
+    <path d="M0 -46 L8.5 -30 L20 -34 L15 -14 L34 -18 L28 -6 L44 6 L22 14 L26 26 L6 22 L4 46 L-4 46 L-2 22 L-22 26 L-18 14 L-40 6 L-24 -6 L-30 -18 L-11 -14 L-16 -34 L-4.5 -30 Z"/>
+  </g>
+
+  <!-- Eyebrow. Sits below the hub's own "New" flag overlay so the two never collide. -->
+  <text x="140" y="196" fill="#8FC4E8" font-size="22" font-weight="600" letter-spacing="3.2">NOW LIVE ACROSS CANADA</text>
+
+  <!-- Headline number -->
+  <text x="136" y="315" fill="#ffffff" font-size="146" font-weight="600" letter-spacing="-4">$750</text>
+  <rect x="140" y="343" width="86" height="5" rx="2.5" fill="#E02454"/>
+
+  <!-- Supporting line -->
+  <text x="140" y="404" fill="#ffffff" font-size="34" font-weight="500">Interview within 10 business days</text>
+
+  <line x1="140" y1="432" x2="1060" y2="432" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+
+  <!-- Fact strip -->
+  <g font-size="21" font-weight="500">
+    <text x="140" y="472" fill="#9FCDEC">Live in Canada from</text>
+    <text x="140" y="504" fill="#ffffff">18 August 2026</text>
+
+    <text x="480" y="472" fill="#9FCDEC">Where</text>
+    <text x="480" y="504" fill="#ffffff">Ottawa and every consulate</text>
+
+    <text x="140" y="562" fill="#9FCDEC">Pilot ends</text>
+    <text x="140" y="594" fill="#ffffff">31 December 2026</text>
+
+    <text x="480" y="562" fill="#9FCDEC">Visa categories</text>
+    <text x="480" y="594" fill="#ffffff">B-1 / B-2 only</text>
+  </g>
+
+  <line x1="140" y1="530" x2="1060" y2="530" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+
+  <text x="1060" y="196" fill="#ffffff" fill-opacity=".45" font-size="17" text-anchor="end">easyvisabooking.com</text>
+</svg>

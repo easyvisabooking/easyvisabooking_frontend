@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img"
      aria-labelledby="c750-title c750-desc" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif">
   <title id="c750-title">The $750 expedited US visa interview pilot at a glance</title>
-  <desc id="c750-desc">A $750 optional fee buys a B1/B2 interview within ten business days. The pilot runs 1 July to 31 December 2026 and, as of 12 August 2026, operates only at US posts in Mexico, capped at about 25,000 requests.</desc>
+  <desc id="c750-desc">A $750 optional fee buys a B1/B2 interview within ten business days. The pilot runs 1 July to 31 December 2026 and, as of 19 August 2026, operates at US posts in Mexico and Canada, capped at about 25,000 requests.</desc>
 
   <defs>
     <linearGradient id="c750-bg" x1="0" y1="0" x2="1" y2="1">
@@ -43,10 +43,10 @@
   <!-- fact strip -->
   <g font-size="21" font-weight="500">
     <text x="96" y="470" fill="#9FCDEC">Runs</text>
-    <text x="96" y="502" fill="#ffffff">1 Jul – 31 Dec 2026</text>
+    <text x="96" y="502" fill="#ffffff">1 Jul to 31 Dec 2026</text>
 
     <text x="376" y="470" fill="#9FCDEC">Available at</text>
-    <text x="376" y="502" fill="#ffffff">US posts in Mexico only</text>
+    <text x="376" y="502" fill="#ffffff">Mexico and Canada</text>
 
     <text x="96" y="556" fill="#9FCDEC">Capacity</text>
     <text x="96" y="588" fill="#ffffff">~25,000 requests</text>

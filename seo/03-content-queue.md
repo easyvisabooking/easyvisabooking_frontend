@@ -1,6 +1,6 @@
 # Content Queue
 
-**Last updated:** 2026-08-11 · **Cadence:** 8–10 posts/month · **Status:** LIVING — reorder as findings land
+**Last updated:** 2026-08-19 · **Cadence:** 8–10 posts/month · **Status:** LIVING — reorder as findings land
 
 Ordered by priority, not by cluster. Sources: the 39-topic Reddit list
 ([`research/`](research/)), 2026-08-11 SERP research, and the audit's cluster analysis.
@@ -37,12 +37,13 @@ Refresh monthly; carry a visible "last updated" date.
 
 | # | Title | Cluster | Primary query | Notes | Status |
 |---|---|---|---|---|---|
-| 1 | *(F1)* The $750 US Visa Expedited Appointment: Who Qualifies, and Who Cannot Use It Yet | C3 | us visa expedited appointment 750 | ✅ 2026-08-12. **Info-gain that shipped:** the pilot is Mission Mexico only as of 2026-08-12 — almost no competing page says this | ✅ |
+| 1 | *(F1)* The $750 US Visa Expedited Appointment: Who Qualifies, and Who Cannot Use It Yet | C3 | us visa expedited appointment 750 | ✅ 2026-08-12. **Info-gain that shipped:** the participating-post list, which almost no competing page carries. Refreshed 2026-08-19 when Mission Canada was added | ✅ |
 | 2 | *(F2)* US Visa Appointment Wait Times by Country (Updated Monthly) | C2 | us visa wait times by country 2026 | Link asset. Table-first | ⬜ |
 | 3 | Can You Reschedule a US Visa Appointment to an Earlier Date? | C1 | reschedule us visa appointment earlier | ✅ 2026-08-12. **Info-gain that shipped:** per-country reschedule allowances (India 1 since 2025-01-01, PH/TH 3, JP 6) + the ~48h lock | ✅ |
 | 4 | Why Your US Visa Appointment Won't Move to an Earlier Date | C1 | cant reschedule us visa appointment earlier | PDF #13. Troubleshooting intent = low competition | ⬜ |
 | 5 | US Visa Appointment Slots: When Do They Actually Open? | C1 | when do us visa slots open | PDF #16. **Info-gain:** slot-release timing, CST/local-time behaviour, midnight rollover | ⬜ |
 | 6 | How Many Times Can You Reschedule a US Visa Appointment? | C1 | how many times reschedule us visa appointment | PDF #36. **Info-gain:** 24–72h temporary bans from excessive refreshing — almost nobody states this plainly | ⬜ |
+| 6b | The $750 Paid Expedite Is Now Live in Canada: Who It Actually Helps | C3 | us visa paid expedite canada | ✅ 2026-08-19. Written same-week off the State Dept designation of Mission Canada on 2026-08-18. **Info-gain that shipped:** Canadian citizens do not need a B visa at all, so the entire Canadian queue is PRs, permit holders and other foreign nationals; the 25,000 cap is worldwide and shared, not per mission; the country-of-residence guidance kills the fly-to-Toronto plan | ✅ |
 | 7 | *(F4)* Are US Visa Slot Booking Services Legit? An Honest Answer | C4 | us visa slot booking service legit | ✅ 2026-08-11. **Info-gain that shipped:** the seven checks, run publicly against our own service — including what we deliberately do not publish | ✅ |
 | 8 | Why Canada Has the World's Longest US Visa Waits Right Now | C2 | us visa wait time canada toronto | Toronto 14.5mo / Vancouver 12.5mo. Feeds the Canada + Toronto service pages | ⬜ |
 | 9 | US Visa Appointment Wait Times in India: What to Expect in 2026 | C2 | us visa appointment wait time india | India 2–10mo. Largest single-country search market | ⬜ |
@@ -56,7 +57,7 @@ Refresh monthly; carry a visible "last updated" date.
 |---|---|---|---|---|---|
 | 11 | *(F3)* The Complete US Visa Appointment Guide (2026) | C1 | us visa appointment guide 2026 | Pillar. Write after 3–10 so it can link down into real posts | ⬜ |
 | 12 | Best Time of Day to Check for US Visa Appointment Slots | C1 | best time to check us visa slots | PDF #4 + #14 + #32 merged — **do not** publish these as three posts | ⬜ |
-| 13 | Which Embassies Offer the $750 Expedited Interview? | C3 | 750 expedited interview which embassies | F1 spoke. Update as State Dept expands the pilot | ⬜ |
+| 13 | Which Embassies Offer the $750 Expedited Interview? | C3 | 750 expedited interview which embassies | F1 spoke. **Reconsider before writing:** F1 already carries the participating list and 6b owns the Canada half of this intent. Fold future designations into F1 rather than opening a third page on the same query | ⬜ |
 | 14 | US Visa Emergency Appointments: Criteria and Proof Required | C3 | us visa emergency appointment | Distinct from the $750 route — separate intent, separate page | ⬜ |
 | 15 | Free Methods vs Paid Services for an Earlier US Visa Date | C4 | us visa appointment free vs paid | PDF #29. Genuinely fair comparison. Include $750 government route as a third option | ⬜ |
 | 16 | US Visa Appointment Wait Times: UAE and the Gulf | C2 | us visa appointment wait time dubai uae | Feeds the existing Dubai blog post | ⬜ |

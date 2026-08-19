@@ -1264,7 +1264,16 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 991.98px) {
     .featured { grid-template-columns: 1fr; }
-    .featured-media { min-height: 240px; }
+
+    /* Stacked layout: show the whole cover. These covers are infographics with text in
+       them, and object-fit: cover was slicing 10-12% off each side at phone widths.
+       Matching the container to the artwork's 1200x630 means there is nothing to crop. */
+    .featured-media {
+        min-height: 0;
+        aspect-ratio: 1200 / 630;
+    }
+
+    .featured-media img { object-fit: contain; }
     .featured-body { padding: 30px 28px 32px; }
     .featured-body h2 { font-size: 1.5rem; }
 }

@@ -54,10 +54,18 @@ client receives**, not by **how the work is performed**.
 - ✅ Broken `/how-it-works.html` link on homepage fixed
 - ✅ Dead breadcrumb and `href="#"` contact links fixed
 
-**Portal credentials — stated position:**
-- We never ask for, receive, or store the applicant's scheduling-portal login. Any portal sign-in is
-  performed by the applicant on their own device. Stated in `terms/` §6, `privacy/` §2, a homepage
-  trust badge, and step 1 of `how-it-works/`.
+**Portal credentials — stated position (revised 2026-08-19):**
+- The cloud plan requires the applicant's scheduling-portal credentials, so the previous site-wide
+  claim ("we never ask for, receive or store your login") was **false and has been removed**
+  everywhere it appeared in marketing copy: every blog post, the blog template, the homepage trust
+  badge and step 1 of `how-it-works/`.
+- **Marketing copy now says nothing about credentials in either direction.** Do not reintroduce the
+  denial, and do not advertise the requirement either. Where the old claim carried conversion weight,
+  it was replaced with date-range flexibility copy, which is honest and does the same job.
+- ⚠️ **Outstanding:** `terms/` §6 and `privacy/` §2 still carry the old denial. A privacy policy that
+  is silent about credentials while the product collects them is worse than one that is merely out of
+  date, so those two sections need positive disclosure of what the cloud plan actually does: what is
+  collected, where it is held, for how long, and how to have it deleted. Blocked on those facts.
 
 **Business identity — deliberate omission:**
 - Registered legal entity name, registration number, registered address and a named governing-law
@@ -138,7 +146,9 @@ When editing or adding pages, keep the following consistent:
 **Do not use** — automation framing of any kind: "automated", "auto-booking", "our system monitors",
 "every few seconds", "instantly books", "bots", "scripts", "24/7 monitoring". Do not reintroduce agent,
 bulk, reseller or white-label offerings. Do not state success-rate percentages, guarantees, or
-money-back promises. Do not request portal credentials in marketing copy.
+money-back promises. Do not make any claim about portal credentials in marketing copy, in either
+direction: not "we never ask for your password", and not a request for them either. Credential
+handling is disclosed in `terms/` and `privacy/` only.
 
 **Do use** — "our team", "our coordinators", "appointment support", "we review availability", "we act
 promptly on your behalf", "booked through the official portal", "pay only on success". Always pair

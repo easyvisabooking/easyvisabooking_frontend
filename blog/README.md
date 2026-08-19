@@ -109,7 +109,8 @@ Rules that keep it credible:
   only: what the fee buys and when it is charged. Never allege wrongdoing by a named company. Never
   quote a competitor price we have not verified — link out for pricing.
 - **Our row** uses `class="is-us"` and the `.compare-us-tag` badge, and always states: from $100,
-  paid only on success, no portal password, no guarantee.
+  paid only on success, no guarantee. **Never** the old "no portal password" line: it was removed
+  site-wide on 2026-08-19 because the cloud plan needs credentials.
 - **Close with `.compare-foot`**: comparison not endorsement; no commercial relationship; verify
   pricing directly.
 
@@ -124,8 +125,11 @@ where we argue for ourselves, which is what keeps the table above it honest.
   not.
 - **Lead with pay-on-success.** It is the only genuinely structural difference: every other row
   charges before the outcome. Say so explicitly, and say the fee is $100.
-- **Then: we carry the work, not the alert. No portal password, ever. Everything published before
-  you pay** — link `/privacy/`, `/terms/`, `/refund-policy/`.
+- **Then: we carry the work, not the alert. A wide date range is the reader's biggest lever.
+  Everything published before you pay** — link `/privacy/`, `/terms/`, `/refund-policy/`.
+- **Say nothing about portal credentials, in either direction.** The old "we never ask for your
+  portal password" bullet was false once the cloud plan shipped and was stripped from every post on
+  2026-08-19. Do not reinstate it, and do not replace it with a request either.
 - **Close with `.why-us-foot` conceding the free row.** State the reader profile that should not pay
   anyone. A why-us block with no concession in it reads as a sales page and undoes the table.
 - **The constraint sweep applies here hardest.** No guarantee, no success rate, no automation
@@ -169,8 +173,10 @@ the payment account. See [`seo/02-growth-plan.md`](../seo/02-growth-plan.md) §5
 - ✅ Explaining what **applicants** can do themselves, including when and how to check
 - ✅ Describing our service by **outcome and team** — "our team takes on the rescheduling work"
 - ✅ Honest comparison against paid alternatives, including the $750 government expedite
-- ✅ "We cannot guarantee a date", "you pay only on success", "we never ask for your portal
-  password" — repeat these often
+- ✅ "We cannot guarantee a date", "you pay only on success", "appointment availability is controlled
+  by the consulate" — repeat these often
+- ❌ **Never** "we never ask for your portal password". Removed site-wide on 2026-08-19: the cloud plan
+  needs credentials, so the claim was false. Say nothing about credentials in either direction
 
 Grep before shipping:
 
@@ -379,7 +385,8 @@ reminder.
 
 | Slug | Category | Published | Primary query |
 |---|---|---|---|
-| `us-visa-expedited-appointment-750` | expedite | 2026-08-12 | us visa expedited appointment 750 |
+| `us-visa-paid-expedite-canada` | expedite | 2026-08-19 | us visa paid expedite canada |
+| `us-visa-expedited-appointment-750` | expedite | 2026-08-12 (updated 2026-08-19) | us visa expedited appointment 750 |
 | `is-us-visa-slot-booking-legit` | trust | 2026-08-11 | are us visa slot booking services legit |
 | `reschedule-us-visa-appointment-earlier` | rescheduling | ⏳ 2026-08-19 | reschedule us visa appointment earlier |
 | `us-visa-appointment-world-cup-2026-guide` | basics | 2026-06-29 | fifa world cup 2026 us visa |

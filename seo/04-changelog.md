@@ -5,6 +5,40 @@ Superseded reasoning is struck through, never deleted — the reasoning is worth
 
 ---
 
+## 2026-08-19 — Mission Canada joins the $750 pilot: new post shipped same week, F1 corrected
+
+**What happened.** On 2026-08-18 the State Department designated **Mission Canada** (Embassy Ottawa
+and every US consulate in Canada) as a participating post in the nonimmigrant visa expedited
+appointment pilot. It is the second mission ever designated, after Mission Mexico on 2026-07-22, and
+the first with a visitor visa queue measured in years (Toronto 21 months as of 2026-06-18).
+
+**Shipped.** `/blog/us-visa-paid-expedite-canada/` (queue item 6b, C3, 3,770 words), featured on the
+hub, in the sitemap, and in the hub `Blog` JSON-LD. Three info-gain angles no competing page carried
+on the day of writing:
+
+- **Canadian citizens do not need a B-1/B-2 visa at all.** The Canadian queue is therefore almost
+  entirely PRs, work and study permit holders and other foreign nationals resident in Canada. That
+  reframes who the news is even for, and nothing else in the SERP said it.
+- **The ~25,000 request cap is worldwide and shared**, not allocated per mission. Canada joined seven
+  weeks into a capped pilot, with the deepest queues of the two participating missions.
+- **The fly-to-Toronto plan does not work.** The country-of-residence guidance of 2025-09-06 (updated
+  2025-10-10) plus a non-refundable $750 makes third-country expedite shopping an expensive mistake.
+
+**F1 corrected, not left to rot.** `/blog/us-visa-expedited-appointment-750/` asserted in eleven
+places that Mexico was the only participating mission. All of them now read Mexico *and* Canada, the
+FAQ pair was rewritten on both sides (visible text and `FAQPage` schema kept word for word), the
+`#not-in-mexico` section was retitled "What to do if the pilot is closed to you" with the anchor
+preserved, `dateModified` moved to 2026-08-19, the official pilot page was added as source 1, and the
+cover SVG was regenerated. Publishing 6b while F1 still said "you cannot pay this fee in Canada"
+would have put the site in direct contradiction with itself on the same query.
+
+**Cadence note.** Published on the day rather than spaced, and that is deliberate: this is the only
+item in the queue with a government deadline attached (pilot ends 2026-12-31) and a designation that
+is news for roughly a week. Queue item 13 ("Which Embassies Offer the $750 Expedited Interview?") is
+now flagged to be folded into F1 rather than written as a third page on the same intent.
+
+---
+
 ## 2026-08-13 — Held posts were reachable: scheduling hardened, guard added to CI
 
 **Symptom.** URL Inspection on `/blog/reschedule-us-visa-appointment-earlier/` returned *"URL is not
