@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img"
+     aria-labelledby="cusvisawaittime-title cusvisawaittime-desc" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="cusvisawaittime-title">West African posts had some of the shortest US visitor visa queues in the world in August 2026</title>
+  <desc id="cusvisawaittime-desc">In August 2026 the interview-required B-1/B-2 wait was about 15 days at Abuja, about 30 days at Lagos and about 105 days at Accra, against about 495 days at Toronto, about 435 at Sydney and about 315 at Hyderabad. The longest visitor visa queues in the world are now in wealthy English-speaking countries, not in West Africa, and for Nigerian applicants the binding constraint is documentation and administrative processing rather than the appointment calendar.</desc>
+
+  <defs>
+    <linearGradient id="cusvisawaittime-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#062E3F"/>
+      <stop offset="55%" stop-color="#0A4A61"/>
+      <stop offset="100%" stop-color="#0E6B85"/>
+    </linearGradient>
+    <linearGradient id="cusvisawaittime-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#cusvisawaittime-bg)"/>
+  <rect width="1200" height="630" fill="url(#cusvisawaittime-fade)"/>
+
+  <text x="140" y="196" fill="#8FD4E4" font-size="22" font-weight="600" letter-spacing="3.2">THE ASSUMPTION IS BACKWARDS</text>
+
+  <text x="136" y="300" fill="#ffffff" font-size="74" font-weight="600" letter-spacing="-2">Abuja 15 days.</text>
+  <text x="136" y="372" fill="#ffffff" font-size="74" font-weight="600" letter-spacing="-2">Toronto 495.</text>
+  <rect x="140" y="400" width="86" height="5" rx="2.5" fill="#E02454"/>
+
+  <line x1="140" y1="452" x2="1060" y2="452" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+  <line x1="140" y1="544" x2="1060" y2="544" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+
+  <g font-size="21" font-weight="500">
+    <text x="140" y="492" fill="#8FD4E4">Abuja B-1/B-2</text>
+    <text x="140" y="524" fill="#ffffff">About 15 days</text>
+    <text x="560" y="492" fill="#8FD4E4">Lagos B-1/B-2</text>
+    <text x="560" y="524" fill="#ffffff">About 30 days</text>
+    <text x="140" y="576" fill="#8FD4E4">Accra, Ghana</text>
+    <text x="140" y="608" fill="#ffffff">About 105 days</text>
+    <text x="560" y="576" fill="#8FD4E4">Real constraint</text>
+    <text x="560" y="608" fill="#ffffff">Not the calendar</text>
+  </g>
+
+  <text x="1060" y="196" fill="#ffffff" fill-opacity=".45" font-size="17" text-anchor="end">easyvisabooking.com</text>
+</svg>

@@ -1,0 +1,137 @@
+{
+  "titleTag": "Can't Reschedule Your US Visa Appointment? 12 Reasons Why",
+  "h1": "Why You Cannot Reschedule Your US Visa Appointment, and What to Do About Each Cause",
+  "deck": "The reschedule option is missing, greyed out, or throws an error. There are twelve reasons that happens, they have different fixes, and telling them apart takes about two minutes.",
+  "metaDescription": "The reschedule option missing or greyed out on your US visa appointment? The 12 causes, how to tell which one you have, and what actually fixes each of them.",
+  "keywords": [
+    "cant reschedule us visa appointment",
+    "us visa reschedule option not showing",
+    "reschedule button greyed out us visa",
+    "us visa reschedule not working",
+    "us visa change appointment date not available",
+    "us visa reschedule error"
+  ],
+  "category": "rescheduling",
+  "breadcrumb": "When You Cannot Reschedule",
+  "datePublished": "2026-08-19",
+  "publishOn": "2026-08-26",
+  "readTime": 12,
+  "cover": "../../img/blog/cover-cant-reschedule-us-visa-appointment.svg",
+  "coverAlt": "Twelve reasons a US visa appointment will not reschedule: no confirmed booking yet, the MRV fee not recognised, an expired MRV receipt, attempts used up, the roughly 48 hour lock before the interview, an empty calendar, group bookings, a changed DS-160, a temporary lock from excessive refreshing, reduced post operations, and the wrong scheduling portal",
+  "ogImage": "https://www.easyvisabooking.com/img/carousel-1.jpg",
+  "ogImageWidth": 1920,
+  "ogImageHeight": 1080,
+
+  "coverSpec": {
+    "eyebrow": "DIAGNOSE IT IN TWO MINUTES",
+    "headline": ["12 reasons it", "will not move"],
+    "headlineSize": 82,
+    "title": "Twelve reasons a US visa appointment will not reschedule, and how to tell them apart",
+    "desc": "The reschedule option can be missing, disabled or error out for twelve distinct reasons: no confirmed appointment yet, an MRV fee not yet recognised, an expired MRV receipt, reschedule attempts used up, the roughly 48 hour lock before the interview, a genuinely empty calendar, group bookings that must move together, a DS-160 replaced after booking, a temporary lock from excessive refreshing, a post running reduced operations, and being on the wrong scheduling portal for your country.",
+    "facts": [
+      ["Most common cause", "The calendar is simply empty"],
+      ["Most expensive cause", "Attempts already used up"],
+      ["Hard cut-off", "About 48 hours before"],
+      ["Fixes itself", "A 24 to 72 hour lock"]
+    ]
+  },
+
+  "faq": [
+    {
+      "q": "Why is the reschedule button greyed out on my US visa appointment?",
+      "a": "The three usual causes are that you are inside the lock window, typically the last 48 hours before your interview, that you have used every reschedule attempt your country allows on this MRV fee, or that the system has not yet recognised your fee payment. Your account normally displays which one applies, either as attempts remaining or as a message on the appointment screen, so read that before assuming anything is broken."
+    },
+    {
+      "q": "Does an empty calendar mean I cannot reschedule?",
+      "a": "No. An empty calendar means there is nothing to move to right now, which is different from the reschedule function being unavailable. If the option is live and the calendar is blank, your attempts are intact and nothing has been spent. That is the good version of this problem, and it is the most common one. Come back and look again rather than trying to force it."
+    },
+    {
+      "q": "How long before my interview can I still reschedule?",
+      "a": "Changes typically lock about 48 hours before the appointment, and some posts cut it off earlier. Because portal maintenance windows and time zones can shift that in practice, act at least three business days ahead of any date you want to change. Once the lock closes there is no self-service route, and missing an interview is treated as a no-show rather than a reschedule."
+    },
+    {
+      "q": "I keep refreshing and now nothing loads. Have I been banned?",
+      "a": "Probably not permanently. Scheduling systems apply temporary restrictions to accounts that generate a very high volume of requests, and these usually clear on their own within about 24 to 72 hours. Stop, wait it out and come back rather than switching browsers, devices or networks to get around it, because repeating the behaviour is what triggered it in the first place."
+    },
+    {
+      "q": "My MRV receipt is not being accepted. What now?",
+      "a": "Two possibilities. Bank payments and cash deposits can take one to two business days to appear against your account, so a receipt paid this morning may simply not have arrived yet. Or the receipt has expired: the MRV fee is generally valid for one year from payment, and your interview must be scheduled within that period. An expired receipt cannot be revived and a new fee is required."
+    },
+    {
+      "q": "Can I reschedule just one person out of a family booking?",
+      "a": "Usually not. Where applicants are grouped in one scheduling account, the system moves the group together, so an individual change is often not offered at all. That is a design decision rather than a fault. If you genuinely need to split a group, contact the scheduling support channel for your country before you try to force it, because a failed attempt can still consume one of your reschedules."
+    },
+    {
+      "q": "Is the reschedule option different in different countries?",
+      "a": "Yes, and this is the thing most guides get wrong. Countries sit on different scheduling platforms, so screens, wording and reschedule allowances differ. India, Canada and many others use the AIS portal, while the UAE and others use a separate system. A walkthrough written for one platform will describe buttons that do not exist on the other, so the fact that your screen does not match an article is usually not a fault in your account."
+    }
+  ],
+
+  "sources": [
+    {
+      "publisher": "RedBus2US",
+      "url": "https://redbus2us.com/visas/usa/apply/reschedule-appointment/",
+      "title": "How many times can I reschedule my US Visa Appointment?",
+      "note": "Country-by-country reschedule allowances and the portal warning text applicants see when attempts are exhausted.",
+      "retrieved": "19 August 2026"
+    },
+    {
+      "publisher": "US Department of State",
+      "url": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
+      "title": "Global Visa Wait Times",
+      "note": "Current interview waits by post, which is what decides whether an empty calendar is normal for where you are applying.",
+      "retrieved": "19 August 2026"
+    },
+    {
+      "publisher": "US Embassy and Consulate in the United Arab Emirates",
+      "url": "https://ae.usembassy.gov/visas/",
+      "title": "Visas",
+      "note": "An example of a mission publishing its own appointment release window, and of a post running reduced operations while appointments are limited.",
+      "retrieved": "19 August 2026"
+    },
+    {
+      "publisher": "US Department of State",
+      "url": "https://travel.state.gov/content/travel/en/News/visas-news/adjudicating-niv-applicants-in-their-country-of-residence.html",
+      "title": "Adjudicating Nonimmigrant Visa (NIV) Applicants in Their Country of Residence",
+      "note": "6 September 2025, updated 10 October 2025. Why moving your booking to a different country is not the workaround it once was.",
+      "retrieved": "19 August 2026"
+    }
+  ],
+  "sourcesNote": "Reschedule allowances and lock windows are set per country by the scheduling platform and can change without announcement, so always confirm against the message shown in your own account. This article is general information and is not legal or immigration advice.",
+
+  "cta": {
+    "heading": "Diagnosed it, and the answer was an empty calendar?",
+    "body": "That is the most common ending to this page, and it is the one no fix helps with, because the only thing that changes an empty calendar is somebody watching it when it stops being empty. If that cannot be you, our team can take the rescheduling work on for your consulate. Tell us your post, your current date and the widest date range you could accept, and we will tell you honestly how it looks before you commit to anything.",
+    "buttons": [
+      { "href": "/services/", "style": "cta-btn-primary", "label": "See how the service works" },
+      { "href": "/contact/", "style": "cta-btn-ghost", "label": "Ask us a question first" }
+    ]
+  },
+
+  "related": [
+    {
+      "slug": "reschedule-us-visa-appointment-earlier",
+      "category": "rescheduling",
+      "title": "Can You Reschedule a US Visa Appointment to an Earlier Date?",
+      "blurb": "The rules underneath everything on this page: how many attempts your country gives you, and how to avoid wasting them.",
+      "image": "../../img/blog/cover-reschedule-earlier.svg",
+      "alt": "US visa reschedule allowances by country: India one since January 2025, Philippines and Thailand three, Japan six, and no changes at all inside roughly 48 hours"
+    },
+    {
+      "slug": "us-visa-appointment-abu-dhabi",
+      "category": "wait-times",
+      "title": "US Visa Appointments in Abu Dhabi and Dubai Are Open Again",
+      "blurb": "What a post running reduced operations looks like from the applicant's side, and a mission that publishes its release window.",
+      "image": "../../img/blog/cover-abu-dhabi-uae.svg",
+      "alt": "US visa interview appointments are being released again in the UAE on Friday mornings between 7:30 and 11:30"
+    },
+    {
+      "slug": "is-us-visa-slot-booking-legit",
+      "category": "trust",
+      "title": "Are US Visa Slot Booking Services Legit? An Honest Answer",
+      "blurb": "Seven checks that separate a real service from theft, applied to us as well as to everybody else.",
+      "image": "../../img/blog/cover-slot-services-legit.svg",
+      "alt": "Seven checks before paying a US visa appointment service: paid only if it works, data handling in writing, promises no date, refund terms in writing, a contact that answers, price stated up front"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img"
+     aria-labelledby="cusvisaemergenc-title cusvisaemergenc-desc" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="cusvisaemergenc-title">US visa expedited appointment requests: three categories qualify and the common ones are explicitly refused</title>
+  <desc id="cusvisaemergenc-desc">Consular sections may expedite an interview for an urgent unforeseen situation. In practice that means urgent medical care with a doctor's letter and a letter from the treating US hospital, the funeral or repatriation of an immediate family member in the United States, or a student or exchange visitor within 60 days of a programme start date with an original I-20 or DS-2019 and proof of the SEVIS fee. Weddings, graduations, assisting pregnant relatives, annual conferences and last-minute tourism are named as not qualifying.</desc>
+
+  <defs>
+    <linearGradient id="cusvisaemergenc-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00294A"/>
+      <stop offset="55%" stop-color="#003A66"/>
+      <stop offset="100%" stop-color="#005A93"/>
+    </linearGradient>
+    <linearGradient id="cusvisaemergenc-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#cusvisaemergenc-bg)"/>
+  <rect width="1200" height="630" fill="url(#cusvisaemergenc-fade)"/>
+
+  <text x="140" y="196" fill="#9FCDEC" font-size="22" font-weight="600" letter-spacing="3.2">FREE, AND USUALLY REFUSED</text>
+
+  <text x="136" y="300" fill="#ffffff" font-size="62" font-weight="600" letter-spacing="-2">Three reasons in.</text>
+  <text x="136" y="360" fill="#ffffff" font-size="62" font-weight="600" letter-spacing="-2">Everything else out.</text>
+  <rect x="140" y="388" width="86" height="5" rx="2.5" fill="#E02454"/>
+
+  <line x1="140" y1="452" x2="1060" y2="452" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+  <line x1="140" y1="544" x2="1060" y2="544" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+
+  <g font-size="21" font-weight="500">
+    <text x="140" y="492" fill="#9FCDEC">Cost</text>
+    <text x="140" y="524" fill="#ffffff">Free, and discretionary</text>
+    <text x="560" y="492" fill="#9FCDEC">Order</text>
+    <text x="560" y="524" fill="#ffffff">DS-160, fee, book, then request</text>
+    <text x="140" y="576" fill="#9FCDEC">Students</text>
+    <text x="140" y="608" fill="#ffffff">Within 60 days of start date</text>
+    <text x="560" y="576" fill="#9FCDEC">Explicitly refused</text>
+    <text x="560" y="608" fill="#ffffff">Weddings and graduations</text>
+  </g>
+
+  <text x="1060" y="196" fill="#ffffff" fill-opacity=".45" font-size="17" text-anchor="end">easyvisabooking.com</text>
+</svg>

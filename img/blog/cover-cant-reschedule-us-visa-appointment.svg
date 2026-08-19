@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img"
+     aria-labelledby="ccantreschedule-title ccantreschedule-desc" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="ccantreschedule-title">Twelve reasons a US visa appointment will not reschedule, and how to tell them apart</title>
+  <desc id="ccantreschedule-desc">The reschedule option can be missing, disabled or error out for twelve distinct reasons: no confirmed appointment yet, an MRV fee not yet recognised, an expired MRV receipt, reschedule attempts used up, the roughly 48 hour lock before the interview, a genuinely empty calendar, group bookings that must move together, a DS-160 replaced after booking, a temporary lock from excessive refreshing, a post running reduced operations, and being on the wrong scheduling portal for your country.</desc>
+
+  <defs>
+    <linearGradient id="ccantreschedule-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E2340"/>
+      <stop offset="55%" stop-color="#2C3566"/>
+      <stop offset="100%" stop-color="#3D4B93"/>
+    </linearGradient>
+    <linearGradient id="ccantreschedule-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#ccantreschedule-bg)"/>
+  <rect width="1200" height="630" fill="url(#ccantreschedule-fade)"/>
+
+  <text x="140" y="196" fill="#A9B6EC" font-size="22" font-weight="600" letter-spacing="3.2">DIAGNOSE IT IN TWO MINUTES</text>
+
+  <text x="136" y="300" fill="#ffffff" font-size="82" font-weight="600" letter-spacing="-2">12 reasons it</text>
+  <text x="136" y="380" fill="#ffffff" font-size="82" font-weight="600" letter-spacing="-2">will not move</text>
+  <rect x="140" y="408" width="86" height="5" rx="2.5" fill="#E02454"/>
+
+  <line x1="140" y1="452" x2="1060" y2="452" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+  <line x1="140" y1="544" x2="1060" y2="544" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+
+  <g font-size="21" font-weight="500">
+    <text x="140" y="492" fill="#A9B6EC">Most common cause</text>
+    <text x="140" y="524" fill="#ffffff">The calendar is simply empty</text>
+    <text x="560" y="492" fill="#A9B6EC">Most expensive cause</text>
+    <text x="560" y="524" fill="#ffffff">Attempts already used up</text>
+    <text x="140" y="576" fill="#A9B6EC">Hard cut-off</text>
+    <text x="140" y="608" fill="#ffffff">About 48 hours before</text>
+    <text x="560" y="576" fill="#A9B6EC">Fixes itself</text>
+    <text x="560" y="608" fill="#ffffff">A 24 to 72 hour lock</text>
+  </g>
+
+  <text x="1060" y="196" fill="#ffffff" fill-opacity=".45" font-size="17" text-anchor="end">easyvisabooking.com</text>
+</svg>

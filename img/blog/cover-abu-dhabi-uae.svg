@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img"
+     aria-labelledby="cadu-title cadu-desc" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="cadu-title">US visa interview appointments are being released again in the UAE, on Friday mornings</title>
+  <desc id="cadu-desc">Limited nonimmigrant visa appointments are available again at the US Embassy in Abu Dhabi and the US Consulate General in Dubai. Interview appointments are released every Friday morning between 7:30 and 11:30, US and UAE holidays excepted. Immigrant visa services remain suspended, and UAE applicants book through usvisascheduling.com rather than the AIS portal.</desc>
+
+  <defs>
+    <linearGradient id="cadu-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#062E3F"/>
+      <stop offset="55%" stop-color="#0A4A61"/>
+      <stop offset="100%" stop-color="#0E6B85"/>
+    </linearGradient>
+    <linearGradient id="cadu-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#cadu-bg)"/>
+  <rect width="1200" height="630" fill="url(#cadu-fade)"/>
+
+  <!-- Decorative skyline. Kept inside the safe area so a side crop cannot slice it. -->
+  <g opacity=".14" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">
+    <path d="M886 400 L886 214 L900 168 L914 214 L914 400 Z"/>
+    <path d="M932 400 L932 250 L960 232 L988 250 L988 400 Z"/>
+    <path d="M1004 400 L1004 288 L1046 288 L1046 400 Z"/>
+    <path d="M846 400 L846 308 L872 308 L872 400 Z"/>
+    <line x1="828" y1="400" x2="1064" y2="400"/>
+    <line x1="946" y1="264" x2="946" y2="392"/>
+    <line x1="974" y1="264" x2="974" y2="392"/>
+  </g>
+
+  <!-- Eyebrow -->
+  <text x="140" y="196" fill="#7FD0E0" font-size="22" font-weight="600" letter-spacing="3.2">ABU DHABI AND DUBAI</text>
+
+  <!-- Headline -->
+  <text x="136" y="300" fill="#ffffff" font-size="88" font-weight="600" letter-spacing="-2">Slots are open</text>
+  <text x="136" y="386" fill="#ffffff" font-size="88" font-weight="600" letter-spacing="-2">again</text>
+  <rect x="140" y="414" width="86" height="5" rx="2.5" fill="#E02454"/>
+
+  <line x1="140" y1="452" x2="1060" y2="452" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+
+  <!-- Fact strip -->
+  <g font-size="21" font-weight="500">
+    <text x="140" y="492" fill="#8FD4E4">Released</text>
+    <text x="140" y="524" fill="#ffffff">Fridays, 7:30 to 11:30</text>
+
+    <text x="520" y="492" fill="#8FD4E4">Booked on</text>
+    <text x="520" y="524" fill="#ffffff">usvisascheduling.com</text>
+
+    <text x="140" y="576" fill="#8FD4E4">Still suspended</text>
+    <text x="140" y="608" fill="#ffffff">All immigrant visa services</text>
+
+    <text x="520" y="576" fill="#8FD4E4">Not available in the UAE</text>
+    <text x="520" y="608" fill="#ffffff">The $750 paid expedite</text>
+  </g>
+
+  <line x1="140" y1="544" x2="1060" y2="544" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+
+  <text x="1060" y="196" fill="#ffffff" fill-opacity=".45" font-size="17" text-anchor="end">easyvisabooking.com</text>
+</svg>

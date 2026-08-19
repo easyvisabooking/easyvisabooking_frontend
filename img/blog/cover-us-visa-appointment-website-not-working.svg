@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img"
+     aria-labelledby="cusvisaappointm-title cusvisaappointm-desc" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="cusvisaappointm-title">Three different faults make the US visa scheduling site look broken, and each needs a different response</title>
+  <desc id="cusvisaappointm-desc">A genuine outage or maintenance window affects everyone and is fixed by waiting. A temporary restriction on your own account, commonly lasting around 24 to 72 hours, is caused by too many requests and is made worse by switching browser, device or network to keep going. An ordinary session or browser problem affects only you and clears on a fresh sign-in. Telling them apart takes about two minutes and stops you turning a short problem into a long one.</desc>
+
+  <defs>
+    <linearGradient id="cusvisaappointm-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E2340"/>
+      <stop offset="55%" stop-color="#2C3566"/>
+      <stop offset="100%" stop-color="#3D4B93"/>
+    </linearGradient>
+    <linearGradient id="cusvisaappointm-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#cusvisaappointm-bg)"/>
+  <rect width="1200" height="630" fill="url(#cusvisaappointm-fade)"/>
+
+  <text x="140" y="196" fill="#A9B6EC" font-size="22" font-weight="600" letter-spacing="3.2">THREE PROBLEMS, ONE SYMPTOM</text>
+
+  <text x="136" y="300" fill="#ffffff" font-size="60" font-weight="600" letter-spacing="-2">Outage. Restriction.</text>
+  <text x="136" y="358" fill="#ffffff" font-size="60" font-weight="600" letter-spacing="-2">Browser.</text>
+  <rect x="140" y="386" width="86" height="5" rx="2.5" fill="#E02454"/>
+
+  <line x1="140" y1="452" x2="1060" y2="452" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+  <line x1="140" y1="544" x2="1060" y2="544" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+
+  <g font-size="21" font-weight="500">
+    <text x="140" y="492" fill="#A9B6EC">Affects everyone</text>
+    <text x="140" y="524" fill="#ffffff">Outage or maintenance. Wait</text>
+    <text x="560" y="492" fill="#A9B6EC">Affects only you</text>
+    <text x="560" y="524" fill="#ffffff">Restriction or browser</text>
+    <text x="140" y="576" fill="#A9B6EC">Restriction length</text>
+    <text x="140" y="608" fill="#ffffff">Commonly 24 to 72 hours</text>
+    <text x="560" y="576" fill="#A9B6EC">Worst response</text>
+    <text x="560" y="608" fill="#ffffff">Switching device to keep going</text>
+  </g>
+
+  <text x="1060" y="196" fill="#ffffff" fill-opacity=".45" font-size="17" text-anchor="end">easyvisabooking.com</text>
+</svg>

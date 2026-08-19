@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img"
+     aria-labelledby="cusvisawaittime-title cusvisawaittime-desc" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="cusvisawaittime-title">US visitor visa waits at Indian consulates ranged from about 60 to about 315 days in August 2026</title>
+  <desc id="cusvisawaittime-desc">In August 2026 the interview-required B-1/B-2 wait was about 315 days at Hyderabad, about 255 days at Mumbai and New Delhi, and about 60 days at Kolkata. All five Indian posts run on the same scheduling platform under the same rules, and India has allowed only one reschedule per MRV fee since 1 January 2025, which makes the choice of post the most consequential decision an applicant makes.</desc>
+
+  <defs>
+    <linearGradient id="cusvisawaittime-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#062E3F"/>
+      <stop offset="55%" stop-color="#0A4A61"/>
+      <stop offset="100%" stop-color="#0E6B85"/>
+    </linearGradient>
+    <linearGradient id="cusvisawaittime-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#cusvisawaittime-bg)"/>
+  <rect width="1200" height="630" fill="url(#cusvisawaittime-fade)"/>
+
+  <text x="140" y="196" fill="#8FD4E4" font-size="22" font-weight="600" letter-spacing="3.2">SAME COUNTRY, SAME PORTAL</text>
+
+  <text x="136" y="300" fill="#ffffff" font-size="86" font-weight="600" letter-spacing="-2">315 days</text>
+  <text x="136" y="384" fill="#ffffff" font-size="86" font-weight="600" letter-spacing="-2">or 60 days</text>
+  <rect x="140" y="412" width="86" height="5" rx="2.5" fill="#E02454"/>
+
+  <line x1="140" y1="452" x2="1060" y2="452" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+  <line x1="140" y1="544" x2="1060" y2="544" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+
+  <g font-size="21" font-weight="500">
+    <text x="140" y="492" fill="#8FD4E4">Longest</text>
+    <text x="140" y="524" fill="#ffffff">Hyderabad, about 315 days</text>
+    <text x="560" y="492" fill="#8FD4E4">Shortest</text>
+    <text x="560" y="524" fill="#ffffff">Kolkata, about 60 days</text>
+    <text x="140" y="576" fill="#8FD4E4">Reschedules allowed</text>
+    <text x="140" y="608" fill="#ffffff">One, since 1 January 2025</text>
+    <text x="560" y="576" fill="#8FD4E4">Third country route</text>
+    <text x="560" y="608" fill="#ffffff">Effectively closed since Sept 2025</text>
+  </g>
+
+  <text x="1060" y="196" fill="#ffffff" fill-opacity=".45" font-size="17" text-anchor="end">easyvisabooking.com</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img"
+     aria-labelledby="cwhendousvisasl-title cwhendousvisasl-desc" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="cwhendousvisasl-title">US visa appointment slots come from two different supplies: scheduled bulk releases and continuous cancellations</title>
+  <desc id="cwhendousvisasl-desc">Appointment release is set mission by mission. Mission UAE publishes a Friday window of 7:30 to 11:30. The US Embassy in the Dominican Republic publishes Wednesdays at 8 a.m. Most posts publish nothing, and at those the real supply is cancellations returning to the pool at no fixed hour. Excessive refreshing triggers temporary account restrictions of roughly 24 to 72 hours.</desc>
+
+  <defs>
+    <linearGradient id="cwhendousvisasl-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E2340"/>
+      <stop offset="55%" stop-color="#2C3566"/>
+      <stop offset="100%" stop-color="#3D4B93"/>
+    </linearGradient>
+    <linearGradient id="cwhendousvisasl-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#cwhendousvisasl-bg)"/>
+  <rect width="1200" height="630" fill="url(#cwhendousvisasl-fade)"/>
+
+  <text x="140" y="196" fill="#A9B6EC" font-size="22" font-weight="600" letter-spacing="3.2">THERE IS NO GLOBAL RELEASE TIME</text>
+
+  <text x="136" y="300" fill="#ffffff" font-size="82" font-weight="600" letter-spacing="-2">Two supplies,</text>
+  <text x="136" y="380" fill="#ffffff" font-size="82" font-weight="600" letter-spacing="-2">one calendar</text>
+  <rect x="140" y="408" width="86" height="5" rx="2.5" fill="#E02454"/>
+
+  <line x1="140" y1="452" x2="1060" y2="452" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+  <line x1="140" y1="544" x2="1060" y2="544" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+
+  <g font-size="21" font-weight="500">
+    <text x="140" y="492" fill="#A9B6EC">Bulk release</text>
+    <text x="140" y="524" fill="#ffffff">Scheduled, and sometimes published</text>
+    <text x="560" y="492" fill="#A9B6EC">Cancellations</text>
+    <text x="560" y="524" fill="#ffffff">Continuous, at no fixed hour</text>
+    <text x="140" y="576" fill="#A9B6EC">UAE publishes</text>
+    <text x="140" y="608" fill="#ffffff">Fridays, 7:30 to 11:30</text>
+    <text x="560" y="576" fill="#A9B6EC">Dominican Republic</text>
+    <text x="560" y="608" fill="#ffffff">Wednesdays, 8 a.m.</text>
+  </g>
+
+  <text x="1060" y="196" fill="#ffffff" fill-opacity=".45" font-size="17" text-anchor="end">easyvisabooking.com</text>
+</svg>

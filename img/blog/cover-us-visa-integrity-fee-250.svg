@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img"
+     aria-labelledby="cusvisaintegrit-title cusvisaintegrit-desc" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="cusvisaintegrit-title">A B-1/B-2 visitor visa now costs $435 once the visa integrity fee is added</title>
+  <desc id="cusvisaintegrit-desc">The $185 MRV application fee is charged before the interview. The $250 visa integrity fee is charged on issuance, after approval, and is not charged if the visa is refused. It was created by the One Big Beautiful Bill Act of 4 July 2025, applies to almost every nonimmigrant category including dependents, and is reimbursable only in theory because no refund mechanism has been published.</desc>
+
+  <defs>
+    <linearGradient id="cusvisaintegrit-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14322B"/>
+      <stop offset="55%" stop-color="#1B4C3F"/>
+      <stop offset="100%" stop-color="#236B55"/>
+    </linearGradient>
+    <linearGradient id="cusvisaintegrit-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#cusvisaintegrit-bg)"/>
+  <rect width="1200" height="630" fill="url(#cusvisaintegrit-fade)"/>
+
+  <text x="140" y="196" fill="#95D8BE" font-size="22" font-weight="600" letter-spacing="3.2">THE FEE BEHIND THE FEE</text>
+
+  <text x="136" y="300" fill="#ffffff" font-size="84" font-weight="600" letter-spacing="-2">$185 + $250</text>
+  <text x="136" y="382" fill="#ffffff" font-size="84" font-weight="600" letter-spacing="-2">= $435</text>
+  <rect x="140" y="410" width="86" height="5" rx="2.5" fill="#E02454"/>
+
+  <line x1="140" y1="452" x2="1060" y2="452" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+  <line x1="140" y1="544" x2="1060" y2="544" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+
+  <g font-size="21" font-weight="500">
+    <text x="140" y="492" fill="#95D8BE">Charged when</text>
+    <text x="140" y="524" fill="#ffffff">On issuance, not application</text>
+    <text x="560" y="492" fill="#95D8BE">If you are refused</text>
+    <text x="560" y="524" fill="#ffffff">Not charged</text>
+    <text x="140" y="576" fill="#95D8BE">Who is exempt</text>
+    <text x="140" y="608" fill="#ffffff">ESTA travellers, A and G</text>
+    <text x="560" y="576" fill="#95D8BE">Refund in practice</text>
+    <text x="560" y="608" fill="#ffffff">No published mechanism</text>
+  </g>
+
+  <text x="1060" y="196" fill="#ffffff" fill-opacity=".45" font-size="17" text-anchor="end">easyvisabooking.com</text>
+</svg>

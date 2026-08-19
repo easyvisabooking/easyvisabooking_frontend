@@ -1,0 +1,137 @@
+{
+  "titleTag": "US Visa Appointment Website Not Working? What to Do",
+  "h1": "The US Visa Appointment Website Is Not Working: How to Tell What Is Actually Wrong",
+  "deck": "A real outage, a temporary restriction on your account and an ordinary browser problem look almost identical from where you are sitting, and each needs a different response. Two of the three you can make worse.",
+  "metaDescription": "US visa appointment website not working? How to tell an outage from an account restriction from a browser problem, and the right response to each of the three.",
+  "keywords": [
+    "us visa appointment website not working",
+    "usvisascheduling not working",
+    "ais portal down us visa",
+    "us visa appointment site error",
+    "cannot log in us visa appointment",
+    "us visa scheduling site maintenance"
+  ],
+  "category": "rescheduling",
+  "breadcrumb": "When the Site Is Down",
+  "datePublished": "2026-08-19",
+  "publishOn": "2026-09-14",
+  "readTime": 10,
+  "cover": "../../img/blog/cover-us-visa-appointment-website-not-working.svg",
+  "coverAlt": "Three reasons the US visa appointment site appears broken: a genuine outage or maintenance window affecting everyone, a temporary restriction on your own account from excessive requests, or an ordinary browser and session problem, each needing a different response",
+  "ogImage": "https://www.easyvisabooking.com/img/carousel-1.jpg",
+  "ogImageWidth": 1920,
+  "ogImageHeight": 1080,
+
+  "coverSpec": {
+    "eyebrow": "THREE PROBLEMS, ONE SYMPTOM",
+    "headline": ["Outage. Restriction.", "Browser."],
+    "headlineSize": 60,
+    "title": "Three different faults make the US visa scheduling site look broken, and each needs a different response",
+    "desc": "A genuine outage or maintenance window affects everyone and is fixed by waiting. A temporary restriction on your own account, commonly lasting around 24 to 72 hours, is caused by too many requests and is made worse by switching browser, device or network to keep going. An ordinary session or browser problem affects only you and clears on a fresh sign-in. Telling them apart takes about two minutes and stops you turning a short problem into a long one.",
+    "facts": [
+      ["Affects everyone", "Outage or maintenance. Wait"],
+      ["Affects only you", "Restriction or browser"],
+      ["Restriction length", "Commonly 24 to 72 hours"],
+      ["Worst response", "Switching device to keep going"]
+    ]
+  },
+
+  "faq": [
+    {
+      "q": "Is the US visa appointment website down right now?",
+      "a": "The quickest way to tell is whether the problem is universal or personal. Try the public pages of the scheduling site without signing in, and try from a different network. If the public pages load for you but your account does not work, it is very unlikely to be an outage and much more likely to be a restriction or a session problem on your side."
+    },
+    {
+      "q": "Why does the site work and then stop working after a few minutes?",
+      "a": "That pattern is the signature of a temporary restriction rather than an outage. Scheduling systems limit accounts that generate a very high volume of requests, and the symptoms are pages that stop loading, sessions that end immediately, or a calendar that returns nothing where it previously returned something. It commonly clears on its own within about 24 to 72 hours."
+    },
+    {
+      "q": "Should I try a different browser or a VPN to get back in?",
+      "a": "No. If the cause is a restriction, changing browser, device or network to continue is exactly the behaviour that caused it, and continuing it is the reliable way to make a short problem into a longer one. Stop, wait a day, and come back. If the cause is an ordinary session problem, a plain fresh sign-in in a normal browser will fix it without any of that."
+    },
+    {
+      "q": "Which website should I be using anyway?",
+      "a": "It depends on your country and the map changed recently. India, Canada and many others use the AIS portal at ais.usvisa-info.com, while the UAE and others moved to usvisascheduling.com in 2025. Always reach the scheduling site by following the link from your own embassy or consulate's website, both because it is the correct one for your country and because look-alike domains are a live problem in this space."
+    },
+    {
+      "q": "Are there maintenance windows I should avoid?",
+      "a": "Scheduling platforms do take maintenance windows, and they are usually outside the post's working hours. It is one more reason the middle of the night is a poor time to try: you are more likely to hit maintenance and less likely to encounter anything new, because appointments are loaded during working hours where a release schedule is published at all."
+    },
+    {
+      "q": "The site works but shows no appointments. Is that a fault?",
+      "a": "No, and this is the most common false alarm. A calendar with nothing in it means the post has nothing available at that moment, which at a busy post is the normal state rather than an incident. Nothing is broken, nothing has been consumed, and your reschedule attempts are intact. It is a supply problem, not a technical one."
+    },
+    {
+      "q": "I have an interview tomorrow and I cannot get into my account. What do I do?",
+      "a": "Print or retrieve whatever appointment confirmation you already hold and attend on it. The interview exists in the consular section's system regardless of whether your account loads today. If you have no confirmation at all, contact the official scheduling support channel for your country immediately, reached from your embassy or consulate's own website rather than from search results."
+    }
+  ],
+
+  "sources": [
+    {
+      "publisher": "US Embassy and Consulate in the United Arab Emirates",
+      "url": "https://ae.usembassy.gov/visas/",
+      "title": "Visas",
+      "note": "An example of a mission linking to its own country's scheduling system and support contact, which is the safe route to the correct site.",
+      "retrieved": "19 August 2026"
+    },
+    {
+      "publisher": "US Department of State",
+      "url": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
+      "title": "Global Visa Wait Times",
+      "note": "That posts release additional appointment slots periodically, which is why an empty calendar is a supply state rather than a fault.",
+      "retrieved": "19 August 2026"
+    },
+    {
+      "publisher": "Gulf News",
+      "url": "https://gulfnews.com/gn-focus/uae-travellers-alert-major-change-to-us-visa-appointment-system-starting-may-30-1.500133327",
+      "title": "UAE travellers alert: major change to US visa appointment system starting May 30",
+      "note": "A worked example of a country migrating between scheduling platforms, with a booking and payment freeze around it, which is one of the reasons old links stop working.",
+      "retrieved": "19 August 2026"
+    },
+    {
+      "publisher": "US Department of State",
+      "url": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/fraud.html",
+      "title": "Fraud Warning",
+      "note": "Why reaching the scheduling site from your own mission's website matters, given impersonation sites in this space.",
+      "retrieved": "19 August 2026"
+    }
+  ],
+  "sourcesNote": "Scheduling platforms differ by country and change without announcement. Where this page describes behaviour, your own mission's website and support channel are the authority. This article is general information and is not legal or immigration advice.",
+
+  "cta": {
+    "heading": "If the site is fine and the calendar is empty",
+    "body": "That is where most of these troubleshooting sessions actually end, and no amount of fixing helps with it. An empty calendar is a supply problem, and the only thing that changes it is somebody being there when it stops being empty. If that cannot be you, our team can take the rescheduling work on for your consulate. Tell us your post, your current date and the widest range you could accept, and we will tell you honestly whether it is worth paying us at all.",
+    "buttons": [
+      { "href": "/services/", "style": "cta-btn-primary", "label": "See how the service works" },
+      { "href": "/contact/", "style": "cta-btn-ghost", "label": "Ask us a question first" }
+    ]
+  },
+
+  "related": [
+    {
+      "slug": "cant-reschedule-us-visa-appointment",
+      "category": "rescheduling",
+      "title": "Why You Cannot Reschedule Your US Visa Appointment",
+      "blurb": "Twelve causes, only some of which look technical, and the fix for each one.",
+      "image": "../../img/blog/cover-cant-reschedule-us-visa-appointment.svg",
+      "alt": "Twelve reasons a US visa appointment will not reschedule, from an empty calendar to attempts already used up"
+    },
+    {
+      "slug": "when-do-us-visa-slots-open",
+      "category": "rescheduling",
+      "title": "When Do US Visa Appointment Slots Actually Open?",
+      "blurb": "A checking routine that finds openings without getting your account restricted.",
+      "image": "../../img/blog/cover-when-do-us-visa-slots-open.svg",
+      "alt": "US visa appointment release is set post by post, with scheduled bulk releases and continuous cancellations as two separate supplies"
+    },
+    {
+      "slug": "us-visa-appointment-scams",
+      "category": "trust",
+      "title": "How to Avoid US Visa Appointment Scams",
+      "blurb": "Look-alike scheduling domains are one of the live 2026 patterns, and a broken login is when people fall for them.",
+      "image": "../../img/blog/cover-us-visa-appointment-scams.svg",
+      "alt": "US visa appointment scam warning signs, including a slot promised before you have an account and payment demanded to a personal account"
+    }
+  ]
+}

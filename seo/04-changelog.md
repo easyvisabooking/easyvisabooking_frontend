@@ -5,6 +5,106 @@ Superseded reasoning is struck through, never deleted — the reasoning is worth
 
 ---
 
+## 2026-08-19 — Queue re-analysed and cleared: 21 posts written, scheduled to 2026-10-07
+
+**What happened.** Full re-analysis of `03-content-queue.md`, then every remaining item on it
+written. Twenty-one posts built, held at `noindex`, and scheduled at one every 2 to 3 days from
+2026-08-21 to 2026-10-07. The full publish sequence was simulated end to end in a scratch copy
+before commit: 21/21 publish cleanly, 28 entries land in the hub `Blog` schema, 39 URLs in the
+sitemap, queue drains to zero.
+
+### Shipped
+
+- **`us-visa-appointment-abu-dhabi`** (2026-08-21). Written first because the UAE reopened for
+  bookings and the business has started taking cases there again. Mission UAE has been on ordered
+  departure since 2026-03-03 with routine visa services suspended; its own security messaging of
+  2026-08-01 now states that **limited nonimmigrant visa appointments are available** while **all
+  immigrant visa services remain suspended**.
+- **20 further posts** covering every unwritten queue item, plus two topics that were missing from
+  the queue entirely. Slugs, dates and per-post information gain are tabulated in
+  [`03-content-queue.md`](03-content-queue.md).
+- **`scripts/build_post.py`** — an authoring generator. It reads the shell from
+  `blog/_template/index.html` and assembles a post from a JSON spec plus a body fragment. Output is
+  ordinary static HTML committed to the repo, so nothing about the deployment changes and `scripts/`
+  stays `.vercelignore`d. It buys two guarantees hand-authoring did not: the FAQPage schema and the
+  visible `<details>` block are generated from one list so they cannot drift, and the house-style
+  sweeps run on the assembled page before anything is written.
+- **`scripts/wire_posts.py`** — adds each post's hub card (inside `<template data-scheduled>`),
+  sitemap entry (inside an XML comment) and queue entry, in held form.
+
+### New findings
+
+- **The World Cup post was expired content.** The tournament ran 11 June to 19 July 2026 and ended
+  with Spain beating Argentina. `/blog/us-visa-appointment-world-cup-2026-guide/` was dated
+  2026-06-29, written in the future tense, and still telling readers to secure appointments for it.
+  **Rewritten as aftermath, URL kept.** This also withdraws the growth plan's instruction
+  (`02-growth-plan.md` §2) to expand it into a cluster: there is no opening left.
+
+- **The site was understating the cost of a US visa by $250 a head.** The **Visa Integrity Fee**
+  (One Big Beautiful Bill Act, Public Law 119-21, signed 2025-07-04; effective FY2026 from
+  2025-10-01) is charged **on issuance**, on top of the MRV fee, and applies per applicant including
+  dependants. Every `.compare` table on the site carried "costs exclude the US$185 MRV application
+  fee, which everybody pays". That is incomplete: a B-1/B-2 applicant is looking at **$435**, and a
+  family of four at **$1,740**. Collection is uneven post by post and no refund mechanism has been
+  published. Corrected in all 21 new posts; the three older posts are logged as R4.
+
+- **The em-dash sweep had a hole, and three posts were through it.** The documented grep looks for
+  the literal `—` and `–` characters. Three posts carried **18 `&mdash;` entities**, which render
+  identically to a reader. All 18 replaced; the sweep regex in `build_post.py` now catches the
+  entity and numeric forms too.
+
+- **The global wait-time picture has inverted, and it is a link asset.** Post-level data pulled for
+  the country guides (August 2026):
+
+  | Post | B-1/B-2 interview wait |
+  |---|---|
+  | Toronto | ~495 days |
+  | Sydney / Vancouver | ~435 days |
+  | Hyderabad | ~315 days |
+  | Bogota | ~270 days |
+  | Kolkata | ~60 days |
+  | **Abuja / Perth / Recife / Nogales** | **~15 days** |
+
+  **The longest US visitor visa queues in the world are now in wealthy English-speaking countries,
+  not in Africa or South Asia.** Toronto is roughly 33× Abuja. Canada and Australia are both
+  visa-waiver countries, so their B-1/B-2 queues consist almost entirely of resident non-citizens.
+  This is the quotable finding `02-growth-plan.md` §6.2 says F2 needs, and it now exists.
+
+- **Intra-country spreads are larger than the international ones people fly for.** Perth ~15 days
+  against Sydney ~435. Kolkata ~60 against Hyderabad ~315. Nogales ~15 against Guadalajara ~180.
+  Since third-country processing closed in September 2025, moving to a quieter post inside your own
+  country is the legitimate substitute, and almost nobody uses it.
+
+- **The interview waiver is not always the fast route.** At Bogota the waiver queue was ~398 days
+  against ~270 for an interview; several Mexican posts showed 200–330 days against 15–180. In Brazil
+  it was a day or two. The two queues are independent and both are published.
+
+- **Five queue items were cannibalising something already published.** #6, #8, #12, #13 and #16
+  killed, with reasons recorded in `03-content-queue.md`.
+
+### Process changes
+
+- **Internal links now point backwards in time only.** Publish dates were reordered so that every
+  post's outbound links and related cards target posts that are already live on its own publish
+  date. The pillar publishes last for this reason. Verified programmatically: 0 forward links.
+- `publish_scheduled.py --hold` run for all 21 slugs, so cross-links between held posts are
+  commented and revealed automatically as each target goes live.
+
+### Measurements
+
+- Blog posts: 7 → 28 (21 held). Sitemap URLs: 18 → 39 on full release.
+- Words written: ~65,000 across 21 posts, 2,700–4,800 each.
+- Sweeps at time of writing: em/en dash (literal and entity) clean, founder full name clean,
+  competitor naming clean, no placeholders, all JSON-LD parses, all TOC anchors resolve, one `<h1>`
+  per post.
+
+### Still manual
+
+Submitting each URL in Google Search Console on its publish date. The publish workflow's run summary
+lists what went live as a reminder.
+
+---
+
 ## 2026-08-19 — Mission Canada joins the $750 pilot: new post shipped same week, F1 corrected
 
 **What happened.** On 2026-08-18 the State Department designated **Mission Canada** (Embassy Ottawa

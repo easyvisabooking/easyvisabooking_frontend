@@ -1,0 +1,137 @@
+{
+  "titleTag": "What Happens When You Reschedule a US Visa Appointment",
+  "h1": "What Actually Happens When You Reschedule a US Visa Appointment",
+  "deck": "Step by step, including the two-appointment trap that cancels an interview automatically, what your old slot does the moment you release it, and the four things that do not change at all.",
+  "metaDescription": "What happens when you reschedule a US visa appointment: the exact sequence, what changes and what does not, and the biometrics timing rule that cancels interviews.",
+  "keywords": [
+    "what happens when you reschedule us visa",
+    "us visa reschedule process step by step",
+    "reschedule us visa interview what changes",
+    "ofc biometrics appointment reschedule",
+    "us visa reschedule confirmation",
+    "does rescheduling affect us visa approval"
+  ],
+  "category": "rescheduling",
+  "breadcrumb": "What Rescheduling Does",
+  "datePublished": "2026-08-19",
+  "publishOn": "2026-09-11",
+  "readTime": 11,
+  "cover": "../../img/blog/cover-what-happens-when-you-reschedule-us-visa.svg",
+  "coverAlt": "What changes when you reschedule a US visa appointment: the interview date, the confirmation letter and your remaining attempt count, while the DS-160, the MRV receipt, the fee validity and the adjudication standard stay exactly as they were",
+  "ogImage": "https://www.easyvisabooking.com/img/carousel-1.jpg",
+  "ogImageWidth": 1920,
+  "ogImageHeight": 1080,
+
+  "coverSpec": {
+    "eyebrow": "STEP BY STEP",
+    "headline": ["Three things change.", "Four do not."],
+    "headlineSize": 62,
+    "title": "Rescheduling a US visa appointment changes the date, the confirmation and your remaining attempts, and nothing else",
+    "desc": "A reschedule moves the interview date, reissues the confirmation letter and decrements your remaining attempts. It does not touch the DS-160, the MRV fee receipt or its one year validity, and it has no effect on how the application is adjudicated. Where a country requires a separate biometrics appointment, that is a second booking with its own date, and scheduling it on the same day as the interview can cause the interview to be cancelled automatically.",
+    "facts": [
+      ["Changes", "Date, confirmation, attempts left"],
+      ["Unchanged", "DS-160 and MRV receipt"],
+      ["Old slot", "Returns to the pool immediately"],
+      ["Biometrics", "Must be at least a day earlier"]
+    ]
+  },
+
+  "faq": [
+    {
+      "q": "What actually changes when I reschedule a US visa appointment?",
+      "a": "Three things. The interview date and time, the appointment confirmation letter which is reissued with the new details, and the number of reschedule attempts remaining on your MRV fee. Nothing else moves. Your DS-160 confirmation number, your fee receipt, the one year validity of that receipt and the standard your application will be judged against are all exactly as they were."
+    },
+    {
+      "q": "Does rescheduling hurt my chances of getting the visa?",
+      "a": "No. Rescheduling is an administrative action inside a scheduling system, and the consular officer assesses your eligibility on the evidence in front of them. There is no penalty, no flag and no note that counts against you. The only way it can hurt you is indirectly: if you use up your attempts and then need a change you can no longer make."
+    },
+    {
+      "q": "What happens to my old appointment slot?",
+      "a": "It is released back into the availability pool, generally straight away, where somebody else can take it. That is worth understanding for two reasons. It is why cancellations are the main supply of earlier dates for everyone else. And it is why you cannot change your mind: once you have confirmed a move, the old date is gone and there is no undo."
+    },
+    {
+      "q": "Do I need to reschedule my biometrics appointment too?",
+      "a": "In countries that require a separate biometrics or document collection appointment, yes, and it is a separate booking with its own date. The important rule is the order: biometrics has to come before the interview, generally at least a day or two ahead, because the data has to be processed and available to the consular officer. Booking both on the same day can result in the interview being cancelled automatically."
+    },
+    {
+      "q": "Will I get a new confirmation letter?",
+      "a": "Yes. A reschedule reissues the appointment confirmation with the new date and time, and that reissued letter is what you take to the interview. Print the current one and check the date on it against your account rather than assuming, because an old confirmation in your bag is a bad thing to discover at a consulate door."
+    },
+    {
+      "q": "Can I undo a reschedule?",
+      "a": "No. The change completes, the old slot returns to the pool and your attempt count drops. If the new date turns out to be worse and you have attempts left you can move again, spending another one. If you have none left, a new MRV fee is required before you can change anything. That asymmetry is why the decision to move deserves a minute of thought."
+    },
+    {
+      "q": "How long before my interview can I still reschedule?",
+      "a": "Changes typically lock about 48 hours before the appointment, and some posts cut off earlier. Because maintenance windows, weekends, local holidays and time zone differences all eat into that margin, act at least three business days ahead. After the lock there is no self-service route, and simply not attending is recorded as a no-show rather than a reschedule."
+    }
+  ],
+
+  "sources": [
+    {
+      "publisher": "LeSo",
+      "url": "https://leso.co.in/blog/us-visa-appointment-reschedule-rules-india-f1-biometrics-interview-gap",
+      "title": "US visa reschedule rules India: biometrics and interview gap explained",
+      "note": "The requirement to schedule the biometrics appointment ahead of the consular interview, and that booking both on the same day can cause the interview to be cancelled automatically.",
+      "retrieved": "19 August 2026"
+    },
+    {
+      "publisher": "RedBus2US",
+      "url": "https://redbus2us.com/visas/usa/apply/reschedule-appointment/",
+      "title": "How many times can I reschedule my US Visa Appointment?",
+      "note": "Country-by-country reschedule allowances, the attempt counter, and the new fee required once attempts are exhausted.",
+      "retrieved": "19 August 2026"
+    },
+    {
+      "publisher": "US Department of State",
+      "url": "https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/global-visa-wait-times.html",
+      "title": "Global Visa Wait Times",
+      "note": "That posts regularly release additional appointment slots and that applicants may move to an earlier slot when one appears, which is the mechanism released appointments feed.",
+      "retrieved": "19 August 2026"
+    },
+    {
+      "publisher": "US Embassy and Consulates in India",
+      "url": "https://in.usembassy.gov/visas/",
+      "title": "Visas",
+      "note": "The two-appointment structure used at Indian posts, with a separate biometrics or document collection appointment ahead of the interview.",
+      "retrieved": "19 August 2026"
+    }
+  ],
+  "sourcesNote": "Scheduling behaviour differs between the platforms used in different countries, and posts change their rules without announcement. Where this page describes a step, your own account is the authority. This article is general information and is not legal or immigration advice.",
+
+  "cta": {
+    "heading": "Knowing the mechanics is not the same as having the time",
+    "body": "Everything on this page is something you can do yourself, and if you have the hours it is genuinely the right answer. The reason people ask us is not that the process is complicated, it is that the opening arrives at an hour that does not suit them and disappears before they see it. If that is your problem rather than a knowledge one, tell us your post, your current date and the widest range you could accept, and we will tell you honestly whether it is worth paying us at all.",
+    "buttons": [
+      { "href": "/services/", "style": "cta-btn-primary", "label": "See how the service works" },
+      { "href": "/contact/", "style": "cta-btn-ghost", "label": "Ask us a question first" }
+    ]
+  },
+
+  "related": [
+    {
+      "slug": "reschedule-us-visa-appointment-earlier",
+      "category": "rescheduling",
+      "title": "Can You Reschedule a US Visa Appointment to an Earlier Date?",
+      "blurb": "The rules underneath this page: how many attempts your country gives you, and what running out costs.",
+      "image": "../../img/blog/cover-reschedule-earlier.svg",
+      "alt": "US visa reschedule allowances by country: India one since January 2025, Philippines and Thailand three, Japan six, and no changes at all inside roughly 48 hours"
+    },
+    {
+      "slug": "cant-reschedule-us-visa-appointment",
+      "category": "rescheduling",
+      "title": "Why You Cannot Reschedule Your US Visa Appointment",
+      "blurb": "Twelve reasons the option is missing, greyed out or failing, and what fixes each one.",
+      "image": "../../img/blog/cover-cant-reschedule-us-visa-appointment.svg",
+      "alt": "Twelve reasons a US visa appointment will not reschedule, from an empty calendar to attempts already used up"
+    },
+    {
+      "slug": "when-do-us-visa-slots-open",
+      "category": "rescheduling",
+      "title": "When Do US Visa Appointment Slots Actually Open?",
+      "blurb": "Where the openings you are rescheduling into come from, and which missions publish their release window.",
+      "image": "../../img/blog/cover-when-do-us-visa-slots-open.svg",
+      "alt": "US visa appointment release is set post by post, with scheduled bulk releases and continuous cancellations as two separate supplies"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img"
+     aria-labelledby="cusvisawaittime-title cusvisawaittime-desc" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="cusvisawaittime-title">US visitor visa waits in Latin America ranged from about 15 days to about 270 in August 2026</title>
+  <desc id="cusvisawaittime-desc">In August 2026 the interview-required B-1/B-2 wait ran from about 15 days at Nogales and Recife to about 270 days at Bogota, with Mexico City near 105 and Guadalajara near 180. Mexico is the only mission in the region participating in the $750 expedited appointment pilot. At several posts the interview waiver queue was far longer than the interview queue, reaching about 398 days at Bogota against 270 for an interview.</desc>
+
+  <defs>
+    <linearGradient id="cusvisawaittime-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#062E3F"/>
+      <stop offset="55%" stop-color="#0A4A61"/>
+      <stop offset="100%" stop-color="#0E6B85"/>
+    </linearGradient>
+    <linearGradient id="cusvisawaittime-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#cusvisawaittime-bg)"/>
+  <rect width="1200" height="630" fill="url(#cusvisawaittime-fade)"/>
+
+  <text x="140" y="196" fill="#8FD4E4" font-size="22" font-weight="600" letter-spacing="3.2">BOTH ENDS OF THE GLOBAL RANGE</text>
+
+  <text x="136" y="300" fill="#ffffff" font-size="68" font-weight="600" letter-spacing="-2">Nogales 15 days.</text>
+  <text x="136" y="366" fill="#ffffff" font-size="68" font-weight="600" letter-spacing="-2">Bogota 270.</text>
+  <rect x="140" y="394" width="86" height="5" rx="2.5" fill="#E02454"/>
+
+  <line x1="140" y1="452" x2="1060" y2="452" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+  <line x1="140" y1="544" x2="1060" y2="544" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+
+  <g font-size="21" font-weight="500">
+    <text x="140" y="492" fill="#8FD4E4">Fastest</text>
+    <text x="140" y="524" fill="#ffffff">Nogales and Recife, about 15 days</text>
+    <text x="560" y="492" fill="#8FD4E4">Slowest</text>
+    <text x="560" y="524" fill="#ffffff">Bogota, about 270 days</text>
+    <text x="140" y="576" fill="#8FD4E4">Paid expedite</text>
+    <text x="140" y="608" fill="#ffffff">Mexico only, B-1/B-2 only</text>
+    <text x="560" y="576" fill="#8FD4E4">Waiver trap</text>
+    <text x="560" y="608" fill="#ffffff">Slower than interviews at many posts</text>
+  </g>
+
+  <text x="1060" y="196" fill="#ffffff" fill-opacity=".45" font-size="17" text-anchor="end">easyvisabooking.com</text>
+</svg>

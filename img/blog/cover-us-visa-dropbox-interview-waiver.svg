@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img"
+     aria-labelledby="cusvisadropboxi-title cusvisadropboxi-desc" font-family="Poppins, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="cusvisadropboxi-title">US visa interview waiver eligibility after the February and September 2025 changes</title>
+  <desc id="cusvisadropboxi-desc">In February 2025 the interview waiver was narrowed to same-category renewals within 12 months of expiry, with first-time applicants removed. From 2 September 2025 it was cut again: H-1B, L-1, O-1 and most other common categories lost eligibility entirely. What remains is diplomatic and official categories, and B-1/B-2 or border crossing card renewals where the previous full validity visa expired within the past 12 months and the applicant was at least 18 when it was issued. Consular officers may still require an interview.</desc>
+
+  <defs>
+    <linearGradient id="cusvisadropboxi-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00294A"/>
+      <stop offset="55%" stop-color="#003A66"/>
+      <stop offset="100%" stop-color="#005A93"/>
+    </linearGradient>
+    <linearGradient id="cusvisadropboxi-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#cusvisadropboxi-bg)"/>
+  <rect width="1200" height="630" fill="url(#cusvisadropboxi-fade)"/>
+
+  <text x="140" y="196" fill="#9FCDEC" font-size="22" font-weight="600" letter-spacing="3.2">TWO ROUNDS OF CUTS IN 2025</text>
+
+  <text x="136" y="300" fill="#ffffff" font-size="84" font-weight="600" letter-spacing="-2">Almost nobody</text>
+  <text x="136" y="382" fill="#ffffff" font-size="84" font-weight="600" letter-spacing="-2">is left</text>
+  <rect x="140" y="410" width="86" height="5" rx="2.5" fill="#E02454"/>
+
+  <line x1="140" y1="452" x2="1060" y2="452" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+  <line x1="140" y1="544" x2="1060" y2="544" stroke="#ffffff" stroke-opacity=".18" stroke-width="1"/>
+
+  <g font-size="21" font-weight="500">
+    <text x="140" y="492" fill="#9FCDEC">First cut</text>
+    <text x="140" y="524" fill="#ffffff">February 2025</text>
+    <text x="560" y="492" fill="#9FCDEC">Second cut</text>
+    <text x="560" y="524" fill="#ffffff">2 September 2025</text>
+    <text x="140" y="576" fill="#9FCDEC">Lost eligibility</text>
+    <text x="140" y="608" fill="#ffffff">H-1B, L-1, O-1 and most others</text>
+    <text x="560" y="576" fill="#9FCDEC">Still discretionary</text>
+    <text x="560" y="608" fill="#ffffff">An officer can require an interview</text>
+  </g>
+
+  <text x="1060" y="196" fill="#ffffff" fill-opacity=".45" font-size="17" text-anchor="end">easyvisabooking.com</text>
+</svg>

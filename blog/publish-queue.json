@@ -1,6 +1,107 @@
 {
   "_comment": "Scheduled blog posts. The post files are committed and deployed, but held at noindex with their hub card and sitemap entry hidden until publishOn. .github/workflows/publish-scheduled-posts.yml runs scripts/publish_scheduled.py daily and publishes anything due. Dates are UTC, YYYY-MM-DD. See blog/README.md.",
-  "scheduled": [],
+  "scheduled": [
+    {
+      "slug": "us-visa-integrity-fee-250",
+      "title": "The $250 Visa Integrity Fee: What a US Visa Actually Costs in 2026",
+      "publishOn": "2026-08-24"
+    },
+    {
+      "slug": "cant-reschedule-us-visa-appointment",
+      "title": "Why You Cannot Reschedule Your US Visa Appointment, and What to Do About Each Cause",
+      "publishOn": "2026-08-26"
+    },
+    {
+      "slug": "when-do-us-visa-slots-open",
+      "title": "When Do US Visa Appointment Slots Actually Open? What the Missions Themselves Publish",
+      "publishOn": "2026-08-28"
+    },
+    {
+      "slug": "us-visa-appointment-scams",
+      "title": "How to Avoid US Visa Appointment Scams, and What Happens to the Applicant When One Works",
+      "publishOn": "2026-08-31"
+    },
+    {
+      "slug": "us-visa-wait-time-india",
+      "title": "US Visa Appointment Wait Times in India: The Consulate Gap Nobody Uses",
+      "publishOn": "2026-09-02"
+    },
+    {
+      "slug": "us-visa-third-country-application",
+      "title": "Can You Apply for a US Visa in Another Country? What Changed in September 2025",
+      "publishOn": "2026-09-04"
+    },
+    {
+      "slug": "us-visa-emergency-appointment",
+      "title": "US Visa Emergency Appointments: What Qualifies, What Does Not, and the Proof You Need",
+      "publishOn": "2026-09-07"
+    },
+    {
+      "slug": "us-visa-appointment-free-vs-paid",
+      "title": "Free Methods vs Paid Services for an Earlier US Visa Date: A Decision Rule",
+      "publishOn": "2026-09-09"
+    },
+    {
+      "slug": "what-happens-when-you-reschedule-us-visa",
+      "title": "What Actually Happens When You Reschedule a US Visa Appointment",
+      "publishOn": "2026-09-11"
+    },
+    {
+      "slug": "us-visa-appointment-website-not-working",
+      "title": "The US Visa Appointment Website Is Not Working: How to Tell What Is Actually Wrong",
+      "publishOn": "2026-09-14"
+    },
+    {
+      "slug": "us-visa-wait-time-australia",
+      "title": "US Visa Appointment Wait Times in Australia: Sydney's Backlog and the Post Nobody Checks",
+      "publishOn": "2026-09-16"
+    },
+    {
+      "slug": "us-visa-dropbox-interview-waiver",
+      "title": "US Visa Dropbox and Interview Waivers in 2026: Who Is Left, and Why It Is Not Always Faster",
+      "publishOn": "2026-09-18"
+    },
+    {
+      "slug": "ds-160-mistakes",
+      "title": "DS-160 Mistakes That Delay Your Appointment, and the One That Costs You the Date",
+      "publishOn": "2026-09-21"
+    },
+    {
+      "slug": "what-to-bring-us-visa-interview",
+      "title": "What to Bring to Your US Visa Interview, and the List That Gets People Turned Away",
+      "publishOn": "2026-09-23"
+    },
+    {
+      "slug": "us-visa-appointment-within-3-months",
+      "title": "Can You Get a US Visa Appointment Within 3 Months? An Honest Answer, Post by Post",
+      "publishOn": "2026-09-25"
+    },
+    {
+      "slug": "us-visa-appointment-timeline",
+      "title": "The US Visa Timeline: From DS-160 to Passport in Hand, Stage by Stage",
+      "publishOn": "2026-09-28"
+    },
+    {
+      "slug": "us-visa-wait-time-nigeria",
+      "title": "US Visa Appointment Wait Times in Nigeria: Among the Shortest in the World",
+      "publishOn": "2026-09-30"
+    },
+    {
+      "slug": "us-visa-wait-time-latin-america",
+      "title": "US Visa Appointment Wait Times in Latin America: Mexico, Brazil and Colombia",
+      "publishOn": "2026-10-02"
+    },
+    {
+      "slug": "us-visa-appointment-family-group",
+      "title": "Can Two People Get Earlier US Visa Appointments Together? How Group Bookings Behave",
+      "publishOn": "2026-10-05"
+    },
+    {
+      "slug": "us-visa-appointment-guide",
+      "title": "The Complete US Visa Appointment Guide: Booking, Moving and Understanding Your Date",
+      "publishOn": "2026-10-07"
+    }
+  ],
   "published": [
     {
       "slug": "is-us-visa-slot-booking-legit",
@@ -13,6 +114,12 @@
       "title": "Can You Reschedule a US Visa Appointment to an Earlier Date?",
       "publishOn": "2026-08-19",
       "publishedOn": "2026-08-12"
+    },
+    {
+      "slug": "us-visa-appointment-abu-dhabi",
+      "title": "US Visa Appointments in Abu Dhabi and Dubai Are Open Again: How to Get One",
+      "publishOn": "2026-08-21",
+      "publishedOn": "2026-08-19"
     }
   ]
 }

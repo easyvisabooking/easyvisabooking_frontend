@@ -9,6 +9,40 @@ policies for applicants in Canada, the UAE, Turkey, Australia and the UK.
 
 ## Version History
 
+### **Version 3.1.0** (August 19, 2026)
+#### Content Build-Out: 21 Posts Written and Scheduled Through October
+
+**Content**
+- ✅ **21 new blog posts written**, covering every remaining item on the SEO content queue plus two
+  topics that were missing from it. Held at `noindex` and scheduled one every 2 to 3 days from
+  **2026-08-21 to 2026-10-07**, respecting the documented publishing cadence.
+- ✅ **First in the batch is `/blog/us-visa-appointment-abu-dhabi/`** (publishes 2026-08-21), written
+  because the UAE has reopened for bookings. Mission UAE has been on ordered departure since March
+  2026; its own messaging now states that limited nonimmigrant appointments are available while all
+  immigrant visa services remain suspended. Leads on the mission's published Friday 07:30 to 11:30
+  release window.
+- ✅ **World Cup post rewritten.** The tournament ended 19 July 2026 and the page was still written in
+  the future tense telling readers to book for it. Reframed as aftermath; URL kept.
+
+**Corrections**
+- ⚠️ **The site was understating the cost of a US visa by $250 a head.** The Visa Integrity Fee
+  (One Big Beautiful Bill Act, effective FY2026) is charged on issuance on top of the MRV fee, so a
+  B-1/B-2 applicant faces **$435** and a family of four **$1,740**. All 21 new posts use corrected
+  wording. The three older posts with `.compare` tables still carry the old line and are logged for
+  amendment.
+- ✅ **Em-dash sweep hole closed.** The documented grep only matched the literal `—` and `–`
+  characters, and three posts carried **18 `&mdash;` entities** that render identically. All fixed,
+  and the build now fails on entity and numeric forms too.
+
+**Tooling** (internal, `.vercelignore`d, no deployment change)
+- ✅ `scripts/build_post.py` — assembles a post from a JSON spec plus a body fragment, reading the
+  shared shell from `blog/_template/index.html`. Generates the FAQ schema and the visible `<details>`
+  block from one list so they cannot drift, generates the cover SVG, and runs the house-style and
+  structural sweeps before writing anything.
+- ✅ `scripts/wire_posts.py` — adds each post's hub card, sitemap entry and queue entry in held form.
+
+---
+
 ### **Version 3.0.0** (August 7, 2026)
 #### Compliance & Positioning Overhaul (Payment Gateway Readiness)
 
@@ -116,10 +150,11 @@ easyvisabooking_frontend/
 │   ├── us-visa-appointment-canada/         # Canada landing page
 │   └── us-visa-appointment-toronto/        # Toronto landing page
 ├── blog/
-│   ├── index.html                          # Blog index
-│   ├── us-visa-appointment-world-cup-2026-guide/
-│   ├── us-visa-appointment-canada-guide-2026/
-│   └── us-visa-appointment-dubai-fast-2026/
+│   ├── index.html                          # Blog hub (card grid + Blog JSON-LD)
+│   ├── _template/                          # Post template (not deployed)
+│   ├── README.md                           # How posts are authored and scheduled (not deployed)
+│   ├── publish-queue.json                  # Scheduled posts (not deployed)
+│   └── <28 post folders>/                  # One index.html each. 7 live, 21 scheduled
 ├── terms/index.html                        # Terms of Service
 ├── privacy/index.html                      # Privacy Policy
 ├── refund-policy/index.html                # Refund & Cancellation Policy
@@ -209,4 +244,4 @@ See [LICENSE.txt](LICENSE.txt) for licensing information.
 
 ---
 
-**Last Updated:** August 7, 2026
+**Last Updated:** August 19, 2026

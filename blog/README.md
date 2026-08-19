@@ -17,6 +17,57 @@ a class to `css/blog.css` so every future post gets it.
 
 ---
 
+## Two ways to author a post
+
+**By hand** (the 7 steps below) is still fine for a one-off.
+
+**With the generator** is how the 2026-08-19 batch of 21 was built, and it is the better route for
+anything more than a single post:
+
+```bash
+python scripts/build_post.py <slug>           # assemble blog/<slug>/index.html + its cover SVG
+python scripts/build_post.py --all            # rebuild everything
+python scripts/build_post.py --all --check    # sweeps only, write nothing
+python scripts/wire_posts.py                  # add held hub card, sitemap entry and queue entry
+```
+
+You author two files in `scripts/post-src/`:
+
+| File | Holds |
+|---|---|
+| `<slug>.json` | Metadata, FAQ question/answer pairs, sources, CTA, related cards, and an optional `coverSpec` that generates the hero SVG |
+| `<slug>.body.html` | The article body, with `<!--FAQ-->`, `<!--SOURCES-->`, `<!--AUTHOR-->` and `<!--CTA-->` markers where the generated blocks go |
+
+The output is ordinary static HTML committed to the repo. **Nothing about the deployment changes**:
+Vercel still serves plain files and `scripts/` is `.vercelignore`d. This is an authoring tool, not a
+build step.
+
+Two things it guarantees that hand-authoring did not:
+
+- **The FAQPage schema and the visible `<details>` block come from one list**, so they cannot drift
+  apart. That was a pre-publish checklist item that needed manual proofreading.
+- **The sweeps run on the assembled page before anything is written.** Dashes (literal *and* entity
+  forms), the founder's full name, competitor naming, leftover placeholders, missing required
+  blocks, unresolved TOC anchors, and more than one `<h1>` all fail the build. Constraint-sweep hits
+  are printed for review rather than failed, because a hit inside a sentence about someone else's
+  product is legitimate.
+
+Set `publishOn` in the spec and the generator emits the `noindex` marker automatically;
+`wire_posts.py` then adds the hub card inside a `<template data-scheduled>` and the sitemap entry
+inside an XML comment. Leave `publishOn` out and the post is built live.
+
+### One rule the generator does not enforce: link backwards in time
+
+When you schedule a batch, **every internal link and related card in a post must target a post that
+is already live on that post's own publish date.** Get this wrong and `publish_scheduled.py --check`
+fails, because a held post's URL would be sitting in a deployed page.
+
+`--hold` will paper over it by commenting the links until the target publishes, and that works, but
+the cleaner fix is to order the schedule so it never happens. The pillar publishes last for exactly
+this reason: it links down into fourteen spokes.
+
+---
+
 ## Publishing a post — the 7 steps
 
 1. **Copy the template.**
@@ -193,8 +244,11 @@ fine. Hits describing what we do are not.
 
 Two rules that apply to every published page, not just blog posts.
 
-**1. No em dashes or en dashes.** `—` and `–` are the single strongest tell that copy was written by an
-AI, and this whole blog exists to read as first-hand human experience. Use a comma, colon, semicolon,
+**1. No em dashes or en dashes, including the HTML entity forms.** `—` and `–` are the single
+strongest tell that copy was written by an AI, and this whole blog exists to read as first-hand human
+experience. **`&mdash;` and `&ndash;` count**: they render identically to a reader, and the grep below
+missed 18 of them across three posts until 2026-08-19. `build_post.py` now fails the build on both
+forms. Use a comma, colon, semicolon,
 full stop or parentheses instead. For numeric and date ranges use a plain hyphen or the word "to":
 "30-60 days", "June 11 to June 27, 2026". This applies to `<meta>` descriptions, JSON-LD `description`
 and `text` fields, and visible body copy alike.
@@ -207,6 +261,7 @@ Grep before shipping:
 
 ```bash
 grep -rnP "[\x{2013}\x{2014}]" blog/ --include=index.html
+grep -rn "&mdash;\|&ndash;" blog/ --include=index.html
 grep -rniE "meghkumar|girishbhai" blog/ --include=index.html
 ```
 
@@ -383,15 +438,39 @@ reminder.
 
 ## Post inventory
 
+28 posts: 7 live, 21 written and scheduled. Scheduled posts are deployed at `noindex` and
+released automatically by `scripts/publish_scheduled.py`.
+
 | Slug | Category | Published | Primary query |
 |---|---|---|---|
+| `us-visa-appointment-abu-dhabi` | wait-times | ⏳ 2026-08-21 | us visa appointment abu dhabi |
+| `us-visa-integrity-fee-250` | trust | ⏳ 2026-08-24 | visa integrity fee |
+| `cant-reschedule-us-visa-appointment` | rescheduling | ⏳ 2026-08-26 | cant reschedule us visa appointment |
+| `when-do-us-visa-slots-open` | rescheduling | ⏳ 2026-08-28 | when do us visa slots open |
+| `us-visa-appointment-scams` | trust | ⏳ 2026-08-31 | us visa appointment scam |
+| `us-visa-wait-time-india` | wait-times | ⏳ 2026-09-02 | us visa appointment wait time india |
+| `us-visa-third-country-application` | basics | ⏳ 2026-09-04 | us visa third country application |
+| `us-visa-emergency-appointment` | expedite | ⏳ 2026-09-07 | us visa emergency appointment |
+| `us-visa-appointment-free-vs-paid` | trust | ⏳ 2026-09-09 | us visa appointment free vs paid |
+| `what-happens-when-you-reschedule-us-visa` | rescheduling | ⏳ 2026-09-11 | what happens when you reschedule us visa |
+| `us-visa-appointment-website-not-working` | rescheduling | ⏳ 2026-09-14 | us visa appointment website not working |
+| `us-visa-wait-time-australia` | wait-times | ⏳ 2026-09-16 | us visa appointment australia wait |
+| `us-visa-dropbox-interview-waiver` | expedite | ⏳ 2026-09-18 | us visa dropbox interview waiver eligibility |
+| `ds-160-mistakes` | basics | ⏳ 2026-09-21 | ds-160 mistakes |
+| `what-to-bring-us-visa-interview` | basics | ⏳ 2026-09-23 | what to bring us visa interview |
+| `us-visa-appointment-within-3-months` | rescheduling | ⏳ 2026-09-25 | us visa appointment within 3 months |
+| `us-visa-appointment-timeline` | basics | ⏳ 2026-09-28 | us visa appointment timeline |
+| `us-visa-wait-time-nigeria` | wait-times | ⏳ 2026-09-30 | us visa appointment wait time nigeria |
+| `us-visa-wait-time-latin-america` | wait-times | ⏳ 2026-10-02 | us visa appointment wait time mexico |
+| `us-visa-appointment-family-group` | rescheduling | ⏳ 2026-10-05 | us visa appointment family group reschedule |
+| `us-visa-appointment-guide` | rescheduling | ⏳ 2026-10-07 | us visa appointment guide |
 | `us-visa-paid-expedite-canada` | expedite | 2026-08-19 | us visa paid expedite canada |
+| `reschedule-us-visa-appointment-earlier` | rescheduling | 2026-08-19 | reschedule us visa appointment earlier |
 | `us-visa-expedited-appointment-750` | expedite | 2026-08-12 (updated 2026-08-19) | us visa expedited appointment 750 |
 | `is-us-visa-slot-booking-legit` | trust | 2026-08-11 | are us visa slot booking services legit |
-| `reschedule-us-visa-appointment-earlier` | rescheduling | ⏳ 2026-08-19 | reschedule us visa appointment earlier |
-| `us-visa-appointment-world-cup-2026-guide` | basics | 2026-06-29 | fifa world cup 2026 us visa |
+| `us-visa-appointment-world-cup-2026-guide` | basics | 2026-06-29 (rewritten 2026-08-19) | world cup 2026 us visa |
 | `us-visa-appointment-canada-guide-2026` | wait-times | 2026-06-23 | us visa appointment canada |
 | `us-visa-appointment-dubai-fast-2026` | wait-times | 2026-03-16 | us visa appointment dubai |
 
-Next up is in [`seo/03-content-queue.md`](../seo/03-content-queue.md). Do not pick a topic that is
-not on that queue without checking it for cannibalisation first.
+Next up is in [`seo/03-content-queue.md`](../seo/03-content-queue.md). Do not pick a topic that
+is not on that queue without checking it for cannibalisation first.
