@@ -40,6 +40,7 @@ Usage
     python scripts/publish_scheduled.py --dry-run            # show what would change
     python scripts/publish_scheduled.py --today 2026-08-15   # pretend it is that date
     python scripts/publish_scheduled.py --slug <slug>        # publish one post now, date = today
+    python scripts/publish_scheduled.py --max 1              # publish at most one, even if more are due
 
 Exit codes
     0  finished (whether or not anything was published)
@@ -431,6 +432,10 @@ def main():
     ap.add_argument("--today", help="override today's date (YYYY-MM-DD)")
     ap.add_argument("--slug", help="publish this slug now regardless of its scheduled date")
     ap.add_argument("--dry-run", action="store_true", help="report without writing")
+    ap.add_argument("--max", type=int, default=0, metavar="N",
+                    help="publish at most N posts this run, oldest first (0 = no limit). "
+                         "The daily workflow passes 1 so a missed run drains one post a day "
+                         "instead of dumping the whole backlog on the day it recovers.")
     ap.add_argument("--check", action="store_true",
                     help="verify every held post is invisible to crawlers, then exit")
     ap.add_argument("--hold", metavar="SLUG",
@@ -506,6 +511,19 @@ def main():
         nxt = min((e["publishOn"] for e in scheduled), default=None)
         print("nothing due on %s." % today, ("next: %s" % nxt) if nxt else "queue is empty.")
         return 0
+
+    # Cadence cap. Publishing is idempotent and the queue only shrinks, so a
+    # deferred post is simply due again tomorrow — the backlog drains at the
+    # cadence rather than landing as one burst, which is what a batch publish
+    # looks like to Search Console.
+    if args.max > 0 and len(due) > args.max:
+        due.sort(key=lambda e: e["publishOn"])
+        held_over = due[args.max:]
+        due = due[:args.max]
+        print("%d post(s) due, publishing %d this run (--max %d). Deferred to the next run:"
+              % (len(due) + len(held_over), len(due), args.max))
+        for e in held_over:
+            print("  %s (was due %s)" % (e["slug"], e["publishOn"]))
 
     # One buffer for every file this run touches. The hub is edited by three
     # separate steps (card, schema, its own footer link); routing them all

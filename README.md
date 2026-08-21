@@ -15,7 +15,7 @@ policies for applicants in Canada, the UAE, Turkey, Australia and the UK.
 **Content**
 - ✅ **21 new blog posts written**, covering every remaining item on the SEO content queue plus two
   topics that were missing from it. Held at `noindex` and scheduled one every 2 to 3 days from
-  **2026-08-21 to 2026-10-07**, respecting the documented publishing cadence.
+  **2026-08-22 to 2026-09-10**, one post per day, respecting the documented publishing cadence.
 - ✅ **First in the batch is `/blog/us-visa-appointment-abu-dhabi/`** (publishes 2026-08-21), written
   because the UAE has reopened for bookings. Mission UAE has been on ordered departure since March
   2026; its own messaging now states that limited nonimmigrant appointments are available while all

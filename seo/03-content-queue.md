@@ -94,7 +94,7 @@ with, and it is the strongest link-acquisition asset available per `02-growth-pl
 
 ---
 
-## Written and scheduled — 2026-08-21 to 2026-10-07
+## Written and scheduled — 2026-08-22 to 2026-09-10 (one per day)
 
 All 21 built with `scripts/build_post.py`, held at `noindex` per `blog/README.md`, released
 automatically by `scripts/publish_scheduled.py`. Cadence respected: one post every 2 to 3 days,
@@ -104,26 +104,26 @@ dead or held link in it.
 | Slug | Cluster | Publishes | Primary keyword | Status |
 |---|---|---|---|---|
 | `us-visa-appointment-abu-dhabi` | C2 | 2026-08-21 | us visa appointment abu dhabi | ⏳ |
-| `us-visa-integrity-fee-250` | C4 | 2026-08-24 | visa integrity fee | ⏳ |
-| `cant-reschedule-us-visa-appointment` | C1 | 2026-08-26 | cant reschedule us visa appointment | ⏳ |
-| `when-do-us-visa-slots-open` | C1 | 2026-08-28 | when do us visa slots open | ⏳ |
-| `us-visa-appointment-scams` | C4 | 2026-08-31 | us visa appointment scam | ⏳ |
-| `us-visa-wait-time-india` | C2 | 2026-09-02 | us visa appointment wait time india | ⏳ |
-| `us-visa-third-country-application` | C5 | 2026-09-04 | us visa third country application | ⏳ |
-| `us-visa-emergency-appointment` | C3 | 2026-09-07 | us visa emergency appointment | ⏳ |
-| `us-visa-appointment-free-vs-paid` | C4 | 2026-09-09 | us visa appointment free vs paid | ⏳ |
-| `what-happens-when-you-reschedule-us-visa` | C1 | 2026-09-11 | what happens when you reschedule us visa | ⏳ |
-| `us-visa-appointment-website-not-working` | C1 | 2026-09-14 | us visa appointment website not working | ⏳ |
-| `us-visa-wait-time-australia` | C2 | 2026-09-16 | us visa appointment australia wait | ⏳ |
-| `us-visa-dropbox-interview-waiver` | C3 | 2026-09-18 | us visa dropbox interview waiver eligibility | ⏳ |
-| `ds-160-mistakes` | C5 | 2026-09-21 | ds-160 mistakes | ⏳ |
-| `what-to-bring-us-visa-interview` | C5 | 2026-09-23 | what to bring us visa interview | ⏳ |
-| `us-visa-appointment-within-3-months` | C1 | 2026-09-25 | us visa appointment within 3 months | ⏳ |
-| `us-visa-appointment-timeline` | C5 | 2026-09-28 | us visa appointment timeline | ⏳ |
-| `us-visa-wait-time-nigeria` | C2 | 2026-09-30 | us visa appointment wait time nigeria | ⏳ |
-| `us-visa-wait-time-latin-america` | C2 | 2026-10-02 | us visa appointment wait time mexico | ⏳ |
-| `us-visa-appointment-family-group` | C1 | 2026-10-05 | us visa appointment family group reschedule | ⏳ |
-| `us-visa-appointment-guide` *(F3 pillar)* | C1 | 2026-10-07 | us visa appointment guide | ⏳ |
+| `us-visa-integrity-fee-250` | C4 | 2026-08-22 | visa integrity fee | ⏳ |
+| `cant-reschedule-us-visa-appointment` | C1 | 2026-08-23 | cant reschedule us visa appointment | ⏳ |
+| `when-do-us-visa-slots-open` | C1 | 2026-08-24 | when do us visa slots open | ⏳ |
+| `us-visa-appointment-scams` | C4 | 2026-08-25 | us visa appointment scam | ⏳ |
+| `us-visa-wait-time-india` | C2 | 2026-08-26 | us visa appointment wait time india | ⏳ |
+| `us-visa-third-country-application` | C5 | 2026-08-27 | us visa third country application | ⏳ |
+| `us-visa-emergency-appointment` | C3 | 2026-08-28 | us visa emergency appointment | ⏳ |
+| `us-visa-appointment-free-vs-paid` | C4 | 2026-08-29 | us visa appointment free vs paid | ⏳ |
+| `what-happens-when-you-reschedule-us-visa` | C1 | 2026-08-30 | what happens when you reschedule us visa | ⏳ |
+| `us-visa-appointment-website-not-working` | C1 | 2026-08-31 | us visa appointment website not working | ⏳ |
+| `us-visa-wait-time-australia` | C2 | 2026-09-01 | us visa appointment australia wait | ⏳ |
+| `us-visa-dropbox-interview-waiver` | C3 | 2026-09-02 | us visa dropbox interview waiver eligibility | ⏳ |
+| `ds-160-mistakes` | C5 | 2026-09-03 | ds-160 mistakes | ⏳ |
+| `what-to-bring-us-visa-interview` | C5 | 2026-09-04 | what to bring us visa interview | ⏳ |
+| `us-visa-appointment-within-3-months` | C1 | 2026-09-05 | us visa appointment within 3 months | ⏳ |
+| `us-visa-appointment-timeline` | C5 | 2026-09-06 | us visa appointment timeline | ⏳ |
+| `us-visa-wait-time-nigeria` | C2 | 2026-09-07 | us visa appointment wait time nigeria | ⏳ |
+| `us-visa-wait-time-latin-america` | C2 | 2026-09-08 | us visa appointment wait time mexico | ⏳ |
+| `us-visa-appointment-family-group` | C1 | 2026-09-09 | us visa appointment family group reschedule | ⏳ |
+| `us-visa-appointment-guide` *(F3 pillar)* | C1 | 2026-09-10 | us visa appointment guide | ⏳ |
 
 **The pillar publishes last, deliberately.** It links down into fourteen spokes, so it cannot ship
 before them.
@@ -174,7 +174,7 @@ Gate #3 requires each post to carry something no competitor states. What shipped
 | R1 | `/blog/us-visa-appointment-world-cup-2026-guide/` | Event finished 19 July 2026; page still written in the future tense and telling readers to book for it | Reframed as aftermath: a dated note at the top, a new title, H1, meta and schema headline, and an opening that tells holders of surplus appointments to cancel properly rather than no-show. Evergreen B-1/B-2 process retained. URL kept | ✅ 2026-08-19 |
 | R2 | `/blog/us-visa-appointment-dubai-fast-2026/` | Written March 2026, before both the suspension and the platform migration. Describes a booking flow that has changed | Related card repointed at the new Abu Dhabi post. Body prose still describes the pre-migration flow and should be refreshed against N0 | ⬜ |
 | R3 | `/blog/us-visa-appointment-canada-guide-2026/` | Prose never rewritten. 300 impressions, 0 clicks, pos 50.3 | Leave the prose. Zero clicks at position 50 is statistically expected. Revisit only if position improves | ⬜ |
-| R4 | The three pre-2026-08-19 posts carrying a `.compare` table | "Costs exclude the US$185 MRV fee, which everybody pays" is now incomplete | All 21 new posts use the corrected wording. The three older posts still carry the old line and should be amended to point at `us-visa-integrity-fee-250` once it publishes on 2026-08-24 | ⬜ |
+| R4 | The three pre-2026-08-19 posts carrying a `.compare` table | "Costs exclude the US$185 MRV fee, which everybody pays" is now incomplete | All 21 new posts use the corrected wording. The three older posts still carry the old line and should be amended to point at `us-visa-integrity-fee-250` once it publishes on 2026-08-22 | ⬜ |
 
 ---
 
@@ -211,7 +211,7 @@ wins the cluster.
 
 | Slug | Category | Published | Primary keyword |
 |---|---|---|---|
-| 21 scheduled posts | see table above | ⏳ 2026-08-21 to 2026-10-07 | see table above |
+| 20 scheduled posts | see table above | ⏳ 2026-08-22 to 2026-09-10, one per day | see table above |
 | `us-visa-paid-expedite-canada` | expedite | 2026-08-19 | us visa paid expedite canada |
 | `us-visa-expedited-appointment-750` | expedite | 2026-08-12 (updated 2026-08-19) | us visa expedited appointment 750 |
 | `reschedule-us-visa-appointment-earlier` | rescheduling | 2026-08-19 | reschedule us visa appointment earlier |

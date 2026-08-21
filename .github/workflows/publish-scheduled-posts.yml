@@ -15,6 +15,9 @@
 ##     dry_run: true   report what would happen, change nothing
 ##     slug: <slug>    publish that post immediately, dated today
 ##
+## The queue is dated one post per calendar day and the job publishes at most
+## one per run (--max 1), so a missed day never becomes a batch publish.
+##
 ## First run after merging this file: use dry_run to confirm the checkout and
 ## permissions work before it fires unattended.
 
@@ -73,9 +76,15 @@ jobs:
           SLUG: ${{ inputs.slug }}
         run: |
           set -euo pipefail
+          # --max 1 is the cadence guard. The queue is dated one post per day,
+          # so normally only one is ever due. If a run is missed — an outage, or
+          # GitHub disabling the cron after 60 days of repo inactivity — the cap
+          # drains the backlog one post a day instead of publishing the lot on
+          # the day the job recovers. A --slug run is a deliberate manual
+          # publish, so it is not capped.
           ARGS=""
           if [ "${DRY_RUN:-}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
-          if [ -n "${SLUG:-}" ]; then ARGS="$ARGS --slug $SLUG"; fi
+          if [ -n "${SLUG:-}" ]; then ARGS="$ARGS --slug $SLUG"; else ARGS="$ARGS --max 1"; fi
 
           echo "running: python scripts/publish_scheduled.py $ARGS"
           python scripts/publish_scheduled.py $ARGS | tee publish.log

@@ -305,12 +305,15 @@ platforms`.
 
 ## Publishing cadence
 
-Target is 8–10 posts a month (~2 a week) per the growth plan. **Space them.** Publishing a batch
-in one day and then going quiet for three weeks produces a worse freshness signal than the same
-posts spread across the month, makes attribution impossible in Search Console, and means a
+Current cadence is **one post per day**, one per calendar date, no gaps. **Never two on the same
+day.** Publishing a batch in one day and then going quiet for three weeks produces a worse freshness
+signal than the same posts spread out, makes attribution impossible in Search Console, and means a
 structural mistake gets repeated across every post before anyone notices it in the first.
 
-Rule of thumb: no more than one post per 48 hours, and never two on the same day.
+Daily is the ceiling, not a target to sustain indefinitely. It works while there is a written backlog
+to drain; once the queue empties, fall back to 8–10 posts a month (~2 a week) per the growth plan
+rather than shipping thinner posts to keep the streak. The one thing that must stay true either way
+is one date, one post — `publish-queue.json` should never carry two entries with the same `publishOn`.
 
 ---
 
@@ -321,6 +324,29 @@ runs daily at **04:10 UTC (09:40 IST)**, and when a queued post's date arrives i
 publish date, releases the page from `noindex`, reveals the hub card and sitemap entry, commits, and
 pushes. The push triggers the normal Vercel deploy — there is no Vercel token involved and nothing
 to configure on that side.
+
+The job publishes **at most one post per run** (`--max 1`). The queue is dated one post per calendar
+day, so normally only one is ever due anyway; the cap is there for the day a run is missed, so the
+backlog drains one a day instead of arriving as a single batch.
+
+### Do I need to do anything?
+
+**No — not to publish.** Once the queue and the workflow file are on `main`, every post releases
+itself. Nothing to click, nothing to deploy, no local machine involved.
+
+Two things are worth knowing:
+
+1. **GitHub disables `schedule:` triggers after 60 days with no repository activity.** It emails the
+   repo admin first. The publish job itself pushes a commit on every publish, which counts as
+   activity — so while the queue is draining daily this cannot happen. It only becomes a risk once
+   the queue empties and the repo goes quiet. Re-enable from **Actions → Publish scheduled blog
+   posts → Enable workflow**.
+2. **Submitting the new URL in Search Console is still manual.** See below.
+
+Also worth knowing but not action items: GitHub's cron is best-effort and can run late at peak times
+— the stamped date is the post's own `publishOn`, not the moment the job ran, so a late run does not
+change the published date. And the job pushes with the default `GITHUB_TOKEN`, whose pushes do not
+re-trigger workflows, so it cannot loop.
 
 | Piece | Where |
 |---|---|
@@ -401,6 +427,7 @@ python scripts/publish_scheduled.py --check                # is every held post 
 python scripts/publish_scheduled.py --dry-run              # what would happen today
 python scripts/publish_scheduled.py --today 2026-08-15     # simulate a date
 python scripts/publish_scheduled.py --slug the-slug        # publish one now, dated today
+python scripts/publish_scheduled.py --max 1               # publish at most one, even if more are due
 python scripts/publish_scheduled.py                        # publish anything due
 ```
 
@@ -438,32 +465,32 @@ reminder.
 
 ## Post inventory
 
-28 posts: 7 live, 21 written and scheduled. Scheduled posts are deployed at `noindex` and
+28 posts: 8 live, 20 written and scheduled, one going live per day. Scheduled posts are deployed at `noindex` and
 released automatically by `scripts/publish_scheduled.py`.
 
 | Slug | Category | Published | Primary query |
 |---|---|---|---|
-| `us-visa-appointment-abu-dhabi` | wait-times | ⏳ 2026-08-21 | us visa appointment abu dhabi |
-| `us-visa-integrity-fee-250` | trust | ⏳ 2026-08-24 | visa integrity fee |
-| `cant-reschedule-us-visa-appointment` | rescheduling | ⏳ 2026-08-26 | cant reschedule us visa appointment |
-| `when-do-us-visa-slots-open` | rescheduling | ⏳ 2026-08-28 | when do us visa slots open |
-| `us-visa-appointment-scams` | trust | ⏳ 2026-08-31 | us visa appointment scam |
-| `us-visa-wait-time-india` | wait-times | ⏳ 2026-09-02 | us visa appointment wait time india |
-| `us-visa-third-country-application` | basics | ⏳ 2026-09-04 | us visa third country application |
-| `us-visa-emergency-appointment` | expedite | ⏳ 2026-09-07 | us visa emergency appointment |
-| `us-visa-appointment-free-vs-paid` | trust | ⏳ 2026-09-09 | us visa appointment free vs paid |
-| `what-happens-when-you-reschedule-us-visa` | rescheduling | ⏳ 2026-09-11 | what happens when you reschedule us visa |
-| `us-visa-appointment-website-not-working` | rescheduling | ⏳ 2026-09-14 | us visa appointment website not working |
-| `us-visa-wait-time-australia` | wait-times | ⏳ 2026-09-16 | us visa appointment australia wait |
-| `us-visa-dropbox-interview-waiver` | expedite | ⏳ 2026-09-18 | us visa dropbox interview waiver eligibility |
-| `ds-160-mistakes` | basics | ⏳ 2026-09-21 | ds-160 mistakes |
-| `what-to-bring-us-visa-interview` | basics | ⏳ 2026-09-23 | what to bring us visa interview |
-| `us-visa-appointment-within-3-months` | rescheduling | ⏳ 2026-09-25 | us visa appointment within 3 months |
-| `us-visa-appointment-timeline` | basics | ⏳ 2026-09-28 | us visa appointment timeline |
-| `us-visa-wait-time-nigeria` | wait-times | ⏳ 2026-09-30 | us visa appointment wait time nigeria |
-| `us-visa-wait-time-latin-america` | wait-times | ⏳ 2026-10-02 | us visa appointment wait time mexico |
-| `us-visa-appointment-family-group` | rescheduling | ⏳ 2026-10-05 | us visa appointment family group reschedule |
-| `us-visa-appointment-guide` | rescheduling | ⏳ 2026-10-07 | us visa appointment guide |
+| `us-visa-appointment-abu-dhabi` | wait-times | 2026-08-19 | us visa appointment abu dhabi |
+| `us-visa-integrity-fee-250` | trust | ⏳ 2026-08-22 | visa integrity fee |
+| `cant-reschedule-us-visa-appointment` | rescheduling | ⏳ 2026-08-23 | cant reschedule us visa appointment |
+| `when-do-us-visa-slots-open` | rescheduling | ⏳ 2026-08-24 | when do us visa slots open |
+| `us-visa-appointment-scams` | trust | ⏳ 2026-08-25 | us visa appointment scam |
+| `us-visa-wait-time-india` | wait-times | ⏳ 2026-08-26 | us visa appointment wait time india |
+| `us-visa-third-country-application` | basics | ⏳ 2026-08-27 | us visa third country application |
+| `us-visa-emergency-appointment` | expedite | ⏳ 2026-08-28 | us visa emergency appointment |
+| `us-visa-appointment-free-vs-paid` | trust | ⏳ 2026-08-29 | us visa appointment free vs paid |
+| `what-happens-when-you-reschedule-us-visa` | rescheduling | ⏳ 2026-08-30 | what happens when you reschedule us visa |
+| `us-visa-appointment-website-not-working` | rescheduling | ⏳ 2026-08-31 | us visa appointment website not working |
+| `us-visa-wait-time-australia` | wait-times | ⏳ 2026-09-01 | us visa appointment australia wait |
+| `us-visa-dropbox-interview-waiver` | expedite | ⏳ 2026-09-02 | us visa dropbox interview waiver eligibility |
+| `ds-160-mistakes` | basics | ⏳ 2026-09-03 | ds-160 mistakes |
+| `what-to-bring-us-visa-interview` | basics | ⏳ 2026-09-04 | what to bring us visa interview |
+| `us-visa-appointment-within-3-months` | rescheduling | ⏳ 2026-09-05 | us visa appointment within 3 months |
+| `us-visa-appointment-timeline` | basics | ⏳ 2026-09-06 | us visa appointment timeline |
+| `us-visa-wait-time-nigeria` | wait-times | ⏳ 2026-09-07 | us visa appointment wait time nigeria |
+| `us-visa-wait-time-latin-america` | wait-times | ⏳ 2026-09-08 | us visa appointment wait time mexico |
+| `us-visa-appointment-family-group` | rescheduling | ⏳ 2026-09-09 | us visa appointment family group reschedule |
+| `us-visa-appointment-guide` | rescheduling | ⏳ 2026-09-10 | us visa appointment guide |
 | `us-visa-paid-expedite-canada` | expedite | 2026-08-19 | us visa paid expedite canada |
 | `reschedule-us-visa-appointment-earlier` | rescheduling | 2026-08-19 | reschedule us visa appointment earlier |
 | `us-visa-expedited-appointment-750` | expedite | 2026-08-12 (updated 2026-08-19) | us visa expedited appointment 750 |
