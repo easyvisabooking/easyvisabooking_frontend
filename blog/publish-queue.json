@@ -2,11 +2,6 @@
   "_comment": "Scheduled blog posts. The post files are committed and deployed, but held at noindex with their hub card and sitemap entry hidden until publishOn. .github/workflows/publish-scheduled-posts.yml runs scripts/publish_scheduled.py daily and publishes anything due. Dates are UTC, YYYY-MM-DD. See blog/README.md.",
   "scheduled": [
     {
-      "slug": "us-visa-integrity-fee-250",
-      "title": "The $250 Visa Integrity Fee: What a US Visa Actually Costs in 2026",
-      "publishOn": "2026-08-22"
-    },
-    {
       "slug": "cant-reschedule-us-visa-appointment",
       "title": "Why You Cannot Reschedule Your US Visa Appointment, and What to Do About Each Cause",
       "publishOn": "2026-08-23"
@@ -120,6 +115,12 @@
       "title": "US Visa Appointments in Abu Dhabi and Dubai Are Open Again: How to Get One",
       "publishOn": "2026-08-21",
       "publishedOn": "2026-08-19"
+    },
+    {
+      "slug": "us-visa-integrity-fee-250",
+      "title": "The $250 Visa Integrity Fee: What a US Visa Actually Costs in 2026",
+      "publishOn": "2026-08-22",
+      "publishedOn": "2026-08-22"
     }
   ]
 }
