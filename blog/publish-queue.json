@@ -2,11 +2,6 @@
   "_comment": "Scheduled blog posts. The post files are committed and deployed, but held at noindex with their hub card and sitemap entry hidden until publishOn. .github/workflows/publish-scheduled-posts.yml runs scripts/publish_scheduled.py daily and publishes anything due. Dates are UTC, YYYY-MM-DD. See blog/README.md.",
   "scheduled": [
     {
-      "slug": "when-do-us-visa-slots-open",
-      "title": "When Do US Visa Appointment Slots Actually Open? What the Missions Themselves Publish",
-      "publishOn": "2026-08-24"
-    },
-    {
       "slug": "us-visa-appointment-scams",
       "title": "How to Avoid US Visa Appointment Scams, and What Happens to the Applicant When One Works",
       "publishOn": "2026-08-25"
@@ -122,6 +117,12 @@
       "title": "Why You Cannot Reschedule Your US Visa Appointment, and What to Do About Each Cause",
       "publishOn": "2026-08-23",
       "publishedOn": "2026-08-23"
+    },
+    {
+      "slug": "when-do-us-visa-slots-open",
+      "title": "When Do US Visa Appointment Slots Actually Open? What the Missions Themselves Publish",
+      "publishOn": "2026-08-24",
+      "publishedOn": "2026-08-24"
     }
   ]
 }
