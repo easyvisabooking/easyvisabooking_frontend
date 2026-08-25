@@ -2,26 +2,6 @@
   "_comment": "Scheduled blog posts. The post files are committed and deployed, but held at noindex with their hub card and sitemap entry hidden until publishOn. .github/workflows/publish-scheduled-posts.yml runs scripts/publish_scheduled.py daily and publishes anything due. Dates are UTC, YYYY-MM-DD. See blog/README.md.",
   "scheduled": [
     {
-      "slug": "us-visa-integrity-fee-250",
-      "title": "The $250 Visa Integrity Fee: What a US Visa Actually Costs in 2026",
-      "publishOn": "2026-08-22"
-    },
-    {
-      "slug": "cant-reschedule-us-visa-appointment",
-      "title": "Why You Cannot Reschedule Your US Visa Appointment, and What to Do About Each Cause",
-      "publishOn": "2026-08-23"
-    },
-    {
-      "slug": "when-do-us-visa-slots-open",
-      "title": "When Do US Visa Appointment Slots Actually Open? What the Missions Themselves Publish",
-      "publishOn": "2026-08-24"
-    },
-    {
-      "slug": "us-visa-appointment-scams",
-      "title": "How to Avoid US Visa Appointment Scams, and What Happens to the Applicant When One Works",
-      "publishOn": "2026-08-25"
-    },
-    {
       "slug": "us-visa-wait-time-india",
       "title": "US Visa Appointment Wait Times in India: The Consulate Gap Nobody Uses",
       "publishOn": "2026-08-26"
@@ -120,6 +100,30 @@
       "title": "US Visa Appointments in Abu Dhabi and Dubai Are Open Again: How to Get One",
       "publishOn": "2026-08-21",
       "publishedOn": "2026-08-19"
+    },
+    {
+      "slug": "us-visa-integrity-fee-250",
+      "title": "The $250 Visa Integrity Fee: What a US Visa Actually Costs in 2026",
+      "publishOn": "2026-08-22",
+      "publishedOn": "2026-08-22"
+    },
+    {
+      "slug": "cant-reschedule-us-visa-appointment",
+      "title": "Why You Cannot Reschedule Your US Visa Appointment, and What to Do About Each Cause",
+      "publishOn": "2026-08-23",
+      "publishedOn": "2026-08-23"
+    },
+    {
+      "slug": "when-do-us-visa-slots-open",
+      "title": "When Do US Visa Appointment Slots Actually Open? What the Missions Themselves Publish",
+      "publishOn": "2026-08-24",
+      "publishedOn": "2026-08-24"
+    },
+    {
+      "slug": "us-visa-appointment-scams",
+      "title": "How to Avoid US Visa Appointment Scams, and What Happens to the Applicant When One Works",
+      "publishOn": "2026-08-25",
+      "publishedOn": "2026-08-25"
     }
   ]
 }
