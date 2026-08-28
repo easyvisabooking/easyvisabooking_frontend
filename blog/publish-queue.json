@@ -2,11 +2,6 @@
   "_comment": "Scheduled blog posts. The post files are committed and deployed, but held at noindex with their hub card and sitemap entry hidden until publishOn. .github/workflows/publish-scheduled-posts.yml runs scripts/publish_scheduled.py daily and publishes anything due. Dates are UTC, YYYY-MM-DD. See blog/README.md.",
   "scheduled": [
     {
-      "slug": "us-visa-emergency-appointment",
-      "title": "US Visa Emergency Appointments: What Qualifies, What Does Not, and the Proof You Need",
-      "publishOn": "2026-08-28"
-    },
-    {
       "slug": "us-visa-appointment-free-vs-paid",
       "title": "Free Methods vs Paid Services for an Earlier US Visa Date: A Decision Rule",
       "publishOn": "2026-08-29"
@@ -126,6 +121,12 @@
       "title": "Can You Apply for a US Visa in Another Country? What Changed in September 2025",
       "publishOn": "2026-08-27",
       "publishedOn": "2026-08-27"
+    },
+    {
+      "slug": "us-visa-emergency-appointment",
+      "title": "US Visa Emergency Appointments: What Qualifies, What Does Not, and the Proof You Need",
+      "publishOn": "2026-08-28",
+      "publishedOn": "2026-08-28"
     }
   ]
 }
