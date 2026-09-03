@@ -2,11 +2,6 @@
   "_comment": "Scheduled blog posts. The post files are committed and deployed, but held at noindex with their hub card and sitemap entry hidden until publishOn. .github/workflows/publish-scheduled-posts.yml runs scripts/publish_scheduled.py daily and publishes anything due. Dates are UTC, YYYY-MM-DD. See blog/README.md.",
   "scheduled": [
     {
-      "slug": "ds-160-mistakes",
-      "title": "DS-160 Mistakes That Delay Your Appointment, and the One That Costs You the Date",
-      "publishOn": "2026-09-03"
-    },
-    {
       "slug": "what-to-bring-us-visa-interview",
       "title": "What to Bring to Your US Visa Interview, and the List That Gets People Turned Away",
       "publishOn": "2026-09-04"
@@ -132,6 +127,12 @@
       "title": "US Visa Dropbox and Interview Waivers in 2026: Who Is Left, and Why It Is Not Always Faster",
       "publishOn": "2026-09-02",
       "publishedOn": "2026-09-02"
+    },
+    {
+      "slug": "ds-160-mistakes",
+      "title": "DS-160 Mistakes That Delay Your Appointment, and the One That Costs You the Date",
+      "publishOn": "2026-09-03",
+      "publishedOn": "2026-09-03"
     }
   ]
 }
