@@ -2,11 +2,6 @@
   "_comment": "Scheduled blog posts. The post files are committed and deployed, but held at noindex with their hub card and sitemap entry hidden until publishOn. .github/workflows/publish-scheduled-posts.yml runs scripts/publish_scheduled.py daily and publishes anything due. Dates are UTC, YYYY-MM-DD. See blog/README.md.",
   "scheduled": [
     {
-      "slug": "us-visa-wait-time-latin-america",
-      "title": "US Visa Appointment Wait Times in Latin America: Mexico, Brazil and Colombia",
-      "publishOn": "2026-09-08"
-    },
-    {
       "slug": "us-visa-appointment-family-group",
       "title": "Can Two People Get Earlier US Visa Appointments Together? How Group Bookings Behave",
       "publishOn": "2026-09-09"
@@ -137,6 +132,12 @@
       "title": "US Visa Appointment Wait Times in Nigeria: Among the Shortest in the World",
       "publishOn": "2026-09-07",
       "publishedOn": "2026-09-07"
+    },
+    {
+      "slug": "us-visa-wait-time-latin-america",
+      "title": "US Visa Appointment Wait Times in Latin America: Mexico, Brazil and Colombia",
+      "publishOn": "2026-09-08",
+      "publishedOn": "2026-09-08"
     }
   ]
 }
